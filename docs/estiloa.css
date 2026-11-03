@@ -134,3 +134,4 @@ footer a { color: inherit; }
 /* Hizkuntza-iragazkia eta ekitaldiaren hizkuntza-etiketa */
 .hizkuntzak button.aktiboa { background: #2b5f8a; border-color: #2b5f8a; }
 .hizkuntza-etiketa { background: #e6eff7; color: #2b5f8a; }
+.ekitaldia .xehetasunak a { color: inherit; }

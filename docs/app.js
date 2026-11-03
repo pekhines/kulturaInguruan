@@ -27,6 +27,7 @@ const ITURRIAK = {
   dantzan: ["Dantzan.eus", "Euskal dantzaren agenda"],
   eke: ["EKE", "Euskal Kultur Erakundea (Iparraldea)"],
   culturanavarra: ["Cultura Navarra", "Nafarroako Gobernuaren kultur agenda"],
+  zarata: ["Zarata", "MondoSonoro-ren kontzertu-agenda (Zarata edizioa)"],
   turismoa: ["Turismo bulegoak", "Pays Basque turismo bulegoa, Visit Navarra, Euskadiko Agenda Turistikoa"],
 };
 // Ekitaldiaren hizkuntza (robotak "hizkuntza" jartzen du testuak argi esaten duenean; bestela zehaztugabea)
@@ -165,7 +166,8 @@ function iragazi() {
   const emaitza = [];
   for (const e of egoera.ekitaldiak) {
     if (!egoera.kategoriak.has(e.kategoria)) continue;
-    if (e.taldea && !egoera.iturriak.has(e.taldea)) continue;
+    // Batutako ekitaldiek talde bat baino gehiago izan dezakete (iturri bat baino gehiagotan agertzen da)
+    if (e.taldea && !(e.taldeak || [e.taldea]).some((t) => egoera.iturriak.has(t))) continue;
     if (!egoera.hizkuntzak.has(hizkuntza(e))) continue;
     if (e.data_hasiera > amaiera || e.data_amaiera < hasiera) continue;
     let km = null, herria = e.kokapenak[0];
@@ -203,9 +205,17 @@ function ekitaldiaHTML({ e, km, herria }, egunAskotakoa) {
           <strong>${ihes(herria.herria)}</strong>${km !== null ? ` · <span class="km-etiketa">${km < 1 ? "<1" : Math.round(km)} km</span>` : ""}${besteHerriak}
         </div>
         ${xehetasunak ? `<div class="xehetasunak">${xehetasunak}</div>` : ""}
-        <div class="xehetasunak">${ihes(e.iturria)}</div>
+        <div class="xehetasunak">${iturriakHTML(e)}</div>
       </div>
     </article>`;
+}
+
+// "Kulturklik · Hiruka": bikoiztuak bateratzean, beste iturrien estekak ere bai
+function iturriakHTML(e) {
+  const beste = (e.beste_iturriak || []).map((b) => b.url
+    ? `<a href="${ihes(b.url)}" target="_blank" rel="noopener">${ihes(b.iturria)}</a>`
+    : ihes(b.iturria));
+  return [ihes(e.iturria), ...beste].join(" · ");
 }
 
 function zerrendaMargotu(emaitzak) {

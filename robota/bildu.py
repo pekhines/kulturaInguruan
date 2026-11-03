@@ -8,7 +8,8 @@ Pausoak:
   1. Iturri bakoitza irakurri (bat hausten bada, besteek aurrera jarraitzen dute)
   2. SQLite datu-basean gorde (datuak/ekitaldiak.db)
   3. Iraganeko ekitaldiak ezabatu
-  4. Bikoiztuak kendu eta docs/datuak/ekitaldiak.json idatzi (frontendak hau irakurtzen du)
+  4. Bikoiztuak bateratu (robota/bateratu.py) eta docs/datuak/ekitaldiak.json idatzi
+     (frontendak hau irakurtzen du)
 
 ITURRI BERRI bat gehitzeko: robota/iturriak/ karpetan fitxategi bat sortu
 `ekitaldiak(udalerriak)` funtzio batekin, eta ITURRIAK zerrendan gehitu.
@@ -20,9 +21,10 @@ import traceback
 from collections import Counter
 from datetime import date, datetime, timezone
 
+from bateratu import bateratu
 from lagungarriak import ERROA, Udalerriak, hizkuntza_asmatu, normalizatu
 from iturriak import (culturanavarra, dantzan, eke, elkarte_agendak, iparralde_turismoa, irunea, kulturklik,
-                      llm_agendak, tokikom, turismoa, udal_agendak, visitnavarra, zernonikusi)
+                      llm_agendak, tokikom, turismoa, udal_agendak, visitnavarra, zarata, zernonikusi)
 
 # Ordena garrantzitsua da: bikoiztuetan, lehenengo iturriarena gordetzen da
 # (datu egituratuak lehenengo, LLM bidez ateratakoak azkenik)
@@ -37,6 +39,7 @@ ITURRIAK = [
     ("Cultura Navarra", culturanavarra),
     ("Pays Basque turismoa", iparralde_turismoa),
     ("Visit Navarra", visitnavarra),
+    ("Zarata", zarata),
     ("Pantailak Euskaraz", zernonikusi),
     ("Agenda Turistikoa", turismoa),
     ("LLM agendak", llm_agendak),
@@ -50,7 +53,7 @@ TALDEAK = {
     "Elkarte agendak": "elkarteak",
     # Iturri espezializatuak: bakoitzak bere txipa webgunean
     "EKE": "eke", "Dantzan.eus": "dantzan", "Cultura Navarra": "culturanavarra",
-    "Pantailak Euskaraz": "pantailak",
+    "Pantailak Euskaraz": "pantailak", "Zarata": "zarata",
     "Pays Basque turismoa": "turismoa", "Visit Navarra": "turismoa", "Agenda Turistikoa": "turismoa",
 }
 
@@ -86,6 +89,8 @@ def db_ireki():
         # iturri bat hausten bada aurreko datuak gal ez daitezen
         aurrekoak = json.loads(JSON_IRTEERA.read_text(encoding="utf-8"))
         for e in aurrekoak["ekitaldiak"]:
+            for eremua in ("beste_iturriak", "taldeak"):  # bateratzean sortuak; berriro kalkulatzen dira
+                e.pop(eremua, None)
             konexioa.execute("INSERT OR IGNORE INTO ekitaldiak VALUES (?, ?, ?, ?, ?, ?, ?)",
                              (e["id"], e.get("bilduma", e["iturria"]), e["data_hasiera"], e["data_amaiera"],
                               json.dumps(e, ensure_ascii=False), aurrekoak["sortua"], aurrekoak["sortua"]))
@@ -116,13 +121,16 @@ def iturria_bildu(konexioa, izena, modulua, udalerriak, orain):
 
 
 def bikoiztuak_kendu(ekitaldiak):
-    """Izenburu bera + hasiera-data bera + herri bera = ekitaldi bera."""
-    ikusiak, emaitza = set(), []
+    """Izenburu bera + hasiera-data bera + herri bera = ekitaldi bera (zehatz-mehatz).
+    Antzekoak (izen desberdin samarrarekin) gero bateratzen dira: ikus bateratu.py."""
+    ikusiak, emaitza = {}, []
     for e in ekitaldiak:
         gakoa = (normalizatu(e["izenburua"]), e["data_hasiera"], e["kokapenak"][0]["herria"])
         if gakoa not in ikusiak:
-            ikusiak.add(gakoa)
+            ikusiak[gakoa] = e
             emaitza.append(e)
+        else:  # iturria gorde, webguneak esteka erakusteko
+            ikusiak[gakoa].setdefault("_bikoiztuak", []).append(e)
     return emaitza
 
 
@@ -135,8 +143,17 @@ def esportatu(konexioa):
     errenkadak = konexioa.execute("SELECT iturria, datuak FROM ekitaldiak").fetchall()
     errenkadak.sort(key=lambda r: ordena.get(r[0], 99))
     ekitaldiak = bikoiztuak_kendu([{**json.loads(d), "bilduma": i} for i, d in errenkadak])
+    ekitaldiak = bateratu(ekitaldiak)
     for e in ekitaldiak:
         e["taldea"] = taldea(e["bilduma"], e["iturria"])
+        # Batutako ekitaldiak iturri-talde guztietan agertzen dira (adib. Kulturklik + Pantailak Euskaraz)
+        taldeak = [e["taldea"]]
+        for b in e.get("beste_iturriak", []):
+            t = taldea(b.pop("bilduma"), b["iturria"])
+            if t not in taldeak:
+                taldeak.append(t)
+        if len(taldeak) > 1:
+            e["taldeak"] = taldeak
         if not e.get("hizkuntza"):
             e["hizkuntza"] = hizkuntza_asmatu(e["izenburua"], e.get("deskribapena"), e.get("mota_jatorrizkoa"))
         if not e["hizkuntza"] and e["kategoria"] == "bertsolaritza":

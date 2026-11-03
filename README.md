@@ -106,6 +106,15 @@ Ekitaldi baten formatua:
 }
 ```
 
+## Bikoiztuak
+
+Ekitaldi bera iturri askotan agertzen da sarri (Kulturklik, udala, tokiko hedabidea…).
+`robota/bateratu.py`-k bakar bihurtzen ditu: **herri bera + egun bera + ordu bera** (edo batek ordurik ez)
+eta **izen antzekoa**. Izenburuen hitz bereizgarriak alderatzen dira; jaialdien izenak bezalako hitz
+arruntek ("Mapamunditarrak 2026: …") pisu txikia dute, eta iturri bereko bi ekitaldi desberdin ez dira
+inoiz batzen. Lehentasun handieneko iturriarena gordetzen da, besteen datuekin osatuta, eta webguneak
+iturri guztien estekak erakusten ditu ("Kulturklik · Hiruka").
+
 ## Hizkuntza
 
 Ekitaldi bakoitzak `hizkuntza` eremua du: `eu`, `es`, `fr`, `bi` (elebiduna) edo hutsik (zehaztugabea).
@@ -128,6 +137,7 @@ saioak eta bertsolaritza beti euskaraz; LLMari ere orriak argi esaten duenean ba
 | [Iruñeko udala](https://www.pamplona.es/eu/gaurkotasuna/ekitaldiak) | Iruñea | HTMLa irakurrita |
 | [Visit Navarra](https://www.visitnavarra.es/es/agenda) | Nafarroa Garaia (jai eta feria handiak) | HTMLa irakurrita |
 | Elkarteen agendak (Karrikiri…) eta Eibarko udala | 7ak | `agenda_orriak.json`, formatu estandarrak (WordPress, iCal, schema.org, Plone) |
+| [Zarata (MondoSonoro)](https://www.mondosonoro.com/agenda-zarata/) | 7ak (kontzertuak; Errioxakoak ez) | WordPress APIa, testua irakurrita (LLMrik gabe) |
 | [Pantailak Euskaraz / Zer non ikusi](https://www.zernonikusi.eus/zinema) | Hegoaldea | Euskarazko zinema-saioak, API irekia (JSON) |
 | [Euskadiko Agenda Turistikoa](https://turismo.euskadi.eus/agenda-turistica-de-euskadi/webtur00-recursostop/es/) | EAE (jaiak, azokak) | Datu irekiak (JSON) |
 | Beste agenda-orriak (udalak, hedabideak) | 7ak | LLM (OpenRouter, doako eredua) + cachea |
