@@ -106,6 +106,14 @@ Ekitaldi baten formatua:
 }
 ```
 
+## Hizkuntza
+
+Ekitaldi bakoitzak `hizkuntza` eremua du: `eu`, `es`, `fr`, `bi` (elebiduna) edo hutsik (zehaztugabea).
+Testuak **argi esaten duenean bakarrik** jartzen da ("euskaraz", "en castellano", "en français",
+"elebiduna", "euskaraz eta gazteleraz"…), `robota/lagungarriak.py`-ko `hizkuntza_asmatu()` funtzioarekin.
+Izenburua zein hizkuntzatan idatzita dagoen ez da kontuan hartzen. Salbuespenak: Pantailak Euskaraz-en
+saioak eta bertsolaritza beti euskaraz; LLMari ere orriak argi esaten duenean bakarrik eskatzen zaio.
+
 ## Iturriak
 
 | Iturria | Lurraldeak | Nola |

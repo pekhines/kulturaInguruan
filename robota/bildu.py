@@ -20,7 +20,7 @@ import traceback
 from collections import Counter
 from datetime import date, datetime, timezone
 
-from lagungarriak import ERROA, Udalerriak, normalizatu
+from lagungarriak import ERROA, Udalerriak, hizkuntza_asmatu, normalizatu
 from iturriak import (culturanavarra, dantzan, eke, elkarte_agendak, iparralde_turismoa, irunea, kulturklik,
                       llm_agendak, tokikom, turismoa, udal_agendak, visitnavarra, zernonikusi)
 
@@ -137,6 +137,10 @@ def esportatu(konexioa):
     ekitaldiak = bikoiztuak_kendu([{**json.loads(d), "bilduma": i} for i, d in errenkadak])
     for e in ekitaldiak:
         e["taldea"] = taldea(e["bilduma"], e["iturria"])
+        if not e.get("hizkuntza"):
+            e["hizkuntza"] = hizkuntza_asmatu(e["izenburua"], e.get("deskribapena"), e.get("mota_jatorrizkoa"))
+        if not e["hizkuntza"] and e["kategoria"] == "bertsolaritza":
+            e["hizkuntza"] = "eu"
     ekitaldiak.sort(key=lambda e: (e["data_hasiera"], e["izenburua"]))
 
     JSON_IRTEERA.write_text(json.dumps({

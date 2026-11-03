@@ -21,7 +21,7 @@ import requests
 from bs4 import BeautifulSoup
 
 import llm
-from lagungarriak import ERROA, GOIBURUAK, html_garbitu, kategoria_asmatu, udal_kokapena
+from lagungarriak import ERROA, HIZKUNTZAK, GOIBURUAK, html_garbitu, kategoria_asmatu, udal_kokapena
 from iturriak.udal_agendak import metodoak
 
 ORRIAK = ERROA / "robota" / "agenda_orriak.json"
@@ -37,7 +37,8 @@ IRAKURLE_PROPIOA = {"Iruñea", "Eibar"}
 SISTEMA = """You extract cultural and public events from Basque Country agenda web pages.
 Pages may be in Basque, Spanish or French. Return ONLY JSON:
 {"ekitaldiak": [{"izenburua": str, "data_hasiera": "YYYY-MM-DD", "data_amaiera": "YYYY-MM-DD" or null,
-  "ordua": "HH:MM" or "", "herria": str or "", "lekua": str or "", "mota": str, "url": str or ""}]}
+  "ordua": "HH:MM" or "", "herria": str or "", "lekua": str or "", "mota": str, "url": str or "",
+  "hizkuntza": "eu" | "es" | "fr" | "bi" | ""}]}
 Rules:
 - Only events explicitly listed on the page with a concrete date. Never invent events or dates.
 - Ignore news articles, past events, institutional meetings (plenos), job offers, ads, and administrative
@@ -46,6 +47,9 @@ Rules:
 - "herria": the town/village where the event happens, as written on the page; "" if not stated.
 - "mota": short type (kontzertua, antzerkia, jaiak, azoka, dantza, zinema, bertsoak, erakusketa, hitzaldia, haurrak, tailerra, kirola…).
 - "url": the event's own link if the page shows one (links appear as [text](url)), else "".
+- "hizkuntza": language of the EVENT itself (eu=Basque, es=Spanish, fr=French, bi=bilingual), ONLY if the page
+  says it explicitly (e.g. "euskaraz", "en castellano", "elebiduna"); otherwise "". The language the page is
+  written in does NOT count.
 - Keep "izenburua" in the page's original language. Max 80 events.
 If there are no events, return {"ekitaldiak": []}."""
 
@@ -139,6 +143,7 @@ def bihurtu(izena, orri_url, herri_lehenetsia, e, udalerriak):
         "url": url,
         "irudia": "",
         "kokapenak": [udal_kokapena(u)],
+        "hizkuntza": e.get("hizkuntza") if e.get("hizkuntza") in HIZKUNTZAK else "",
     }
 
 

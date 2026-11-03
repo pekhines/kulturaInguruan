@@ -130,3 +130,7 @@ footer a { color: inherit; }
 /* Iturri-iragazkia: kategorien txip berdinak, baina kolore lasaiagoz */
 .txip-etiketa { color: var(--grisa); font-size: 0.85rem; align-self: center; margin-right: 0.2rem; }
 .iturriak button.aktiboa { background: #555; border-color: #555; }
+
+/* Hizkuntza-iragazkia eta ekitaldiaren hizkuntza-etiketa */
+.hizkuntzak button.aktiboa { background: #2b5f8a; border-color: #2b5f8a; }
+.hizkuntza-etiketa { background: #e6eff7; color: #2b5f8a; }

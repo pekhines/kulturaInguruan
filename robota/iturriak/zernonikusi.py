@@ -42,6 +42,7 @@ def ekitaldiak(udalerriak):
                             "iturria": "Pantailak Euskaraz",
                             "izenburua": izenburua,
                             "kategoria": "zinema",
+                            "hizkuntza": "eu",
                             "mota_jatorrizkoa": "zinema euskaraz",
                             "data_hasiera": d.isoformat(),
                             "data_amaiera": d.isoformat(),

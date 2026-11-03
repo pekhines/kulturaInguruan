@@ -9,7 +9,7 @@ import time
 
 import requests
 
-from lagungarriak import GOIBURUAK, html_garbitu
+from lagungarriak import GOIBURUAK, hizkuntza_asmatu, html_garbitu
 
 API = "https://api.euskadi.eus/culture/events/v1.0/events/upcoming"
 ORRIKO = 500
@@ -81,6 +81,8 @@ def bihurtu(item, udalerriak):
         "deskribapena": html_garbitu(eu(item, "description")),
         "url": eu(item, "sourceUrl") or eu(item, "urlEvent") or eu(item, "purchaseUrl"),
         "irudia": irudiak[0]["imageUrl"] if irudiak else "",
+        # Hizkuntza: izen eta deskribapen osoetan (bi hizkuntzetan) argi esaten badu
+        "hizkuntza": hizkuntza_asmatu(*(item.get(k) for k in ("nameEu", "nameEs", "descriptionEu", "descriptionEs"))),
         # Herria ezaguna bada, gure koordenatuak erabiltzen ditugu
         # (Kulturklik-en batzuk okerrak dira, adib. Uztaritze)
         "kokapenak": [{

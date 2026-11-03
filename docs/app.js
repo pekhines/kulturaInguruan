@@ -29,6 +29,17 @@ const ITURRIAK = {
   culturanavarra: ["Cultura Navarra", "Nafarroako Gobernuaren kultur agenda"],
   turismoa: ["Turismo bulegoak", "Pays Basque turismo bulegoa, Visit Navarra, Euskadiko Agenda Turistikoa"],
 };
+// Ekitaldiaren hizkuntza (robotak "hizkuntza" jartzen du testuak argi esaten duenean; bestela zehaztugabea)
+const HIZKUNTZAK = {
+  eu: ["Euskaraz", "Ekitaldia euskaraz da"],
+  es: ["Gazteleraz", "Ekitaldia gazteleraz da"],
+  fr: ["Frantsesez", "Ekitaldia frantsesez da"],
+  bi: ["Elebiduna", "Bi hizkuntzatan"],
+  zehaztugabea: ["Zehaztugabea", "Iturriak ez du hizkuntza zehazten (kontzertu, erakusketa askotan ez du axola)"],
+};
+const HIZKUNTZA_ETIKETAK = { eu: "euskaraz", es: "gazteleraz", fr: "frantsesez", bi: "elebiduna" };
+const hizkuntza = (e) => (e.hizkuntza in HIZKUNTZA_ETIKETAK ? e.hizkuntza : "zehaztugabea");
+
 const ASTEGUNAK = ["igandea", "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata"];
 const HILABETEAK = ["urtarrilak", "otsailak", "martxoak", "apirilak", "maiatzak", "ekainak",
   "uztailak", "abuztuak", "irailak", "urriak", "azaroak", "abenduak"];
@@ -43,6 +54,7 @@ const egoera = {
   tartea: null,           // [hasiera, amaiera] "YYYY-MM-DD"
   kategoriak: new Set(Object.keys(KATEGORIAK)),
   iturriak: new Set(Object.keys(ITURRIAK)),
+  hizkuntzak: new Set(Object.keys(HIZKUNTZAK)),
 };
 
 const $ = (id) => document.getElementById(id);
@@ -154,6 +166,7 @@ function iragazi() {
   for (const e of egoera.ekitaldiak) {
     if (!egoera.kategoriak.has(e.kategoria)) continue;
     if (e.taldea && !egoera.iturriak.has(e.taldea)) continue;
+    if (!egoera.hizkuntzak.has(hizkuntza(e))) continue;
     if (e.data_hasiera > amaiera || e.data_amaiera < hasiera) continue;
     let km = null, herria = e.kokapenak[0];
     if (z) {
@@ -185,7 +198,8 @@ function ekitaldiaHTML({ e, km, herria }, egunAskotakoa) {
       <div>
         <h3>${izenburua}</h3>
         <div class="non">
-          <span class="etiketa">${ihes(KATEGORIAK[e.kategoria] || e.kategoria)}</span>
+          <span class="etiketa">${ihes(KATEGORIAK[e.kategoria] || e.kategoria)}</span>${
+            HIZKUNTZA_ETIKETAK[e.hizkuntza] ? ` <span class="etiketa hizkuntza-etiketa">${HIZKUNTZA_ETIKETAK[e.hizkuntza]}</span>` : ""}
           <strong>${ihes(herria.herria)}</strong>${km !== null ? ` · <span class="km-etiketa">${km < 1 ? "<1" : Math.round(km)} km</span>` : ""}${besteHerriak}
         </div>
         ${xehetasunak ? `<div class="xehetasunak">${xehetasunak}</div>` : ""}
@@ -278,6 +292,7 @@ function urlaEguneratu() {
   p.set("noiz", egoera.noiz === "tartea" ? egoera.tartea.join("_") : egoera.noiz);
   if (egoera.kategoriak.size !== Object.keys(KATEGORIAK).length) p.set("mota", [...egoera.kategoriak].join(","));
   if (egoera.iturriak.size !== Object.keys(ITURRIAK).length) p.set("iturri", [...egoera.iturriak].join(","));
+  if (egoera.hizkuntzak.size !== Object.keys(HIZKUNTZAK).length) p.set("hizk", [...egoera.hizkuntzak].join(","));
   history.replaceState(null, "", "#" + p.toString());
 }
 
@@ -294,6 +309,8 @@ function urlaIrakurri() {
   if (p.get("iturri")) egoera.iturriak = new Set(p.get("iturri").split(",").filter((k) => k in ITURRIAK));
   if (!egoera.kategoriak.size) egoera.kategoriak = new Set(Object.keys(KATEGORIAK));
   if (!egoera.iturriak.size) egoera.iturriak = new Set(Object.keys(ITURRIAK));
+  if (p.get("hizk")) egoera.hizkuntzak = new Set(p.get("hizk").split(",").filter((k) => k in HIZKUNTZAK));
+  if (!egoera.hizkuntzak.size) egoera.hizkuntzak = new Set(Object.keys(HIZKUNTZAK));
 }
 
 function eguneratu() {
@@ -305,6 +322,7 @@ function eguneratu() {
   document.querySelectorAll("[data-noiz]").forEach((b) => b.classList.toggle("aktiboa", b.dataset.noiz === egoera.noiz));
   document.querySelectorAll("[data-kategoria]").forEach((b) => b.classList.toggle("aktiboa", egoera.kategoriak.has(b.dataset.kategoria)));
   document.querySelectorAll("[data-iturria]").forEach((b) => b.classList.toggle("aktiboa", egoera.iturriak.has(b.dataset.iturria)));
+  document.querySelectorAll("[data-hizkuntza]").forEach((b) => b.classList.toggle("aktiboa", egoera.hizkuntzak.has(b.dataset.hizkuntza)));
 
   const emaitzak = iragazi();
   zerrendaMargotu(emaitzak);
@@ -370,6 +388,7 @@ function kontrolakLotu() {
 
   txipak($("kategoriak"), KATEGORIAK, "kategoriak", "kategoria");
   txipak($("iturriak"), ITURRIAK, "iturriak", "iturria");
+  txipak($("hizkuntzak"), HIZKUNTZAK, "hizkuntzak", "hizkuntza");
 }
 
 // Txip-botoiak (kategoriak, iturriak): lehen klikak bakarra aukeratzen du; gero gehitu/kendu;

@@ -200,3 +200,29 @@ def herria_deklinatuta(testua, udalerriak):
                 if u and u.get("mota") == "udalerria":
                     return u
     return None
+
+
+# ---------- Hizkuntza ----------
+# Ekitaldiaren hizkuntza, testuak ARGI esaten duenean bakarrik ("euskaraz", "en castellano"…).
+# Izenburua zein hizkuntzatan idatzita dagoen ez da kontuan hartzen (ez du ezer esan nahi).
+HIZKUNTZAK = ("eu", "es", "fr", "bi")   # bi = elebiduna; "" = zehaztugabea
+HIZKUNTZA_HITZAK = {
+    "bi": r"elebidun|bil[ií]ng[üu]e|euskaraz eta (gaztelaniaz|gazteleraz|frantsesez)|(gaztelaniaz|gazteleraz|frantsesez) eta euskaraz|"
+          r"en euskera y (en )?castellano|en castellano y (en )?euskera|en basque et (en )?fran[cç]ais|"
+          r"en fran[cç]ais et (en )?basque",
+    "eu": r"\beuskaraz\b|en euskera\b|\ben basque\b|en langue basque|euskarazko (emanaldi|bertsio|saio|"
+          r"antzezlan|ikuskizun|filma|pelikula)",
+    "es": r"\bgaztelaniaz\b|\bgazteleraz\b|en castellano\b|en español\b",
+    "fr": r"\bfrantsesez\b|en fran[cç]ais\b|en franc[eé]s\b",
+}
+
+
+def hizkuntza_asmatu(*testuak):
+    """'eu' | 'es' | 'fr' | 'bi' | '' (zehaztugabea)."""
+    t = " ".join(x or "" for x in testuak).lower()
+    if re.search(HIZKUNTZA_HITZAK["bi"], t):
+        return "bi"
+    aurkituak = [h for h in ("eu", "es", "fr") if re.search(HIZKUNTZA_HITZAK[h], t)]
+    if len(aurkituak) > 1:
+        return "bi"
+    return aurkituak[0] if aurkituak else ""
