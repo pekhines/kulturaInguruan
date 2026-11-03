@@ -16,14 +16,18 @@ const KATEGORIAK = {
   ikastaroa: "Ikastaroak",
   bestelakoa: "Bestelakoak",
 };
-// Iturri-taldeak (robotak ekitaldi bakoitzari "taldea" jartzen dio; ikus robota/bildu.py)
+// Iturri-taldeak (robotak ekitaldi bakoitzari "taldea" jartzen dio; ikus robota/bildu.py).
+// [izena, azalpena (sagua gainean jartzean)]
 const ITURRIAK = {
-  kulturklik: "Kulturklik",
-  hedabideak: "Tokiko hedabideak",
-  udalak: "Udalak",
-  elkarteak: "Elkarteak eta hedabideak",
-  erakundeak: "Kultur erakundeak",
-  turismoa: "Turismo bulegoak",
+  kulturklik: ["Kulturklik", "Eusko Jaurlaritzaren kultur agenda"],
+  hedabideak: ["Tokiko hedabideak", "Goiena, Anboto, Alea, Guka, Barrena, Erran, Euskalerria Irratia… (Tokikom)"],
+  udalak: ["Udalak", "Udalen webguneetako agendak"],
+  elkarteak: ["Elkarteak eta hedabideak", "Karrikiri, Herria, Geuria eta beste agenda batzuk"],
+  pantailak: ["Pantailak Euskaraz", "Euskarazko zinema-saioak aretoz areto"],
+  dantzan: ["Dantzan.eus", "Euskal dantzaren agenda"],
+  eke: ["EKE", "Euskal Kultur Erakundea (Iparraldea)"],
+  culturanavarra: ["Cultura Navarra", "Nafarroako Gobernuaren kultur agenda"],
+  turismoa: ["Turismo bulegoak", "Pays Basque turismo bulegoa, Visit Navarra, Euskadiko Agenda Turistikoa"],
 };
 const ASTEGUNAK = ["igandea", "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata"];
 const HILABETEAK = ["urtarrilak", "otsailak", "martxoak", "apirilak", "maiatzak", "ekainak",
@@ -374,7 +378,10 @@ function txipak(edukiontzia, aukerak, gakoa, atributua) {
   const denak = () => new Set(Object.keys(aukerak));
   edukiontzia.insertAdjacentHTML("beforeend",
     `<button type="button" data-guztiak>Guztiak</button>` +
-    Object.entries(aukerak).map(([k, izena]) => `<button type="button" data-${atributua}="${k}">${izena}</button>`).join(""));
+    Object.entries(aukerak).map(([k, balioa]) => {
+      const [izena, azalpena] = Array.isArray(balioa) ? balioa : [balioa, ""];
+      return `<button type="button" data-${atributua}="${k}" title="${ihes(azalpena)}">${ihes(izena)}</button>`;
+    }).join(""));
   edukiontzia.querySelector("[data-guztiak]").addEventListener("click", () => {
     egoera[gakoa] = denak();
     eguneratu();

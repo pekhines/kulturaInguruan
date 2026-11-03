@@ -48,8 +48,9 @@ TALDEAK = {
     "Tokikom": "hedabideak",
     "Udal agendak": "udalak", "Iruñea (udala)": "udalak",
     "Elkarte agendak": "elkarteak",
-    "EKE": "erakundeak", "Dantzan.eus": "erakundeak", "Cultura Navarra": "erakundeak",
-    "Pantailak Euskaraz": "erakundeak",
+    # Iturri espezializatuak: bakoitzak bere txipa webgunean
+    "EKE": "eke", "Dantzan.eus": "dantzan", "Cultura Navarra": "culturanavarra",
+    "Pantailak Euskaraz": "pantailak",
     "Pays Basque turismoa": "turismoa", "Visit Navarra": "turismoa", "Agenda Turistikoa": "turismoa",
 }
 
