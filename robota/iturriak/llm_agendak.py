@@ -32,7 +32,7 @@ GEHIENEZ_DEIAK = int(os.environ.get("LLM_GEHIENEZ", "150"))  # exekuzio bakoitze
 TESTU_LUZERA = 24000
 IRUDI_MUGA = 5_000_000  # byte; handiagoak ez
 # Bere irakurle propioa duten udalak (iturriak/irunea.py…): LLMak ez ditu irakurri behar
-IRAKURLE_PROPIOA = {"Iruñea"}
+IRAKURLE_PROPIOA = {"Iruñea", "Eibar"}
 
 SISTEMA = """You extract cultural and public events from Basque Country agenda web pages.
 Pages may be in Basque, Spanish or French. Return ONLY JSON:

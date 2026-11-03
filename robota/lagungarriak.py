@@ -29,14 +29,14 @@ KATEGORIA_HITZAK = [
     ("bertsolaritza", r"bertso"),
     ("dantza", r"dantza|danza|danse|mutxiko|soka-?dantza|ezpata-?dantza|ballet|fandango"),
     ("zinema", r"zinem|\bcine|film|pel[ií]cula|dokumental|documental|projection"),
-    ("antzerkia", r"antzerk|teatro|th[eé][aâ]tre|ikuskizun|espect[aá]culo|spectacle|bakarrizketa|mon[oó]logo|magia|zirku|circo|cirque"),
+    ("antzerkia", r"antzerk|antzezlan|teatro|th[eé][aâ]tre|ikuskizun|espect[aá]culo|spectacle|bakarrizketa|mon[oó]logo|magia|zirk[ou]|circo|cirque"),
     ("musika", r"kontzertu|concierto|concert|musika|m[uú]sica|musique|abesbatza|koru|coral|chorale|"
                r"txaranga|banda|orkestra|orquesta|orchestre|dj\b|jazz|rock|trikiti|bertso-?kantari|\bop[eé]ra\b|chant\b|chorale"),
     ("erakusketa", r"erakusketa|exposici[oó]n|exposition|expo\b"),
     ("haurrak", r"haur|umeentzat|infantil|ni[nñ]os|enfants?\b|jeune public|ipuin|cuentacuentos|\bcontes?\b|pailazo|payas|clown|txotx\b"),
     ("ikastaroa", r"ikastaro|tailer|taller|curso|atelier|formakuntza|formaci[oó]n|stage\b"),
     ("hitzaldia", r"hitzaldi|conferencia|confer[eê]nce|charla|mahai-?inguru|aurkezpen|presentaci[oó]n|"
-                  r"pr[eé]sentation|solasaldi|tertulia|liburu|libro|livre|rencontre"),
+                  r"pr[eé]sentation|solasaldi|tertulia|liburu|libro|livre|rencontre|irakurketa"),
     ("jaialdia", r"jaialdi|festival"),
 ]
 

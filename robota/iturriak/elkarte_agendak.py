@@ -12,6 +12,7 @@ Metodoak:
   tribe  = WordPress "The Events Calendar" (…/wp-json/tribe/events/v1/events)
   ical   = .ics egutegia
   jsonld = schema.org Event duen orria
+  plone  = Plone-ko ekitaldi-zerrenda (class="dtstart"), adib. Eibarko udalaren kultura-agenda
 "herria" aukerakoa da: ekitaldiak herria adierazten ez badu, hori erabiltzen da.
 """
 import json

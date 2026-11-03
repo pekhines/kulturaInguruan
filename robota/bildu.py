@@ -22,7 +22,7 @@ from datetime import date, datetime, timezone
 
 from lagungarriak import ERROA, Udalerriak, normalizatu
 from iturriak import (culturanavarra, dantzan, eke, elkarte_agendak, iparralde_turismoa, irunea, kulturklik,
-                      llm_agendak, tokikom, turismoa, udal_agendak, visitnavarra)
+                      llm_agendak, tokikom, turismoa, udal_agendak, visitnavarra, zernonikusi)
 
 # Ordena garrantzitsua da: bikoiztuetan, lehenengo iturriarena gordetzen da
 # (datu egituratuak lehenengo, LLM bidez ateratakoak azkenik)
@@ -37,6 +37,7 @@ ITURRIAK = [
     ("Cultura Navarra", culturanavarra),
     ("Pays Basque turismoa", iparralde_turismoa),
     ("Visit Navarra", visitnavarra),
+    ("Pantailak Euskaraz", zernonikusi),
     ("Agenda Turistikoa", turismoa),
     ("LLM agendak", llm_agendak),
 ]
@@ -48,13 +49,16 @@ TALDEAK = {
     "Udal agendak": "udalak", "Iruñea (udala)": "udalak",
     "Elkarte agendak": "elkarteak",
     "EKE": "erakundeak", "Dantzan.eus": "erakundeak", "Cultura Navarra": "erakundeak",
+    "Pantailak Euskaraz": "erakundeak",
     "Pays Basque turismoa": "turismoa", "Visit Navarra": "turismoa", "Agenda Turistikoa": "turismoa",
 }
 
 
 def taldea(bilduma, iturria):
-    if bilduma == "LLM agendak":  # LLMak irakurritakoak: udalenak edo besteenak
-        return "udalak" if iturria.endswith("(udala)") else "elkarteak"
+    if iturria.endswith("(udala)"):  # udal baten agenda, edozein irakurlerekin irakurrita
+        return "udalak"
+    if bilduma == "LLM agendak":
+        return "elkarteak"
     return TALDEAK.get(bilduma, "elkarteak")
 
 

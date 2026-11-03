@@ -5,8 +5,9 @@
   },
   {
     "izena": "Eibar (udala)",
-    "url": "https://www.eibar.eus/eu/agenda",
-    "herria": "Eibar"
+    "url": "https://www.eibar.eus/eu/kultura/agenda/aggregator",
+    "herria": "Eibar",
+    "metodoa": "plone"
   },
   {
     "izena": "Karrikiri",

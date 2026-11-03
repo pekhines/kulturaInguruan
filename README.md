@@ -119,7 +119,8 @@ Ekitaldi baten formatua:
 | [Cultura Navarra](https://www.culturanavarra.es/es/agenda) (Nafarroako Gobernua) | Nafarroa Garaia | HTMLa irakurrita (LLMrik gabe: webguneak ez du AA erabilera onartzen) |
 | [Iruñeko udala](https://www.pamplona.es/eu/gaurkotasuna/ekitaldiak) | Iruñea | HTMLa irakurrita |
 | [Visit Navarra](https://www.visitnavarra.es/es/agenda) | Nafarroa Garaia (jai eta feria handiak) | HTMLa irakurrita |
-| Elkarteen agendak (Karrikiri…) | 7ak | `agenda_orriak.json`, formatu estandarrak |
+| Elkarteen agendak (Karrikiri…) eta Eibarko udala | 7ak | `agenda_orriak.json`, formatu estandarrak (WordPress, iCal, schema.org, Plone) |
+| [Pantailak Euskaraz / Zer non ikusi](https://www.zernonikusi.eus/zinema) | Hegoaldea | Euskarazko zinema-saioak, API irekia (JSON) |
 | [Euskadiko Agenda Turistikoa](https://turismo.euskadi.eus/agenda-turistica-de-euskadi/webtur00-recursostop/es/) | EAE (jaiak, azokak) | Datu irekiak (JSON) |
 | Beste agenda-orriak (udalak, hedabideak) | 7ak | LLM (OpenRouter, doako eredua) + cachea |
 

@@ -43,12 +43,18 @@ IPAR_ZUZENKETAK = {
 # (adib. Nafarroako iturriek "Iruña" idazten dute Iruñea esateko)
 IZEN_GEHIGARRIAK = {
     "Iruñea": ["Iruña", "Pamplona/Iruña", "Pamplona-Iruña"],
+    "Errenteria": ["Orereta"],
+    "Etxabarri Dibina": ["Etxabarri Ibiña", "Etxabarri-Ibiña"],
 }
 
 
-def izenak_gehitu(udalerriak):
-    for u in udalerriak:
-        if u["izena"] in IZEN_GEHIGARRIAK and u.get("mota", "udalerria") == "udalerria":
+def izenak_gehitu(zerrenda):
+    """Izen gehigarriak jarri. Izen bera duten bat baino gehiago badaude (adib. Errenteria udalerria
+    eta Gernikako Errenteria auzoa), udalerriari bakarrik."""
+    from collections import Counter
+    zenbat = Counter(u["izena"] for u in zerrenda)
+    for u in zerrenda:
+        if u["izena"] in IZEN_GEHIGARRIAK and (zenbat[u["izena"]] == 1 or u.get("mota", "udalerria") == "udalerria"):
             u["izenak"] = sorted(set(u["izenak"]) | set(IZEN_GEHIGARRIAK[u["izena"]]))
 
 
@@ -252,9 +258,9 @@ def main():
     barrukoak = herriak(udalerriak)
     for u in udalerriak:
         u["mota"] = "udalerria"
-    izenak_gehitu(udalerriak)
     for h in barrukoak:
         h["mota"] = "herria"
+    izenak_gehitu(udalerriak + barrukoak)
     guztiak = sorted(udalerriak + barrukoak, key=lambda u: u["izena"])
     IRTEERA.parent.mkdir(parents=True, exist_ok=True)
     IRTEERA.write_text(json.dumps(guztiak, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")

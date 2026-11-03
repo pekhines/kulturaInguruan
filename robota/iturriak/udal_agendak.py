@@ -228,7 +228,51 @@ def metodoak(t):
     return emaitza
 
 
-IRAKURLEAK = {"tribe": tribe, "ical": ical, "jsonld": jsonld, "izfe": izfe}
+# ---------- 5. Plone (Eibar, Dantzan.eus…) ----------
+
+def plone(orria, udala, udalerriak):
+    """Plone-ko ekitaldi-zerrendak: <… class="dtstart" title="2026-11-08T12:45:00+01:00">.
+    Ekitaldi bakoitzaren blokea: dtstart duen elementutik gora, izenburu-esteka (h2/h3/h4 a) duen
+    lehen elementua. Orrikatuta badago (?b_start:int=20), hurrengo orriak ere bai."""
+    url, ikusiak = orria, set()
+    for _ in range(10):  # gehienez 10 orri
+        soup = BeautifulSoup(eskuratu(url).text, "html.parser")
+        for hasi in soup.select(".dtstart[title]"):
+            blokea = hasi
+            while blokea and not blokea.select_one("h2 a, h3 a, h4 a"):
+                blokea = blokea.parent
+            if not blokea:
+                continue
+            esteka = blokea.select_one("h2 a, h3 a, h4 a")
+            gakoa = (esteka.get("href"), hasi["title"])
+            if gakoa in ikusiak:
+                continue
+            ikusiak.add(gakoa)
+            try:
+                h = datetime.fromisoformat(hasi["title"])
+                amai = blokea.select_one(".dtend[title]")
+                a = datetime.fromisoformat(amai["title"]) if amai else h
+            except ValueError:
+                continue
+            lekua = blokea.select_one(".event-place, [itemprop=location], .location")
+            mota = blokea.select_one(".subject")
+            yield ekitaldia(
+                udala, udalerriak, "plone", f"{esteka.get('href', '').rstrip('/').rsplit('/', 1)[-1]}:{h.date()}",
+                esteka.get_text(" ", strip=True), h.date(), a.date(),
+                ordua=h.strftime("%H:%M") if h.strftime("%H:%M") != "00:00" else "",
+                url=urljoin(url, esteka.get("href", "")),
+                lekua=lekua.get_text(" ", strip=True) if lekua else "",
+                deskribapena=mota.get_text(" ", strip=True) if mota else "",
+            )
+        hurrengoa = soup.select_one('a[href*="b_start"].next, .pagination .next a, a.next[href*="b_start"], '
+                                    'li.next a[href*="b_start"]')
+        if not hurrengoa:
+            break
+        url = urljoin(url, hurrengoa["href"])
+        time.sleep(1)
+
+
+IRAKURLEAK = {"tribe": tribe, "ical": ical, "jsonld": jsonld, "izfe": izfe, "plone": plone}
 
 
 def udal_bat(t, udalerriak):
