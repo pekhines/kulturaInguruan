@@ -4,7 +4,7 @@
 "data": "2026-11-03",
 "ekitaldiak": []
 },
-"87893c3d4af7f2c1da152f8521c7033237a04dad4f331520740f0cc1743f23f7": {
+"d34150e442584e7f7868e5894433c312cb8e006a1844c64cda4979448c40a46b": {
 "url": "https://www.eibar.eus/eu/agenda",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -15,7 +15,7 @@
 "ordua": "09:00",
 "herria": "Eibar",
 "lekua": "",
-"mota": "azoka",
+"mota": "erakusketa",
 "url": "https://www.eibar.eus/eu/agenda/2026-ekonomia-jardueren-gaineko-zerga"
 },
 {
@@ -24,7 +24,7 @@
 "data_amaiera": "2026-11-29",
 "ordua": "19:00",
 "herria": "Eibar",
-"lekua": "PORTALEA",
+"lekua": "PORTALEA ARTEA",
 "mota": "erakusketa",
 "url": "https://www.eibar.eus/eu/kultura/agenda/indalecio-ojanguren-xxxix-argazki-lehiaketa"
 },
@@ -57,16 +57,6 @@
 "lekua": "Portalea. Batzartoki 1",
 "mota": "hitzaldia",
 "url": "https://www.eibar.eus/eu/kultura/agenda/idazlearekin-harixa-emoten-laura-mintegi"
-},
-{
-"izenburua": "Lan aholkularitza zerbitzua zaintzaile eta etxeko langileentzat",
-"data_hasiera": "2026-11-04",
-"data_amaiera": null,
-"ordua": "16:30",
-"herria": "Eibar",
-"lekua": "Andretxea, Isasi 11",
-"mota": "hitzaldia",
-"url": "https://www.eibar.eus/eu/berdintasuna-andretxea/agenda/lan-aholkularitza-zerbitzua-zaintzaile-eta-etxeko-langileentzat-6"
 },
 {
 "izenburua": "Lagunak Sessions - Catalunya Harmonica Summit",
@@ -105,7 +95,7 @@
 "ordua": "17:00",
 "herria": "Eibar",
 "lekua": "Armeria Eskola",
-"mota": "zinema",
+"mota": "hitzaldia",
 "url": "https://www.eibar.eus/eu/berdintasuna-andretxea/agenda/zine-forum-feminista-una-cuestion-de-genero"
 },
 {
@@ -119,13 +109,23 @@
 "url": "https://www.eibar.eus/eu/kultura/agenda/43o-13-44-n"
 },
 {
+"izenburua": "Gerra Zibileko gerra-frontearen ibilbide historikoa",
+"data_hasiera": "2026-11-22",
+"data_amaiera": null,
+"ordua": "11:00",
+"herria": "Eibar",
+"lekua": "",
+"mota": "hitzaldia",
+"url": "https://www.eibar.eus/eu/kultura/agenda/gerra-zibileko-gerra-frontearen-ibilbide-historikoa-8"
+},
+{
 "izenburua": "Bakarrizketa: No sólo duelen los golpes",
 "data_hasiera": "2026-11-22",
 "data_amaiera": null,
 "ordua": "12:00",
 "herria": "Eibar",
 "lekua": "Andretxea, Isasi 11",
-"mota": "hitzaldia",
+"mota": "antzerkia",
 "url": "https://www.eibar.eus/eu/berdintasuna-andretxea/agenda/bakarrizketa-no-solo-duelen-los-golpes"
 },
 {
@@ -145,7 +145,7 @@
 "ordua": "12:00",
 "herria": "Eibar",
 "lekua": "Portalea. Areto Nagusia",
-"mota": "ipuin kontaketa",
+"mota": "antzerkia",
 "url": "https://www.eibar.eus/eu/kultura/agenda/zapatuko-ipuina-euskal-herria-eta-saharako-ipuinak"
 },
 {
@@ -251,6 +251,11 @@
 }
 ]
 },
+"3df62a7d30d048cc83a01de609538c87b310c9d34ad642cca32853ce2b6efc8f": {
+"url": "https://www.ayegui.org/agenda/",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
 "16efd8cc02ffe56fc5642a47c7f303ece73f6e49b04bc0d6f0d3ebe2bd8e7042": {
 "url": "https://www.ainhoa.fr/agenda",
 "data": "2026-11-03",
@@ -338,7 +343,7 @@
 }
 ]
 },
-"72f4bcc8362c04fb842f783c26e1fa9936313832d1642c43afdfb3af26e6fcb8": {
+"614d7d5454a3d9529878f81d5434f6f6054d2756fed2b8cfd00c99ce73c7279a": {
 "url": "https://www.anglet.fr/sorties/agendas/tout-lagenda/",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -347,27 +352,27 @@
 "data_hasiera": "2026-08-31",
 "data_amaiera": "2026-11-30",
 "ordua": "",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "erakusketa",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/sur-la-colline-dakababyeyi/"
 },
 {
-"izenburua": "\"Espòrts e jòcs occitans\" Sports et jeux traditionnels, un patrimoine vivant",
+"izenburua": "\"Espòrts e jòcs occitans\"",
 "data_hasiera": "2026-09-19",
 "data_amaiera": "2026-12-17",
 "ordua": "",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "erakusketa",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/esports-e-jocs-occitans-sports-et-jeux-traditionnels-un-patrimoine-vivant/"
 },
 {
-"izenburua": "\"Salma, mon amour\" Ahmed El Attar",
+"izenburua": "\"Salma, mon amour\"",
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "antzerkia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/salma-mon-amour-ahmed-el-attar/"
@@ -377,7 +382,7 @@
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
 "ordua": "20:30",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "hitzaldia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/un-illustre-inconnu-le-philosophe-antonio-gramsci-1891-1937/"
@@ -387,17 +392,17 @@
 "data_hasiera": "2026-11-05",
 "data_amaiera": null,
 "ordua": "20:30",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "kontzertua",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/jac-electric/"
 },
 {
-"izenburua": "\"En même temps\" Olivia Grandville",
+"izenburua": "\"En même temps\"",
 "data_hasiera": "2026-11-06",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "dantza",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/en-meme-temps-olivia-grandville/"
@@ -407,7 +412,7 @@
 "data_hasiera": "2026-11-07",
 "data_amaiera": "2027-02-27",
 "ordua": "",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "erakusketa",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/lou-chavepayre-lignes-derre-1/"
@@ -417,7 +422,7 @@
 "data_hasiera": "2026-11-07",
 "data_amaiera": "2027-01-30",
 "ordua": "",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "erakusketa",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/premiere-seconde-1/"
@@ -427,7 +432,7 @@
 "data_hasiera": "2026-11-08",
 "data_amaiera": null,
 "ordua": "08:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "azoka",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/brocante-des-cinq-cantons-43/"
@@ -437,57 +442,37 @@
 "data_hasiera": "2026-11-08",
 "data_amaiera": null,
 "ordua": "09:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "azoka",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/vide-grenier-des-genets-1/"
 },
 {
-"izenburua": "\"Le complexe des Homards\" Compagnie ACT2 – Catherine Dreyfus",
+"izenburua": "\"Le complexe des Homards\"",
 "data_hasiera": "2026-11-08",
 "data_amaiera": null,
 "ordua": "11:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "dantza",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/le-complexe-des-homards-compagnie-act2-catherine-dreyfus/"
 },
 {
-"izenburua": "\"Le complexe des Homards\" Compagnie ACT2 – Catherine Dreyfus",
+"izenburua": "\"Le complexe des Homards\"",
 "data_hasiera": "2026-11-08",
 "data_amaiera": null,
 "ordua": "16:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "dantza",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/le-complexe-des-homards-compagnie-act2-catherine-dreyfus-1/"
-},
-{
-"izenburua": "Viens marcher avec nous !",
-"data_hasiera": "2026-11-10",
-"data_amaiera": null,
-"ordua": "",
-"herria": "Angelu",
-"lekua": "",
-"mota": "kirola",
-"url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/viens-marcher-avec-nous/"
-},
-{
-"izenburua": "Marcher, partager, se rencontrer",
-"data_hasiera": "2026-11-12",
-"data_amaiera": null,
-"ordua": "",
-"herria": "Angelu",
-"lekua": "",
-"mota": "kirola",
-"url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/marcher-partager-se-rencontrer/"
 },
 {
 "izenburua": "The Lonesome Zero",
 "data_hasiera": "2026-11-12",
 "data_amaiera": null,
 "ordua": "20:30",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "kontzertua",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/the-lonesome-zero/"
@@ -497,7 +482,7 @@
 "data_hasiera": "2026-11-13",
 "data_amaiera": null,
 "ordua": "19:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "hitzaldia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/face-a-lintelligence-artificielle-le-journalisme-en-eaux-troubles/"
@@ -507,7 +492,7 @@
 "data_hasiera": "2026-11-14",
 "data_amaiera": null,
 "ordua": "10:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "tailerra",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/atelier-decouverte-de-la-communication-non-violente-de-la-reaction-a-la-relation/"
@@ -517,7 +502,7 @@
 "data_hasiera": "2026-11-15",
 "data_amaiera": null,
 "ordua": "",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "kirola",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/la-grande-barre-course-et-marche-solidaires/"
@@ -527,27 +512,17 @@
 "data_hasiera": "2026-11-18",
 "data_amaiera": "2026-11-22",
 "ordua": "",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "zinema",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/fifava-20e-edition-du-festival-international-du-court-metrage-danglet/"
 },
 {
-"izenburua": "Narcotrafic au Pays-Basque : Mieux comprendre Pour prévenir",
-"data_hasiera": "2026-11-19",
-"data_amaiera": null,
-"ordua": "",
-"herria": "Angelu",
-"lekua": "",
-"mota": "hitzaldia",
-"url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/narcotrafic-au-pays-basque-mieux-comprendre-pour-prevenir/"
-},
-{
-"izenburua": "DOGS [Nouvelles du parc humain] Michel Schweizer",
+"izenburua": "DOGS [Nouvelles du parc humain]",
 "data_hasiera": "2026-11-19",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "antzerkia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/dogs-nouvelles-du-parc-humain-michel-schweizer/"
@@ -557,7 +532,7 @@
 "data_hasiera": "2026-11-19",
 "data_amaiera": null,
 "ordua": "20:30",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "kontzertua",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/erwan-naour/"
@@ -567,9 +542,9 @@
 "data_hasiera": "2026-11-23",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
-"mota": "antzerkia",
+"mota": "hitzaldia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/presentation-de-saison-2-collection-hiver-printemps-2027/"
 },
 {
@@ -577,9 +552,9 @@
 "data_hasiera": "2026-11-24",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
-"mota": "antzerkia",
+"mota": "hitzaldia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/presentation-de-saison-2-collection-hiver-printemps-2027-1/"
 },
 {
@@ -587,17 +562,17 @@
 "data_hasiera": "2026-11-25",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
-"mota": "antzerkia",
+"mota": "hitzaldia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/presentation-de-saison-2-collection-hiver-printemps-2027-2/"
 },
 {
-"izenburua": "\"7 minutes\" Maëlle Poésy",
+"izenburua": "\"7 minutes\"",
 "data_hasiera": "2026-11-26",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "antzerkia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/7-minutes-maelle-poesy/"
@@ -607,17 +582,17 @@
 "data_hasiera": "2026-11-26",
 "data_amaiera": null,
 "ordua": "20:30",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "kontzertua",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/buridane-1/"
 },
 {
-"izenburua": "\"7 minutes\" Maëlle Poésy",
+"izenburua": "\"7 minutes\"",
 "data_hasiera": "2026-11-27",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "antzerkia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/7-minutes-maelle-poesy-1/"
@@ -627,7 +602,7 @@
 "data_hasiera": "2026-11-28",
 "data_amaiera": null,
 "ordua": "08:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "azoka",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/les-puces-de-quintaou-47/"
@@ -637,7 +612,7 @@
 "data_hasiera": "2026-11-28",
 "data_amaiera": null,
 "ordua": "09:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "tailerra",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/atelier-danse-et-chant-parent-enfant-79-ans/"
@@ -647,7 +622,7 @@
 "data_hasiera": "2026-11-28",
 "data_amaiera": null,
 "ordua": "09:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "tailerra",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/pour-les-0-3-ans-atelier-deveil-musical-autour-de-lautomne-1/"
@@ -657,7 +632,7 @@
 "data_hasiera": "2026-11-28",
 "data_amaiera": null,
 "ordua": "10:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "tailerra",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/pour-les-4-6-ans-atelier-deveil-musical-autour-de-lautomne/"
@@ -667,7 +642,7 @@
 "data_hasiera": "2026-11-28",
 "data_amaiera": null,
 "ordua": "10:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "tailerra",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/mieux-se-comprendre-en-famille-en-pratiquant-la-communication-non-violente/"
@@ -677,7 +652,7 @@
 "data_hasiera": "2026-11-28",
 "data_amaiera": null,
 "ordua": "10:15",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "tailerra",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/atelier-danse-et-chant-parent-enfant-1012-ans/"
@@ -687,7 +662,7 @@
 "data_hasiera": "2026-11-28",
 "data_amaiera": null,
 "ordua": "11:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "erakusketa",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/visite-singuliere-tout-en-sensorialite/"
@@ -697,7 +672,7 @@
 "data_hasiera": "2026-12-01",
 "data_amaiera": null,
 "ordua": "20:30",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "hitzaldia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/michel-foucault-1926-1984-artificier-en-chef/"
@@ -707,7 +682,7 @@
 "data_hasiera": "2026-12-03",
 "data_amaiera": null,
 "ordua": "20:30",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "kontzertua",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/ke-lepo-felix-buff/"
@@ -717,7 +692,7 @@
 "data_hasiera": "2026-12-05",
 "data_amaiera": null,
 "ordua": "11:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "erakusketa",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/visite-en-langue-basque-de-lexposition-lignes-derre/"
@@ -727,17 +702,17 @@
 "data_hasiera": "2026-12-05",
 "data_amaiera": null,
 "ordua": "15:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "tailerra",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/des-oeuvres-a-croquer/"
 },
 {
-"izenburua": "\"L'Art d'avoir toujours raison\" Sébastien Valignat",
+"izenburua": "\"L'Art d'avoir toujours raison\"",
 "data_hasiera": "2026-12-11",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "antzerkia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/lart-davoir-toujours-raison-sebastien-valignat/"
@@ -747,7 +722,7 @@
 "data_hasiera": "2026-12-17",
 "data_amaiera": null,
 "ordua": "20:30",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "kontzertua",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/la-pieta-3/"
@@ -757,7 +732,7 @@
 "data_hasiera": "2026-12-19",
 "data_amaiera": null,
 "ordua": "08:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "azoka",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/les-puces-de-quintaou-46/"
@@ -767,27 +742,27 @@
 "data_hasiera": "2027-01-16",
 "data_amaiera": null,
 "ordua": "15:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "erakusketa",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/visite-en-langue-des-signes-de-lexposition-lignes-derre/"
 },
 {
-"izenburua": "\"Notte Morricone\" Marcos Morau",
+"izenburua": "\"Notte Morricone\"",
 "data_hasiera": "2027-01-20",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "dantza",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/notte-morricone-marcos-morau/"
 },
 {
-"izenburua": "\"Notte Morricone\" Marcos Morau",
+"izenburua": "\"Notte Morricone\"",
 "data_hasiera": "2027-01-21",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "dantza",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/notte-morricone-marcos-morau-1/"
@@ -797,17 +772,17 @@
 "data_hasiera": "2027-01-23",
 "data_amaiera": null,
 "ordua": "11:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "erakusketa",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/visite-en-langue-gasconne-de-lexposition-de-lou-chavepayre-lignes-derre-1/"
 },
 {
-"izenburua": "\"Femme Hérisson\" Mariya Aneva",
+"izenburua": "\"Femme Hérisson\"",
 "data_hasiera": "2027-01-28",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Angelu",
+"herria": "",
 "lekua": "",
 "mota": "antzerkia",
 "url": "https://www.anglet.fr/sorties/agendas/detail-dun-agenda/actualites/femme-herisson-mariya-aneva/"
@@ -912,6 +887,11 @@
 },
 "aadd42a95210c6d73b9aabb83877b220443d0771f47e1dc0067ff79ff2cf294e": {
 "url": "https://arakil.eus/agenda/",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
+"e061e4fe182993a609e593f9826ff583c0570dbc5890b999d964bc5383b26ee7": {
+"url": "https://www.aranarache.es/portal/seccion.aspx?S=18",
 "data": "2026-11-03",
 "ekitaldiak": []
 },
@@ -1349,6 +1329,11 @@
 "url": "https://www.baigorry.fr/repas-des-vignerons-d-irouleguy"
 }
 ]
+},
+"f6c58f46984a6d220f7370b69fdc2b6cb31731517869e16a1c6001ebea95dac2": {
+"url": "https://www.bakaiku.eus/eventos/",
+"data": "2026-11-03",
+"ekitaldiak": []
 },
 "56690d6dde196f682588eb14a524ef7b960e2aa1b3fd1a2e834ac73f5053d47e": {
 "url": "https://www.bardos.fr/agenda",
@@ -2238,8 +2223,8 @@
 }
 ]
 },
-"57d28510ded9534b3d707eb5caf0eec03837152348ccf286181cf824f8cb2cb3": {
-"url": "https://www.bergara.eus/eu/agenda#egun-2026-11-02",
+"3f304d07a2d32a6c691b738a0f8aecbedbd82035ee610537edfe4cc317074adc": {
+"url": "https://www.bergara.eus/eu/agenda#egun-2026-11-03",
 "data": "2026-11-03",
 "ekitaldiak": [
 {
@@ -2253,7 +2238,7 @@
 "url": "https://www.bergara.eus/eu/node/21663"
 },
 {
-"izenburua": "ZTB. Zientzia, Teknologia, Berrikuntza BERGARA. \"Bergaratik mundura: herria sortzen duten horiek\"",
+"izenburua": "ZTB. Zientzia, Teknologia, Berrikuntza BERGARA. \"Bergaratik mundura: herria sortzen duten\"",
 "data_hasiera": "2026-10-30",
 "data_amaiera": "2026-11-15",
 "ordua": "14:00",
@@ -2261,6 +2246,16 @@
 "lekua": "Aroztegi Aretoan",
 "mota": "erakusketa",
 "url": "https://www.bergara.eus/eu/node/22288"
+},
+{
+"izenburua": "Errigora: Sustraitik espaziora dokumentala.",
+"data_hasiera": "2026-11-03",
+"data_amaiera": null,
+"ordua": "19:00",
+"herria": "Bergara",
+"lekua": "",
+"mota": "zinema",
+"url": "https://www.bergara.eus/eu/node/22294"
 },
 {
 "izenburua": "UNED-Bergarako 50. urteurrena. Ekitaldiari hasiera ematea. Ongi etorria.",
@@ -2339,7 +2334,7 @@
 "ordua": "20:00",
 "herria": "Bergara",
 "lekua": "Seminarixoan",
-"mota": "kontzertua",
+"mota": "musika",
 "url": "https://www.bergara.eus/eu/node/22293"
 },
 {
@@ -2479,7 +2474,7 @@
 "ordua": "17:30",
 "herria": "Bergara",
 "lekua": "Oxirondo Azoka",
-"mota": "tailerra",
+"mota": "ikastaroa",
 "url": "https://www.bergara.eus/eu/node/22319"
 },
 {
@@ -2549,7 +2544,7 @@
 "ordua": "20:00",
 "herria": "Bergara",
 "lekua": "Txuringon eta frontoian.",
-"mota": "dantza",
+"mota": "bestelakoak",
 "url": "https://www.bergara.eus/eu/node/22326"
 },
 {
@@ -2559,7 +2554,7 @@
 "ordua": "10:00",
 "herria": "Bergara",
 "lekua": "Seminarixoan",
-"mota": "hitzaldia",
+"mota": "bestelakoak",
 "url": "https://www.bergara.eus/eu/node/22327"
 },
 {
@@ -2659,7 +2654,7 @@
 "ordua": "19:00",
 "herria": "Bergara",
 "lekua": "Osintxuko plazan.",
-"mota": "bestelakoak",
+"mota": "jaiak",
 "url": "https://www.bergara.eus/eu/node/22338"
 },
 {
@@ -2729,7 +2724,7 @@
 "ordua": "17:00",
 "herria": "Bergara",
 "lekua": "Jubilatuen etxetik hasita",
-"mota": "kontzertua",
+"mota": "musika",
 "url": "https://www.bergara.eus/eu/node/22345"
 },
 {
@@ -2739,7 +2734,7 @@
 "ordua": "17:30",
 "herria": "Bergara",
 "lekua": "Irala kaletik",
-"mota": "kontzertua",
+"mota": "musika",
 "url": "https://www.bergara.eus/eu/node/22346"
 },
 {
@@ -2779,7 +2774,7 @@
 "ordua": "18:00",
 "herria": "Bergara",
 "lekua": "Seminarixoan",
-"mota": "dantza",
+"mota": "antzerkia",
 "url": "https://www.bergara.eus/eu/node/22351"
 },
 {
@@ -2789,7 +2784,7 @@
 "ordua": "11:00",
 "herria": "Bergara",
 "lekua": "",
-"mota": "kontzertua",
+"mota": "musika",
 "url": "https://www.bergara.eus/eu/node/22352"
 },
 {
@@ -2964,7 +2959,7 @@
 "data": "2026-11-03",
 "ekitaldiak": []
 },
-"f97a62ef1de5d00e6f57a1c1c1885b1dbe1d0c1ab544b69e6b40ca2f6d5f357e": {
+"9ca1717f368ab8930ce6635337789c4b1d15b90e549c957523a1d969e4d904a3": {
 "url": "https://www.berriozar.es/eventos/",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -2979,54 +2974,44 @@
 "url": "https://www.berriozar.es/eventos/exposicion-de-la-asociacion-de-escultores-as-de-navarra-arte-on/"
 },
 {
-"izenburua": "Taller de diversidad sexual – Habitarse, vincularse, encontrarse",
-"data_hasiera": "2026-10-27",
-"data_amaiera": "2026-10-30",
-"ordua": "18:00",
-"herria": "Berriozar",
-"lekua": "Kulturgune",
-"mota": "tailerra",
-"url": "https://www.berriozar.es/eventos/taller-de-diversidad-sexual-habitarse-vincularse-encontrarse/"
-},
-{
-"izenburua": "Taller de tatreez. Bordado palestino",
-"data_hasiera": "2026-10-30",
-"data_amaiera": "2026-10-31",
-"ordua": "17:00",
-"herria": "Berriozar",
-"lekua": "Kulturgune",
-"mota": "tailerra",
-"url": "https://www.berriozar.es/eventos/tatreez-tailerra-brodatu-palestinarra/"
-},
-{
-"izenburua": "Charla Kayed Hammad",
-"data_hasiera": "2026-10-30",
-"data_amaiera": "2026-10-31",
-"ordua": "19:30",
-"herria": "Berriozar",
-"lekua": "Kulturgune",
-"mota": "hitzaldia",
-"url": "https://www.berriozar.es/eventos/charla-kayed-hammad/"
-},
-{
-"izenburua": "Gau Beltza",
-"data_hasiera": "2026-10-31",
+"izenburua": "Charla de cine – Aprende a mirar el cine",
+"data_hasiera": "2026-11-05",
 "data_amaiera": null,
 "ordua": "18:00",
 "herria": "Berriozar",
-"lekua": "Gaztegune",
-"mota": "jaiak",
-"url": "https://www.berriozar.es/eventos/gau-beltza/"
+"lekua": "Biblioteca de Berriozar",
+"mota": "hitzaldia",
+"url": "https://www.berriozar.es/eventos/charla-de-cine-aprende-a-mirar-el-cine/"
 },
 {
-"izenburua": "Teatro «Instrucciones para Alberto Gonzalez»",
-"data_hasiera": "2026-11-01",
+"izenburua": "Herri Jazz ibiltaria – Haika",
+"data_hasiera": "2026-11-07",
+"data_amaiera": null,
+"ordua": "19:00",
+"herria": "Berriozar",
+"lekua": "Auditorio de Berriozar",
+"mota": "kontzertua",
+"url": "https://www.berriozar.es/eventos/herri-jazz-ibiltaria-haika/"
+},
+{
+"izenburua": "Teatro «Arizona» – Txalo Produkzioak",
+"data_hasiera": "2026-11-08",
 "data_amaiera": null,
 "ordua": "19:00",
 "herria": "Berriozar",
 "lekua": "Auditorio de Berriozar",
 "mota": "antzerkia",
-"url": "https://www.berriozar.es/eventos/teatro-instrucciones-para-alberto-gonzalez/"
+"url": "https://www.berriozar.es/eventos/teatro-arizona-txalo-produkzioak/"
+},
+{
+"izenburua": "Cortometraje Fila 6 «El corto de Rubén»",
+"data_hasiera": "2026-11-19",
+"data_amaiera": null,
+"ordua": "18:30",
+"herria": "Berriozar",
+"lekua": "Biblioteca de Berriozar",
+"mota": "zinema",
+"url": "https://www.berriozar.es/eventos/laburmetraia-fila-6-el-corto-de-ruben/"
 }
 ]
 },
@@ -3208,7 +3193,7 @@
 }
 ]
 },
-"3d6b6270f1c37b9e155b57bcb69ee539176c937edca5547c3659cae2d350e95d": {
+"17c619b362a3dc07c2f26dbe3a7b3d4570209b47feb6a06a933519f9085175fc": {
 "url": "https://www.bidache.fr/agenda",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -3219,7 +3204,7 @@
 "ordua": "12:00",
 "herria": "Bidache",
 "lekua": "Monument aux morts",
-"mota": "erakusketa",
+"mota": "zeremonia",
 "url": "https://www.bidache.fr/ceremonie-de-commemoration-de-l-armistice-du-11-11-mer-11-11-12h-monument-aux-morts"
 },
 {
@@ -3243,7 +3228,7 @@
 "url": "https://www.bidache.fr/marche-charnegou-samedi-14-novembre-matin"
 },
 {
-"izenburua": "Concert chant et harpe celtique, Duo les voix de Maire - 29/11/2026, 17h (église de Bidache) - Participation en faveur du Téléthon",
+"izenburua": "Concert chant et harpe celtique, Duo les voix de Marie - 29/11/2026, 17h (église de Bidache) - Participation en faveur du Téléthon",
 "data_hasiera": "2026-11-29",
 "data_amaiera": null,
 "ordua": "17:00",
@@ -3264,7 +3249,12 @@
 }
 ]
 },
-"e9e4eda60827a873ac994ddcd1ad4d559e37608984b7a2eddcfc6fc80c56f6c6": {
+"bb79d1661829fdc372521ad9df57fde9c99b7ea7aba384e89ce06de2c81145c2": {
+"url": "https://www.beyriesurjoyeuse.fr/accueil/agenda",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
+"dfa99fab9dd2956bc2725b8e0b7bc731d2617ff36768887f3c14f23b9473e725": {
 "url": "https://www.burlada.es/general/agenda/",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -3279,16 +3269,6 @@
 "url": "https://www.burlada.es/eventos/euskaratik-bertsolaritzara-ibilbide-pertsonala/"
 },
 {
-"izenburua": "Sudán: una guerra olvidada en África",
-"data_hasiera": "2026-11-04",
-"data_amaiera": null,
-"ordua": "19:00",
-"herria": "Burlada",
-"lekua": "Casa de Cultura",
-"mota": "hitzaldia",
-"url": "https://www.burlada.es/eventos/sudan-una-guerra-olvidada-en-africa/"
-},
-{
 "izenburua": "¿Cómo influye la desinformación en la promoción de los discursos de odio? Fundación RODE",
 "data_hasiera": "2026-11-04",
 "data_amaiera": null,
@@ -3297,6 +3277,16 @@
 "lekua": "Centro juvenil Gazteleku",
 "mota": "hitzaldia",
 "url": "https://www.burlada.es/eventos/como-influye-la-desinformacion-en-la-promocion-de-los-discursos-de-odio-fundacion-rode/"
+},
+{
+"izenburua": "Sudán: una guerra olvidada en África",
+"data_hasiera": "2026-11-04",
+"data_amaiera": null,
+"ordua": "19:00",
+"herria": "Burlada",
+"lekua": "Casa de Cultura",
+"mota": "hitzaldia",
+"url": "https://www.burlada.es/eventos/sudan-una-guerra-olvidada-en-africa/"
 },
 {
 "izenburua": "Experiencia de voluntariado en Casamance, la región olvidada de Senegal",
@@ -3492,26 +3482,32 @@
 }
 ]
 },
-"18533c9e9034bddf75f1d43321d11b6b1d1f0169b4712446e9733ad5db438a90": {
-"url": "https://www.donostia.eus/eu/agenda",
+"b9ab49f691645b8b002c84c84d3365e42e24d899a1513cb7ec71bdb6878e7614": {
+"url": "https://saintjeanlevieux.fr/accueil/tout-agenda/",
 "data": "2026-11-03",
 "ekitaldiak": [
 {
-"izenburua": "Eli \"Paperboy\" Reed",
-"data_hasiera": "2026-11-03",
+"izenburua": "Le 07/11 Belledonne & Veillées",
+"data_hasiera": "2026-11-07",
 "data_amaiera": null,
 "ordua": "",
-"herria": "Donostia",
+"herria": "Donazaharre",
 "lekua": "",
 "mota": "kontzertua",
-"url": "https://www.donostia.eus/eu/w/eli-paperboy-reed"
+"url": "https://saintjeanlevieux.fr/agenda/belledonne-veillees/"
+}
+]
 },
+"e626e40cac3db5a58968a96014358c9c4b6e4710f4809fb8a6151bd4d02e424a": {
+"url": "https://www.donostia.eus/eu/agenda",
+"data": "2026-11-03",
+"ekitaldiak": [
 {
 "izenburua": "Fantasiazko eta Beldurrezko Zinemaren 37. Astea",
 "data_hasiera": "2026-10-30",
 "data_amaiera": "2026-11-06",
 "ordua": "",
-"herria": "Donostia",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "Antzoki Zaharra",
 "mota": "zinema",
 "url": "https://www.donostia.eus/eu/agenda/fantasiazko-eta-beldurrezko-zinemaren-37-astea"
@@ -3520,58 +3516,58 @@
 "izenburua": "Bisita gidatua: 'Mauricio Antón. Artea eta paleontologia'",
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
-"ordua": "10:30+18:00",
-"herria": "Donostia",
+"ordua": "10:30",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "San Telmo Museoa",
-"mota": "erakusketa",
+"mota": "bisita gidatua",
 "url": "https://www.donostia.eus/eu/agenda/bisita-gidatua-mauricio-ant%C3%B3n.-artea-eta-paleontologia-azaroak"
 },
 {
 "izenburua": "Bisita gidatua: 'La industrialización en el País Vasco'",
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
-"ordua": "11:00+17:00",
-"herria": "Donostia",
+"ordua": "11:00",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "San Telmo Museoa",
-"mota": "erakusketa",
+"mota": "bisita gidatua",
 "url": "https://www.donostia.eus/eu/agenda/la-industrializacion-en-el-pais-vasco-san-telmo"
 },
 {
-"izenburua": "Fantasiazko eta Beldurrezko Zinemaren 37. Astea: 'Animazioen film laburren maratoia'",
+"izenburua": "Fantasiazko eta Beldurrezko Zinemaren 37. Astea: 'Animazioko film laburren maratoia'",
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
 "ordua": "16:30",
-"herria": "Donostia",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "Antzoki Zaharra",
 "mota": "zinema",
-"url": "https://www.donostia.eus/eu/agenda/animazioen-film-laburren-maratoia"
+"url": "https://www.donostia.eus/eu/agenda/animazioko-film-laburren-maratoia"
 },
 {
 "izenburua": "Fantasiazko eta Beldurrezko Zinema: 'Conflictivos Productions, 25 años'",
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
 "ordua": "18:30",
-"herria": "Donostia",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "Okendo K.E.",
 "mota": "zinema",
 "url": "https://www.donostia.eus/eu/agenda/conflictivos-production-25-a%C3%B1os"
 },
 {
-"izenburua": "Hitzaldia: Emakume Zientzialarien Argitan: 'Emakume eta genero ez-normatibo euskaldunak osasungintzan'",
+"izenburua": "Emakume Zientzialarien Argitan: 'Emakume eta genero ez-normatibo euskaldunak osasungintzan'",
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
 "ordua": "19:00",
-"herria": "Donostia",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "Ernest Lluch K.E",
 "mota": "hitzaldia",
 "url": "https://www.donostia.eus/eu/agenda/emakume-eta-genero-ez-normatibo-euskaldunak-osasungintzan"
 },
 {
-"izenburua": "Hitzaldia: 'Más allá de la eutanasia'",
+"izenburua": "'Más allá de la eutanasia'",
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
 "ordua": "19:00",
-"herria": "Donostia",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "San Telmo Museoa",
 "mota": "hitzaldia",
 "url": "https://www.donostia.eus/eu/agenda/mas-alla-de-la-eutanasia"
@@ -3581,7 +3577,7 @@
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
 "ordua": "19:00",
-"herria": "Donostia",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "Donostia Kultura - Konstituzio plaza",
 "mota": "literatura",
 "url": "https://www.donostia.eus/eu/agenda/ahanzturaren-aingerua"
@@ -3591,7 +3587,7 @@
 "data_hasiera": "2026-11-03",
 "data_amaiera": null,
 "ordua": "19:00",
-"herria": "Donostia",
+"herria": "Donostia (Gipuzkoa)",
 "lekua": "Victoria Eugenia",
 "mota": "zinema",
 "url": "https://www.donostia.eus/eu/agenda/euskal-film-laburren-maratoia"
@@ -3761,6 +3757,16 @@
 }
 ]
 },
+"b09f58548aff59310b2820bd26eb68ded2f84655bbc94806d1a1a686963cc832": {
+"url": "https://www.etayo.es/portal/seccion.aspx?S=17",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
+"99e6bb447df87bf939fe1947d25ddc54c2aebfdd3baebdab003d4dca07560992": {
+"url": "https://www.echarri.es/category/actividades-culturales/",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
 "086d33c941e21cd4898811cfbea5d06f5dfa7982b9b0f792a247f723ae3f6c27": {
 "url": "https://www.etxarriaranatz.eus/eu/agenda",
 "data": "2026-11-03",
@@ -3786,6 +3792,21 @@
 "url": "https://www.etxarriaranatz.eus/eu/eu/agenda/2026-11-06/beroa-dago-eta-gu-gara"
 }
 ]
+},
+"5256c3ca2599743c613d91dddf4050d5b4b1500230bedb8cee33d3436dd994e9": {
+"url": "https://www.etxauri.eus/category/agenda/",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
+"57c5c791cd386d54c4d3258c261c8bbf53a5080d6ea42d6befa8ab4b2608d06c": {
+"url": "https://www.falces.org/agenda/",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
+"63532549dcad1261c8e0bd61d5feeba9247a11b1f3b87cd8b94dc5540dc31d32": {
+"url": "https://fitero.es/sesion-de-participacion-ciudadana-agenda-urbana-local-fitero-2030/",
+"data": "2026-11-03",
+"ekitaldiak": []
 },
 "c5a6c84ae0f9f79ef01067292c13ee8ae5eb5b5c7b919374989a0b096484a26f": {
 "url": "https://www.villadefunes.com/portal/seccion.aspx?N=322",
@@ -3856,32 +3877,6 @@
 "lekua": "Txilindron",
 "mota": "antzerkia",
 "url": "https://www.puentelareina-gares.es/eventos/hodei-magoa-tutti-magia/"
-}
-]
-},
-"46aa7d06f516ea62e35465c6ae274d697ff9d335795a5ce5438dfc5ccfb6fc8b": {
-"url": "https://www.vitoria-gasteiz.org/wb021/was/we001Action.do?idioma=es&accionWe001=ficha&accion=calMunicipales&primeraVezCalen=true",
-"data": "2026-11-03",
-"ekitaldiak": [
-{
-"izenburua": "World Press Photo 2026",
-"data_hasiera": "2026-10-15",
-"data_amaiera": "2026-11-15",
-"ordua": "",
-"herria": "Gasteiz (Araba)",
-"lekua": "Montehermoso",
-"mota": "erakusketa",
-"url": "https://www.vitoria-gasteiz.org/wb021/was/contenidoAction.do?lang=es&locale=es&idioma=es&uid=u54d36039_1a133e96497__65d6"
-},
-{
-"izenburua": "Afrikaldia - Festival Vasco de Cines Africanos",
-"data_hasiera": "2026-11-03",
-"data_amaiera": "2026-11-10",
-"ordua": "",
-"herria": "Gasteiz (Araba)",
-"lekua": "",
-"mota": "zinema",
-"url": "https://www.vitoria-gasteiz.org/wb021/was/contenidoAction.do?idioma=es&uid=u_36329b3a_1a1798f4bd3_1817"
 }
 ]
 },
@@ -4033,7 +4028,7 @@
 }
 ]
 },
-"1c0c3c40611db6a05d19a02920187873109c36cc3752dc5afb60cb43c4e69160": {
+"edbfbc6741bcac55562d9067c9824e010ff7af166049967737273aabb9e87c0b": {
 "url": "https://www.irun.org/eu/kultura-eta-aisia/agenda-kulturalak",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -4042,7 +4037,7 @@
 "data_hasiera": "2026-11-04",
 "data_amaiera": "2026-11-26",
 "ordua": "",
-"herria": "Irun",
+"herria": "",
 "lekua": "",
 "mota": "agenda",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22280-agenda-cba-azaroa-2026"
@@ -4052,7 +4047,7 @@
 "data_hasiera": "2026-11-05",
 "data_amaiera": null,
 "ordua": "18:30",
-"herria": "Irun",
+"herria": "",
 "lekua": "Irungo Emakumeen Etxea - Istillaga plaza, 8",
 "mota": "hitzaldia",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22139-poliedrikas-hau-ez-da-atzo-goizeko-kontua-feminismoaren-aurrerapenak-hausteak-eta-eztabaidak"
@@ -4062,7 +4057,7 @@
 "data_hasiera": "2026-11-05",
 "data_amaiera": null,
 "ordua": "19:30",
-"herria": "Irun",
+"herria": "",
 "lekua": "Amaia Kultur Zentroa",
 "mota": "hitzaldia",
 "url": "https://www.irun.org/eu/agenda/ekintzak/21804-en-busca-de-tu-aventura-groenlandlia-oinez-eta-kayen-bidez-2"
@@ -4072,7 +4067,7 @@
 "data_hasiera": "2026-11-06",
 "data_amaiera": null,
 "ordua": "18:00",
-"herria": "Irun",
+"herria": "",
 "lekua": "CBA - Kultura eta Sorkuntza Zentroa",
 "mota": "antzerkia",
 "url": "https://www.irun.org/eu/agenda/ekintzak/21954-herentzia-kulunka-teatro-4"
@@ -4082,7 +4077,7 @@
 "data_hasiera": "2026-11-06",
 "data_amaiera": "2026-12-04",
 "ordua": "",
-"herria": "Irun",
+"herria": "",
 "lekua": "Palmera Montero",
 "mota": "hitzaldia",
 "url": "https://www.irun.org/eu/agenda/ekintzak/21373-hitzaldiko-zikloa-irungo-guduaren-90-urteurrena"
@@ -4092,7 +4087,7 @@
 "data_hasiera": "2026-11-06",
 "data_amaiera": "2026-12-11",
 "ordua": "18:00",
-"herria": "Irun",
+"herria": "",
 "lekua": "Menchu Gal Aretoa / Udaleko Euskaltegia",
 "mota": "tailerra",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22030-familientzako-arte-tailerrak-chillida-mendiburu-denboraren-ispilu-erakusketa"
@@ -4102,7 +4097,7 @@
 "data_hasiera": "2026-11-07",
 "data_amaiera": "2026-11-08",
 "ordua": "18:30",
-"herria": "Irun",
+"herria": "",
 "lekua": "Amaia Kultur Zentroa",
 "mota": "antzerkia",
 "url": "https://www.irun.org/eu/agenda/ekintzak/21938-opera-las-bodas-de-figaro-2"
@@ -4112,7 +4107,7 @@
 "data_hasiera": "2026-11-07",
 "data_amaiera": null,
 "ordua": "21:00",
-"herria": "Irun",
+"herria": "",
 "lekua": "CBA - Kultura eta Sorkuntza Zentroa",
 "mota": "kontzertua",
 "url": "https://www.irun.org/eu/agenda/ekintzak/21996-juicy-bae-dj-aimar"
@@ -4122,7 +4117,7 @@
 "data_hasiera": "2026-11-08",
 "data_amaiera": null,
 "ordua": "09:30",
-"herria": "Irun",
+"herria": "",
 "lekua": "Barrio Behobia",
 "mota": "kirola",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22311-behobia-san-sebastian-2026-eu"
@@ -4132,7 +4127,7 @@
 "data_hasiera": "2026-11-08",
 "data_amaiera": null,
 "ordua": "18:00",
-"herria": "Irun",
+"herria": "",
 "lekua": "OCINE Mendibil",
 "mota": "zinema",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22228-dekoratua"
@@ -4142,7 +4137,7 @@
 "data_hasiera": "2026-11-10",
 "data_amaiera": null,
 "ordua": "18:00",
-"herria": "Irun",
+"herria": "",
 "lekua": "CBA - Kultura eta Sorkuntza Zentroa",
 "mota": "hitzaldia",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22245-un-tiempo-tuyo-ensayos-sobre-la-literatura-del-exilio-republicano-2"
@@ -4152,7 +4147,7 @@
 "data_hasiera": "2026-11-12",
 "data_amaiera": null,
 "ordua": "18:30",
-"herria": "Irun",
+"herria": "",
 "lekua": "Irungo Emakumeen Etxea - Istillaga plaza, 8",
 "mota": "hitzaldia",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22141-poliedrikas-sistema-judizialak-oraindik-egiteko-dituen-aurrerapenak"
@@ -4162,7 +4157,7 @@
 "data_hasiera": "2026-11-12",
 "data_amaiera": null,
 "ordua": "17:30",
-"herria": "Irun",
+"herria": "",
 "lekua": "Palmera Montero",
 "mota": "tailerra",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22040-miren-camisonen-tailerra-euskaraz-tailerra-askatasuna-eta-mugen-arteko-oreka"
@@ -4172,7 +4167,7 @@
 "data_hasiera": "2026-11-13",
 "data_amaiera": null,
 "ordua": "20:00",
-"herria": "Irun",
+"herria": "",
 "lekua": "CBA - Kultura eta Sorkuntza Zentroa",
 "mota": "antzerkia",
 "url": "https://www.irun.org/eu/agenda/ekintzak/21956-con-taras-y-a-lo-loco-nerea-garmendia-eu"
@@ -4182,7 +4177,7 @@
 "data_hasiera": "2026-11-13",
 "data_amaiera": "2026-12-09",
 "ordua": "",
-"herria": "Irun",
+"herria": "",
 "lekua": "",
 "mota": "jaiak",
 "url": "https://www.irun.org/eu/agenda/ekintzak/22222-euskararen-nazioarteko-eguna-2026"
@@ -4192,7 +4187,7 @@
 "data_hasiera": "2026-11-14",
 "data_amaiera": null,
 "ordua": "21:00",
-"herria": "Irun",
+"herria": "",
 "lekua": "CBA - Kultura eta Sorkuntza Zentroa",
 "mota": "kontzertua",
 "url": "https://www.irun.org/eu/agenda/ekintzak/21958-haika-jazz-quartet-ciclo-itinerante-herrijazz-2"
@@ -4202,7 +4197,7 @@
 "data_hasiera": "2026-07-09",
 "data_amaiera": "2027-01-10",
 "ordua": "",
-"herria": "Irun",
+"herria": "",
 "lekua": "Oiasso Museoa",
 "mota": "erakusketa",
 "url": "https://www.irun.org/eu/agenda/erakusketak/21134-exposicion-roma-cuzco-eu"
@@ -4212,7 +4207,7 @@
 "data_hasiera": "2026-09-25",
 "data_amaiera": "2026-11-14",
 "ordua": "",
-"herria": "Irun",
+"herria": "",
 "lekua": "CBA - Kultura eta Sorkuntza Zentroa",
 "mota": "erakusketa",
 "url": "https://www.irun.org/eu/agenda/erakusketak/21386-kafka-eu"
@@ -4222,7 +4217,7 @@
 "data_hasiera": "2026-10-08",
 "data_amaiera": "2027-01-10",
 "ordua": "",
-"herria": "Irun",
+"herria": "",
 "lekua": "Menchu Gal Aretoa",
 "mota": "erakusketa",
 "url": "https://www.irun.org/eu/agenda/erakusketak/21916-chillida-mendiburu-denboraren-ispilu"
@@ -4232,7 +4227,7 @@
 "data_hasiera": "2026-10-09",
 "data_amaiera": "2026-11-15",
 "ordua": "",
-"herria": "Irun",
+"herria": "",
 "lekua": "Amaia Kultur Zentroa",
 "mota": "erakusketa",
 "url": "https://www.irun.org/eu/agenda/erakusketak/21913-expo-mujeres-del-desierto-2"
@@ -4254,11 +4249,6 @@
 "url": "https://iruraiz-gauna.eus/es/agenda/-/asset_publisher/qSJOPFRNdKiM/content/gaubeltza?p_r_p_assetEntryId=3035888&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_qSJOPFRNdKiM_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_qSJOPFRNdKiM_urlTitle=gaubeltza&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_qSJOPFRNdKiM_redirect=https%3A%2F%2Firuraiz-gauna.eus%2Fes%2Fagenda%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_qSJOPFRNdKiM%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D3035888%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_qSJOPFRNdKiM_cur%3D0%26p_r_p_resetCur%3Dfalse"
 }
 ]
-},
-"6a599f434c992bd13f11c7431edaa5565d302f2688cb196d0d361da9efb182c6": {
-"url": "https://www.pamplona.es/temas/mayores/actividades_mayores/red-mayores",
-"data": "2026-11-03",
-"ekitaldiak": []
 },
 "d3fe1dfe5eb9e5f13bf4a1abeac10b470e1c75ad41449a9397acd10ee4ac0934": {
 "url": "https://itsasondo.eus/agenda",
@@ -4362,8 +4352,210 @@
 }
 ]
 },
+"77d854a66a377b58e0c2dbbdabbf44b363dce9a426ae8f5a144dabefa41c8710": {
+"url": "https://www.iturmendi.eus/iturmendi/jaiak-eta-ospakizunak/",
+"data": "2026-11-03",
+"ekitaldiak": [
+{
+"izenburua": "Gabon gaua eta Olentzero eta Mari Domingiren etorrera",
+"data_hasiera": "2026-12-24",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "Urteberri",
+"data_hasiera": "2027-01-01",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "Errege Bezpera",
+"data_hasiera": "2027-01-05",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "San Anton",
+"data_hasiera": "2027-01-17",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "Santa Ageda",
+"data_hasiera": "2027-02-05",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "Maiatza eguna",
+"data_hasiera": "2027-05-01",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "San Miguel",
+"data_hasiera": "2027-05-08",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "San Juan bezpera",
+"data_hasiera": "2027-06-23",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "Karmes eguna",
+"data_hasiera": "2027-07-16",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "Santa Marinara erromeria",
+"data_hasiera": "2027-07-18",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "Gau Beltza",
+"data_hasiera": "2027-10-31",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Iturmendi",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+}
+]
+},
 "8d870f5e6c85fc212ca9b21149bd49d903d2d15205c391bb33b79f30ba23feff": {
 "url": "https://kuartango.eus/actualidad/calendario-actividades/",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
+"bc2d1ba374adf7a6c40ab97355aa4b0bd9b28d6d28ad11d868461c4de91f4736": {
+"url": "https://lagran.eus/eu/agenda-eu",
+"data": "2026-11-03",
+"ekitaldiak": [
+{
+"izenburua": "Lagranek errepresio frankistaren biktimak omenduko ditu azaroaren 15ean, Felix Ozaeta Fernandez epaitegitzeko kanpo fusilatu zutela 90 urte bete direnean",
+"data_hasiera": "2026-11-15",
+"data_amaiera": null,
+"ordua": "13:00",
+"herria": "Lagran",
+"lekua": "Goiko Kalea plazan, Lagran",
+"mota": "homenajea",
+"url": "https://lagran.eus/eu/agenda-eu/-/asset_publisher/IVjY6LHMtqB9/content/lagranek-errepresio-frankistaren-biktimak-omenduko-ditu-azaroaren-15ean-felix-ozaeta-fernandez-epaitegitzeko-kanpo-fusilatu-zutela-90-urte-bete-direnean?p_r_p_assetEntryId=6638171&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_urlTitle=lagranek-errepresio-frankistaren-biktimak-omenduko-ditu-azaroaren-15ean-felix-ozaeta-fernandez-epaitegitzeko-kanpo-fusilatu-zutela-90-urte-bete-direnean&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_redirect=https%3A%2F%2Flagran.eus%2Feu%2Fagenda-eu%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D6638171%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_cur%3D0%26p_r_p_resetCur%3Dfalse"
+},
+{
+"izenburua": "Autodefensa Feminista",
+"data_hasiera": "2027-10-23",
+"data_amaiera": "2027-10-24",
+"ordua": "17:30",
+"herria": "Lagran",
+"lekua": "Erabilera anitzeko gela, Lagran",
+"mota": "tailerra",
+"url": "https://lagran.eus/eu/agenda-eu/-/asset_publisher/IVjY6LHMtqB9/content/autodefensa-feminista?p_r_p_assetEntryId=6388844&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_urlTitle=autodefensa-feminista&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_redirect=https%3A%2F%2Flagran.eus%2Feu%2Fagenda-eu%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D6388844%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_cur%3D0%26p_r_p_resetCur%3Dfalse"
+},
+{
+"izenburua": "Zahartze Ederra Genero Ikuspegiarekin",
+"data_hasiera": "2026-11-10",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Lagran",
+"lekua": "Eguneko Arreta Landa Zentroa",
+"mota": "hitzaldia",
+"url": "https://lagran.eus/eu/agenda-eu/-/asset_publisher/IVjY6LHMtqB9/content/zahartze-ederra-genero-ikuspegiarekin?p_r_p_assetEntryId=5833667&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_urlTitle=zahartze-ederra-genero-ikuspegiarekin&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_redirect=https%3A%2F%2Flagran.eus%2Feu%2Fagenda-eu%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D5833667%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_cur%3D0%26p_r_p_resetCur%3Dfalse"
+},
+{
+"izenburua": "BIHOTZA Arabako bizitza inoiz ikusi ez duzun bezala",
+"data_hasiera": "2027-09-26",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Lagran",
+"lekua": "Lagrango elizan",
+"mota": "erakusketa",
+"url": "https://lagran.eus/eu/agenda-eu/-/asset_publisher/IVjY6LHMtqB9/content/bihotza-arabako-bizitza-inoiz-ikusi-ez-duzun-bezala?p_r_p_assetEntryId=5807141&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_urlTitle=bihotza-arabako-bizitza-inoiz-ikusi-ez-duzun-bezala&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_redirect=https%3A%2F%2Flagran.eus%2Feu%2Fagenda-eu%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D5807141%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_cur%3D0%26p_r_p_resetCur%3Dfalse"
+},
+{
+"izenburua": "Elkarrekin Arnasten 2.0: Luzaketak, jarreraariketa eta hipopresiboak",
+"data_hasiera": "2026-11-09",
+"data_amaiera": null,
+"ordua": "17:30",
+"herria": "Lagran",
+"lekua": "Erabilera anitzeko gela, Lagran",
+"mota": "kirola",
+"url": "https://lagran.eus/eu/agenda-eu/-/asset_publisher/IVjY6LHMtqB9/content/respirando-juntas-2.0-estiramientos-ejercicio-postural-e-hipopresivos?p_r_p_assetEntryId=5575531&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_urlTitle=respirando-juntas-2.0-estiramientos-ejercicio-postural-e-hipopresivos&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_redirect=https%3A%2F%2Flagran.eus%2Feu%2Fagenda-eu%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D5575531%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_cur%3D0%26p_r_p_resetCur%3Dfalse"
+},
+{
+"izenburua": "Tximeleten Oasia Lagrango EALZn",
+"data_hasiera": "2027-09-03",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Lagran",
+"lekua": "Lagrango Eguneko Arretarako Landa-Zentroa",
+"mota": "jaiak",
+"url": "https://lagran.eus/eu/agenda-eu/-/asset_publisher/IVjY6LHMtqB9/content/tximeleten-oasia-lagrango-ealzn?p_r_p_assetEntryId=5517975&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_urlTitle=tximeleten-oasia-lagrango-ealzn&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_redirect=https%3A%2F%2Flagran.eus%2Feu%2Fagenda-eu%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D5517975%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_cur%3D0%26p_r_p_resetCur%3Dfalse"
+},
+{
+"izenburua": "Magialdia Araba Imanol Ituiño",
+"data_hasiera": "2026-12-31",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Lagran",
+"lekua": "Lagrango Elizan",
+"mota": "erakusketa",
+"url": "https://lagran.eus/eu/agenda-eu/-/asset_publisher/IVjY6LHMtqB9/content/magialdia-araba-imanol-itui%C3%B1o-1?p_r_p_assetEntryId=5456523&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_urlTitle=magialdia-araba-imanol-itui%25C3%25B1o-1&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_redirect=https%3A%2F%2Flagran.eus%2Feu%2Fagenda-eu%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D5456523%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_IVjY6LHMtqB9_cur%3D0%26p_r_p_resetCur%3Dfalse"
+}
+]
+},
+"f94743847dd9d61295bfcfec54eed1beb8897e16b914d99fcb4e7b756d847fb7": {
+"url": "https://www.lakuntza.eus/eu/Agenda.asp",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
+"27f3a3ecb93c68c1406ad2b0b22d349f333343c1d19e23687356aeeadc30f2d0": {
+"url": "https://www.larraona.es/portal/seccion.aspx?S=17",
 "data": "2026-11-03",
 "ekitaldiak": []
 },
@@ -4612,6 +4804,11 @@
 "url": "https://lazkao.eus/eu/lazkao-eu/agenda/2103-lang-eu-lazkaoko-beneditarren-fundazioa-bisita-gidatua-lang-lang-es-visita-guiada-a-lazkaoko-beneditarren-fundazioa-lang-2.html"
 }
 ]
+},
+"29d144112e32c982f62bc04d81d82c79422666bf657f698bf4b458e3a661e335": {
+"url": "https://www.legaria.es/portal/seccion.aspx?S=17",
+"data": "2026-11-03",
+"ekitaldiak": []
 },
 "90ffc03e8346d3bbfe388f7ddb20a0c4e37be8238f33060c6d681550d1f9f411": {
 "url": "https://www.legazpi.eus/legazpi/bizi/agenda",
@@ -5542,6 +5739,11 @@
 }
 ]
 },
+"15ee817a0a43686d5b94ad94c873dae1a28f5bfc7f4016fbe5a1dce7cc9d1e6c": {
+"url": "https://www.mendaza.es/portal/seccion.aspx?S=42",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
 "0118a16ff0100a54a5535344a96e2bcef8890f607b355dcb1e28e0d310f50386": {
 "url": "https://www.mendigorria.eus/eventos/",
 "data": "2026-11-03",
@@ -5811,12 +6013,58 @@
 }
 ]
 },
+"e4468829f095cb2cf52b1dfa7554a5345fd3b58e42d7c8b938d64c42ca1b60e8": {
+"url": "https://www.obanos.es/portal/seccion.aspx?N=547&P=546",
+"data": "2026-11-03",
+"ekitaldiak": [
+{
+"izenburua": "Taller de Marcha Nórdica",
+"data_hasiera": "2027-04-12",
+"data_amaiera": null,
+"ordua": "09:30",
+"herria": "Obanos",
+"lekua": "",
+"mota": "tailerra",
+"url": ""
+},
+{
+"izenburua": "Día del árbol",
+"data_hasiera": "2027-04-12",
+"data_amaiera": null,
+"ordua": "12:00",
+"herria": "Obanos",
+"lekua": "",
+"mota": "jaiak",
+"url": ""
+},
+{
+"izenburua": "Teatro: \"El hombre arco y la chica que buscaba a Lorca\"",
+"data_hasiera": "2027-04-12",
+"data_amaiera": null,
+"ordua": "20:00",
+"herria": "Obanos",
+"lekua": "",
+"mota": "antzerkia",
+"url": ""
+}
+]
+},
+"280b2c7c248b17858e104ece8dae53a48a159ef30821b7b632f260f304a5a480": {
+"url": "https://www.odieta.es/eventos/",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
 "0aa5550387b42184bf8f8ad6b9a313a457cdd25e06cfa717d5a5e9fe1af01373": {
 "url": "https://www.oiartzun.eus/eu/Kultura/Agenda",
 "data": "2026-11-03",
 "ekitaldiak": []
 },
-"85fc915f0172ab7de74ae9a52deab9b4a2e70e79b325a66b3863dbe11279f04d": {
+"661a08628579566108b19427d9286f426ab8686fe9ba7298ab84535643bfc9ab": {
+"url": "https://www.olejua.es/portal/seccion.aspx?S=17",
+"data": "2026-11-03",
+"ekitaldiak": []
+},
+"50f00a52dd6e84edf25befb482b03290fecee68e43c14bddb999d2d5aeb67d28": {
 "url": "https://www.ordizia.eus/ekintzak",
 "data": "2026-11-03",
 "ekitaldiak": []
@@ -5826,7 +6074,7 @@
 "data": "2026-11-03",
 "ekitaldiak": []
 },
-"b2d0a096978223e715d4b34458353d2d21f20f140305a787500e5592e79093b4": {
+"3cf4da22d91fd6187779f9ac42ea5a0db709ea16cf8417c82a596ca88e07de58": {
 "url": "https://www.xn--oati-gqa.eus/eu/agenda",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -5836,7 +6084,7 @@
 "data_amaiera": null,
 "ordua": "18:00",
 "herria": "Oñati",
-"lekua": "Kultur etxeko erakusketa gela",
+"lekua": "Ganbaran",
 "mota": "erakusketa",
 "url": "https://www.xn--oati-gqa.eus/eu/emakumion-etxia/agenda/copy_of_tailerra"
 },
@@ -5846,8 +6094,8 @@
 "data_amaiera": null,
 "ordua": "19:00",
 "herria": "Oñati",
-"lekua": "Kultur Etxean",
-"mota": "ekitaldia",
+"lekua": "Kultur etxeko erakusketa gela",
+"mota": "erakusketa",
 "url": "https://www.xn--oati-gqa.eus/eu/agenda/onatiko-mendi-astea-erakusketa"
 },
 {
@@ -5856,8 +6104,8 @@
 "data_amaiera": null,
 "ordua": "17:00",
 "herria": "Oñati",
-"lekua": "Gela handia",
-"mota": "ikastaroa",
+"lekua": "Kultur Etxean",
+"mota": "ekitaldia",
 "url": "https://www.xn--oati-gqa.eus/eu/agenda/mendi-astea"
 },
 {
@@ -5866,8 +6114,8 @@
 "data_amaiera": null,
 "ordua": "19:00",
 "herria": "Oñati",
-"lekua": "Kultur Etxean",
-"mota": "ekitaldia",
+"lekua": "Gela handia",
+"mota": "hitzaldia",
 "url": "https://www.xn--oati-gqa.eus/eu/emakumion-etxia/agenda/aitatasuna-barrura-begirada-bat"
 },
 {
@@ -5876,8 +6124,8 @@
 "data_amaiera": null,
 "ordua": "18:00",
 "herria": "Oñati",
-"lekua": "Gela handia",
-"mota": "ikastaroa",
+"lekua": "Kultur Etxean",
+"mota": "ekitaldia",
 "url": "https://www.xn--oati-gqa.eus/eu/agenda/mendi-astea/2026-11-04"
 },
 {
@@ -5886,8 +6134,8 @@
 "data_amaiera": null,
 "ordua": "18:00",
 "herria": "Oñati",
-"lekua": "Eskilarpea",
-"mota": "ikastaroa",
+"lekua": "Gela handia",
+"mota": "hitzaldia",
 "url": "https://www.xn--oati-gqa.eus/eu/emakumion-etxia/agenda/emakumeak-mugimenduan/2026-11-05"
 },
 {
@@ -5896,8 +6144,8 @@
 "data_amaiera": null,
 "ordua": "19:30",
 "herria": "Oñati",
-"lekua": "Kultur etxeko zinema aretoan",
-"mota": "ikastaroa",
+"lekua": "Eskilarpeia",
+"mota": "tailerra",
 "url": "https://www.xn--oati-gqa.eus/eu/emakumion-etxia/agenda/mus-ikastaroa-ikasi-trebatu-eta-jokatu"
 },
 {
@@ -5911,7 +6159,7 @@
 "url": "https://www.xn--oati-gqa.eus/eu/agenda/zine-klub-emanaldia-1"
 },
 {
-"izenburua": "Haur eta gaztetxo zine emanaldiak",
+"izenburua": "Haur eta gaztetxoentzako zine emanaldiak",
 "data_hasiera": "2026-11-06",
 "data_amaiera": null,
 "ordua": "22:00",
@@ -5926,7 +6174,7 @@
 "data_amaiera": null,
 "ordua": "12:00",
 "herria": "Oñati",
-"lekua": "Pake Leku elkartean",
+"lekua": "Kultur etxeko zinema aretoan",
 "mota": "zinema",
 "url": "https://www.xn--oati-gqa.eus/eu/agenda/asteburuko-zinema-2"
 },
@@ -5936,8 +6184,8 @@
 "data_amaiera": null,
 "ordua": "17:00",
 "herria": "Oñati",
-"lekua": "Gela handia",
-"mota": "ikastaroa",
+"lekua": "Pake Leku elkartean",
+"mota": "ekitaldia",
 "url": "https://www.xn--oati-gqa.eus/eu/agenda/olagarro-eguna"
 },
 {
@@ -5946,15 +6194,15 @@
 "data_amaiera": null,
 "ordua": "17:00",
 "herria": "Oñati",
-"lekua": "Kultur etxeko zinema aretoan",
-"mota": "zinema",
+"lekua": "Gela handia",
+"mota": "tailerra",
 "url": "https://www.xn--oati-gqa.eus/eu/emakumion-etxia/agenda/saltsa-batxata-kuir/2026-11-07"
 },
 {
-"izenburua": "Haur eta gaztetxo zine emanaldiak",
+"izenburua": "Haur eta gaztetxoentzako zine emanaldiak",
 "data_hasiera": "2026-11-07",
 "data_amaiera": null,
-"ordua": "19:30",
+"ordua": "17:00",
 "herria": "Oñati",
 "lekua": "Kultur etxeko zinema aretoan",
 "mota": "zinema",
@@ -5964,11 +6212,31 @@
 "izenburua": "Asteburuko zinema: azaroaren 6tik 9ra",
 "data_hasiera": "2026-11-07",
 "data_amaiera": null,
-"ordua": "21:30",
+"ordua": "19:30",
 "herria": "Oñati",
-"lekua": "Santa Ana antzokian",
+"lekua": "Kultur etxeko zinema aretoan",
 "mota": "zinema",
 "url": "https://www.xn--oati-gqa.eus/eu/agenda/asteburuko-zinema-3"
+},
+{
+"izenburua": "Asteburuko zinema: azaroaren 6tik 9ra",
+"data_hasiera": "2026-11-07",
+"data_amaiera": null,
+"ordua": "21:30",
+"herria": "Oñati",
+"lekua": "Kultur etxeko zinema aretoan",
+"mota": "zinema",
+"url": "https://www.xn--oati-gqa.eus/eu/agenda/asteburuko-zinema-2/2026-11-07"
+},
+{
+"izenburua": "17. Oñatiko Laburmetrai Rallya",
+"data_hasiera": "2026-11-07",
+"data_amaiera": null,
+"ordua": "22:00",
+"herria": "Oñati",
+"lekua": "Santa Ana antzokian",
+"mota": "kirola",
+"url": "https://www.xn--oati-gqa.eus/eu/agenda/onatiko-laburmetrai-rallya"
 }
 ]
 },
@@ -6023,7 +6291,7 @@
 "data": "2026-11-03",
 "ekitaldiak": []
 },
-"fc5ffed5d89bfa1fed232ec64551f3c3ea9e36042bec864b03c4078cd5733db8": {
+"6d11a001fdadd28a04bd15b06cfd384968f8711533b2288740545af748d3c6bd": {
 "url": "https://saintpeesurnivelle.fr/agenda",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -6038,14 +6306,24 @@
 "url": "https://saintpeesurnivelle.fr/les-racontars-de-la-semaine-des-4-jeudis-les-histoires-du-colibri"
 },
 {
-"izenburua": "GAUA : SCÈNE PARTAGÉE ALAIA DANTZA TALDEA",
-"data_hasiera": "2026-11-07",
+"izenburua": "EUSKARAREN URTAROA 2026",
+"data_hasiera": "2026-11-06",
+"data_amaiera": "2026-12-03",
+"ordua": "",
+"herria": "Senpere",
+"lekua": "",
+"mota": "jaiak",
+"url": "https://saintpeesurnivelle.fr/euskararen-urtaroa-2026"
+},
+{
+"izenburua": "CÉRÉMONIE COMMÉMORATIVE DE L’ARTISTICE DU 11 NOVEMBRE 1918 : 11 NOVEMBRE 2026",
+"data_hasiera": "2026-11-11",
 "data_amaiera": null,
 "ordua": "",
 "herria": "Senpere",
 "lekua": "",
-"mota": "dantza",
-"url": "https://saintpeesurnivelle.fr/gaua-scene-partagee-alaia-dantza-taldea"
+"mota": "jaiak",
+"url": "https://saintpeesurnivelle.fr/ceremonie-commemorative-de-l-artistice-du-11-novembre-1918-11-novembre-2026"
 },
 {
 "izenburua": "ELIRALE : ATELIER DANSE ET THÉÂTRE",
@@ -6056,6 +6334,16 @@
 "lekua": "",
 "mota": "tailerra",
 "url": "https://saintpeesurnivelle.fr/elirale-atelier-danse-et-theatre"
+},
+{
+"izenburua": "EUSKARAZKO LIBURU BATEN INGURUKO TOPAKETA",
+"data_hasiera": "2026-11-12",
+"data_amaiera": null,
+"ordua": "",
+"herria": "Senpere",
+"lekua": "",
+"mota": "hitzaldia",
+"url": "https://saintpeesurnivelle.fr/euskarazko-liburu-baten-inguruko-topaketa"
 }
 ]
 },
@@ -6822,12 +7110,28 @@
 }
 ]
 },
+"a8d8e2abf7aeb6e91f3d404631324716aa6bfffb719ee23daa10aa62f58e23c9": {
+"url": "https://www.uhartearakil.eus/index.asp?idi=EU&p1=kultur-agenda",
+"data": "2026-11-03",
+"ekitaldiak": [
+{
+"izenburua": "2026KO SAN JUAN FESTAK",
+"data_hasiera": "2026-06-12",
+"data_amaiera": "2026-12-31",
+"ordua": "",
+"herria": "",
+"lekua": "",
+"mota": "jaiak",
+"url": "https://www.uhartearakil.eus/index.asp?idi=EU&p1=&p2=1&p3=2026-12-06&p4=2026ko-san-juan-festak"
+}
+]
+},
 "f4f5f40812c8fecebabe1cbd1a9e73557b74bb4db159161184a7d53df8a8e828": {
 "url": "http://www.urdax.es/actividades-para-el-mes-de-agosto-2026-en-urdazubi-urdax/",
 "data": "2026-11-03",
 "ekitaldiak": []
 },
-"e3fe336879bcef468f85689afac35335a70e65deefe91567f7e92d8ce741cb8d": {
+"a48602954581b7b6c6db36e88a1f9968f8e66cf62c472244ad80e16373bf7f5d": {
 "url": "https://www.urretxu.eus/eu/sustapen-soziokulturala/kultura/kultura-agenda/",
 "data": "2026-11-03",
 "ekitaldiak": [
@@ -6848,7 +7152,7 @@
 "ordua": "17:00",
 "herria": "Urretxu",
 "lekua": "Urretxuko Liburutegia",
-"mota": "hitzaldia",
+"mota": "kontzaketa",
 "url": "https://www.urretxu.eus/eu/sustapen-soziokulturala/kultura/kultura-agenda/ekitaldia/20340-ipuin-kontaketa-imelda-eta-arimen-gaua/"
 },
 {
@@ -6956,7 +7260,7 @@
 "data_hasiera": "2026-11-21",
 "data_amaiera": "2026-11-21",
 "ordua": "11:30",
-"herria": "Urretxu eta Zumarraga",
+"herria": "Urretxu eta Zumarragako kaleak",
 "lekua": "Urretxu eta Zumarragako kaleak",
 "mota": "jaiak",
 "url": "https://www.urretxu.eus/eu/sustapen-soziokulturala/kultura/kultura-agenda/ekitaldia/18240-santa-zezilia-eguneko-kalejira/"
@@ -7210,6 +7514,11 @@
 "url": ""
 }
 ]
+},
+"764736ca50b88564f7aeb885b28349904c4d1ca7b9c4e577baed5bb219ba27a5": {
+"url": "https://www.zalduondo.eus/agenda",
+"data": "2026-11-03",
+"ekitaldiak": []
 },
 "352b0e868beb4ac49b8afaffa0ceac34308254b6dce243d86502093ba68df9c4": {
 "url": "https://zambrana.eus/es/agenda",
