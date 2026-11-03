@@ -126,3 +126,7 @@ footer a { color: inherit; }
 /* "Zein Elizondo?" — izen bereko herrien aukerak */
 .aukerak { margin: 0.2rem 0 0.6rem; color: var(--grisa); font-size: 0.95rem; }
 .aukerak button { margin: 0.15rem 0.2rem; }
+
+/* Iturri-iragazkia: kategorien txip berdinak, baina kolore lasaiagoz */
+.txip-etiketa { color: var(--grisa); font-size: 0.85rem; align-self: center; margin-right: 0.2rem; }
+.iturriak button.aktiboa { background: #555; border-color: #555; }

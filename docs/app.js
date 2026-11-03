@@ -16,6 +16,15 @@ const KATEGORIAK = {
   ikastaroa: "Ikastaroak",
   bestelakoa: "Bestelakoak",
 };
+// Iturri-taldeak (robotak ekitaldi bakoitzari "taldea" jartzen dio; ikus robota/bildu.py)
+const ITURRIAK = {
+  kulturklik: "Kulturklik",
+  hedabideak: "Tokiko hedabideak",
+  udalak: "Udalak",
+  elkarteak: "Elkarteak eta hedabideak",
+  erakundeak: "Kultur erakundeak",
+  turismoa: "Turismo bulegoak",
+};
 const ASTEGUNAK = ["igandea", "astelehena", "asteartea", "asteazkena", "osteguna", "ostirala", "larunbata"];
 const HILABETEAK = ["urtarrilak", "otsailak", "martxoak", "apirilak", "maiatzak", "ekainak",
   "uztailak", "abuztuak", "irailak", "urriak", "azaroak", "abenduak"];
@@ -29,6 +38,7 @@ const egoera = {
   noiz: "astea",
   tartea: null,           // [hasiera, amaiera] "YYYY-MM-DD"
   kategoriak: new Set(Object.keys(KATEGORIAK)),
+  iturriak: new Set(Object.keys(ITURRIAK)),
 };
 
 const $ = (id) => document.getElementById(id);
@@ -139,6 +149,7 @@ function iragazi() {
   const emaitza = [];
   for (const e of egoera.ekitaldiak) {
     if (!egoera.kategoriak.has(e.kategoria)) continue;
+    if (e.taldea && !egoera.iturriak.has(e.taldea)) continue;
     if (e.data_hasiera > amaiera || e.data_amaiera < hasiera) continue;
     let km = null, herria = e.kokapenak[0];
     if (z) {
@@ -262,6 +273,7 @@ function urlaEguneratu() {
   p.set("km", egoera.km);
   p.set("noiz", egoera.noiz === "tartea" ? egoera.tartea.join("_") : egoera.noiz);
   if (egoera.kategoriak.size !== Object.keys(KATEGORIAK).length) p.set("mota", [...egoera.kategoriak].join(","));
+  if (egoera.iturriak.size !== Object.keys(ITURRIAK).length) p.set("iturri", [...egoera.iturriak].join(","));
   history.replaceState(null, "", "#" + p.toString());
 }
 
@@ -275,6 +287,9 @@ function urlaIrakurri() {
   if (noiz && noiz.includes("_")) { egoera.noiz = "tartea"; egoera.tartea = noiz.split("_"); }
   else if (noiz) egoera.noiz = noiz;
   if (p.get("mota")) egoera.kategoriak = new Set(p.get("mota").split(",").filter((k) => k in KATEGORIAK));
+  if (p.get("iturri")) egoera.iturriak = new Set(p.get("iturri").split(",").filter((k) => k in ITURRIAK));
+  if (!egoera.kategoriak.size) egoera.kategoriak = new Set(Object.keys(KATEGORIAK));
+  if (!egoera.iturriak.size) egoera.iturriak = new Set(Object.keys(ITURRIAK));
 }
 
 function eguneratu() {
@@ -285,6 +300,7 @@ function eguneratu() {
   $("data-arte").value = egoera.tartea[1];
   document.querySelectorAll("[data-noiz]").forEach((b) => b.classList.toggle("aktiboa", b.dataset.noiz === egoera.noiz));
   document.querySelectorAll("[data-kategoria]").forEach((b) => b.classList.toggle("aktiboa", egoera.kategoriak.has(b.dataset.kategoria)));
+  document.querySelectorAll("[data-iturria]").forEach((b) => b.classList.toggle("aktiboa", egoera.iturriak.has(b.dataset.iturria)));
 
   const emaitzak = iragazi();
   zerrendaMargotu(emaitzak);
@@ -348,21 +364,28 @@ function kontrolakLotu() {
   $("data-noiz").addEventListener("change", tarteaAldatu);
   $("data-arte").addEventListener("change", tarteaAldatu);
 
-  // Kategoria botoiak: klik batek bakarra aukeratzen du; berriz klik eginez gero, guztiak
-  const kat = $("kategoriak");
-  kat.innerHTML = `<button type="button" data-kategoria-guztiak>Guztiak</button>` +
-    Object.entries(KATEGORIAK).map(([k, izena]) => `<button type="button" data-kategoria="${k}">${izena}</button>`).join("");
-  kat.querySelector("[data-kategoria-guztiak]").addEventListener("click", () => {
-    egoera.kategoriak = new Set(Object.keys(KATEGORIAK));
+  txipak($("kategoriak"), KATEGORIAK, "kategoriak", "kategoria");
+  txipak($("iturriak"), ITURRIAK, "iturriak", "iturria");
+}
+
+// Txip-botoiak (kategoriak, iturriak): lehen klikak bakarra aukeratzen du; gero gehitu/kendu;
+// "Guztiak"-ek denak berreskuratzen ditu.
+function txipak(edukiontzia, aukerak, gakoa, atributua) {
+  const denak = () => new Set(Object.keys(aukerak));
+  edukiontzia.insertAdjacentHTML("beforeend",
+    `<button type="button" data-guztiak>Guztiak</button>` +
+    Object.entries(aukerak).map(([k, izena]) => `<button type="button" data-${atributua}="${k}">${izena}</button>`).join(""));
+  edukiontzia.querySelector("[data-guztiak]").addEventListener("click", () => {
+    egoera[gakoa] = denak();
     eguneratu();
   });
-  kat.querySelectorAll("[data-kategoria]").forEach((b) => b.addEventListener("click", () => {
-    const k = b.dataset.kategoria;
-    const guztiak = egoera.kategoriak.size === Object.keys(KATEGORIAK).length;
-    if (guztiak) egoera.kategoriak = new Set([k]);         // lehen klika: hau bakarrik
-    else if (egoera.kategoriak.has(k)) egoera.kategoriak.delete(k);
-    else egoera.kategoriak.add(k);
-    if (egoera.kategoriak.size === 0) egoera.kategoriak = new Set(Object.keys(KATEGORIAK));
+  edukiontzia.querySelectorAll(`[data-${atributua}]`).forEach((b) => b.addEventListener("click", () => {
+    const k = b.dataset[atributua];
+    const multzoa = egoera[gakoa];
+    if (multzoa.size === Object.keys(aukerak).length) egoera[gakoa] = new Set([k]);  // lehen klika: hau bakarrik
+    else if (multzoa.has(k)) multzoa.delete(k);
+    else multzoa.add(k);
+    if (egoera[gakoa].size === 0) egoera[gakoa] = denak();
     eguneratu();
   }));
 }

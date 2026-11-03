@@ -41,6 +41,23 @@ ITURRIAK = [
     ("LLM agendak", llm_agendak),
 ]
 
+# Webguneko "Iturriak" iragazkirako taldeak (bilduma → taldea)
+TALDEAK = {
+    "Kulturklik": "kulturklik",
+    "Tokikom": "hedabideak",
+    "Udal agendak": "udalak", "Iruñea (udala)": "udalak",
+    "Elkarte agendak": "elkarteak",
+    "EKE": "erakundeak", "Dantzan.eus": "erakundeak", "Cultura Navarra": "erakundeak",
+    "Pays Basque turismoa": "turismoa", "Visit Navarra": "turismoa", "Agenda Turistikoa": "turismoa",
+}
+
+
+def taldea(bilduma, iturria):
+    if bilduma == "LLM agendak":  # LLMak irakurritakoak: udalenak edo besteenak
+        return "udalak" if iturria.endswith("(udala)") else "elkarteak"
+    return TALDEAK.get(bilduma, "elkarteak")
+
+
 DB = ERROA / "datuak" / "ekitaldiak.db"
 JSON_IRTEERA = ERROA / "docs" / "datuak" / "ekitaldiak.json"
 
@@ -113,6 +130,8 @@ def esportatu(konexioa):
     errenkadak = konexioa.execute("SELECT iturria, datuak FROM ekitaldiak").fetchall()
     errenkadak.sort(key=lambda r: ordena.get(r[0], 99))
     ekitaldiak = bikoiztuak_kendu([{**json.loads(d), "bilduma": i} for i, d in errenkadak])
+    for e in ekitaldiak:
+        e["taldea"] = taldea(e["bilduma"], e["iturria"])
     ekitaldiak.sort(key=lambda e: (e["data_hasiera"], e["izenburua"]))
 
     JSON_IRTEERA.write_text(json.dumps({
