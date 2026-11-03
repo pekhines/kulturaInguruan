@@ -1,0 +1,7 @@
+.venv/
+__pycache__/
+*.pyc
+generated-images/
+.env
+# SQLite datu-base lokala (docs/datuak/ ez: webguneak behar du)
+/datuak/

@@ -1,0 +1,128 @@
+:root {
+  --gorria: #c8102e;
+  --berdea: #00843d;
+  --testua: #1f2328;
+  --grisa: #656d76;
+  --marra: #d8dee4;
+  --hondoa: #f6f8fa;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--testua);
+  background: #fff;
+  line-height: 1.4;
+}
+
+header {
+  padding: 1rem 1.25rem 0.5rem;
+  border-bottom: 4px solid var(--gorria);
+}
+header h1 { margin: 0; font-size: 1.6rem; }
+.azpititulua { margin: 0.2rem 0 0; color: var(--grisa); }
+
+.bilatzailea {
+  padding: 0.75rem 1.25rem;
+  background: var(--hondoa);
+  border-bottom: 1px solid var(--marra);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.lerroa { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: end; }
+label span { display: block; font-size: 0.85rem; color: var(--grisa); margin-bottom: 0.15rem; }
+.herria { flex: 1 1 18rem; }
+.km { flex: 1 1 18rem; max-width: 30rem; }
+
+input[type="text"], input:not([type]), input[list] {
+  width: 100%;
+  padding: 0.55rem 0.7rem;
+  font-size: 1rem;
+  border: 1px solid var(--marra);
+  border-radius: 6px;
+}
+input[type="range"] { width: 100%; accent-color: var(--gorria); }
+input[type="date"] { padding: 0.3rem; border: 1px solid var(--marra); border-radius: 6px; }
+
+button {
+  padding: 0.45rem 0.8rem;
+  font-size: 0.95rem;
+  border: 1px solid var(--marra);
+  border-radius: 999px;
+  background: #fff;
+  cursor: pointer;
+}
+button:hover { border-color: var(--grisa); }
+button.aktiboa { background: var(--testua); color: #fff; border-color: var(--testua); }
+#kokapena { border-radius: 6px; padding: 0.55rem 0.8rem; }
+.data-tartea { display: flex; align-items: center; gap: 0.25rem; font-size: 0.9rem; }
+
+.kategoriak button { font-size: 0.85rem; padding: 0.3rem 0.65rem; }
+.kategoriak button.aktiboa { background: var(--berdea); border-color: var(--berdea); }
+
+main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  min-height: 60vh;
+}
+.emaitzak { padding: 0.75rem 1.25rem; }
+.mapa-edukiontzia { position: sticky; top: 0; height: 100vh; border-left: 1px solid var(--marra); }
+#mapa { height: 100%; }
+
+.laburpena { color: var(--grisa); margin: 0 0 0.5rem; }
+
+.eguna {
+  margin: 1.1rem 0 0.4rem;
+  font-size: 1rem;
+  border-bottom: 1px solid var(--marra);
+  padding-bottom: 0.2rem;
+}
+
+.ekitaldia {
+  padding: 0.6rem 0;
+  border-bottom: 1px dashed var(--marra);
+  display: grid;
+  grid-template-columns: 4rem 1fr;
+  gap: 0.6rem;
+}
+.ekitaldia .ordua { font-weight: 600; font-size: 0.9rem; color: var(--grisa); overflow-wrap: anywhere; }
+.ekitaldia h3 { margin: 0 0 0.15rem; font-size: 1rem; }
+.ekitaldia h3 a { color: var(--testua); text-decoration: none; }
+.ekitaldia h3 a:hover { text-decoration: underline; }
+.ekitaldia .non { font-size: 0.9rem; }
+.ekitaldia .km-etiketa { color: var(--gorria); font-weight: 600; }
+.ekitaldia .xehetasunak { font-size: 0.85rem; color: var(--grisa); margin-top: 0.15rem; }
+
+.etiketa {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.05rem 0.45rem;
+  border-radius: 999px;
+  background: var(--hondoa);
+  border: 1px solid var(--marra);
+  margin-right: 0.3rem;
+  vertical-align: 1px;
+}
+
+.hutsik { padding: 2rem 0; color: var(--grisa); }
+
+footer {
+  padding: 1rem 1.25rem;
+  font-size: 0.85rem;
+  color: var(--grisa);
+  border-top: 1px solid var(--marra);
+}
+footer a { color: inherit; }
+
+@media (max-width: 800px) {
+  main { grid-template-columns: 1fr; }
+  .mapa-edukiontzia { position: static; height: 45vh; order: -1; border-left: 0; border-bottom: 1px solid var(--marra); }
+}
+
+/* "Zein Elizondo?" — izen bereko herrien aukerak */
+.aukerak { margin: 0.2rem 0 0.6rem; color: var(--grisa); font-size: 0.95rem; }
+.aukerak button { margin: 0.15rem 0.2rem; }

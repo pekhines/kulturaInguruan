@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="eu">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kultura inguruan · Euskal Herriko kultur agenda</title>
+  <meta name="description" content="Bilatu kultur ekitaldiak zure herritik gertu: kontzertuak, antzerkia, zinema, dantza, bertsolaritza, jaiak… Euskal Herriko zazpi lurraldeetan.">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="estiloa.css">
+</head>
+<body>
+  <header>
+    <h1>Kultura inguruan</h1>
+    <p class="azpititulua">Euskal Herriko kultur agenda · zazpi lurraldeak</p>
+  </header>
+
+  <section class="bilatzailea" aria-label="Bilaketa">
+    <div class="lerroa">
+      <label class="herria">
+        <span>Herria</span>
+        <input id="herria" list="herri-zerrenda" placeholder="Idatzi herri bat: Eibar, Baiona, Iruñea…" autocomplete="off">
+        <datalist id="herri-zerrenda"></datalist>
+      </label>
+      <button id="kokapena" type="button" title="Nire kokapena erabili">📍 Nire kokapena</button>
+    </div>
+    <p id="aukerak" class="aukerak" hidden></p>
+
+    <div class="lerroa">
+      <label class="km">
+        <span>Distantzia: <strong id="km-balioa">20</strong> km</span>
+        <input id="km" type="range" min="2" max="100" step="1" value="20">
+      </label>
+    </div>
+
+    <div class="lerroa noiz" role="group" aria-label="Noiz">
+      <button type="button" data-noiz="gaur">Gaur</button>
+      <button type="button" data-noiz="bihar">Bihar</button>
+      <button type="button" data-noiz="asteburua">Asteburua</button>
+      <button type="button" data-noiz="astea" class="aktiboa">7 egun</button>
+      <button type="button" data-noiz="hilabetea">Hilabete</button>
+      <label class="data-tartea">
+        <input id="data-noiz" type="date"> –
+        <input id="data-arte" type="date">
+      </label>
+    </div>
+
+    <div class="lerroa kategoriak" id="kategoriak" role="group" aria-label="Kategoriak"></div>
+  </section>
+
+  <main>
+    <section class="emaitzak">
+      <p id="laburpena" class="laburpena">Ekitaldiak kargatzen…</p>
+      <div id="zerrenda"></div>
+    </section>
+    <aside class="mapa-edukiontzia">
+      <div id="mapa"></div>
+    </aside>
+  </main>
+
+  <footer>
+    <p>Iturriak: <a href="https://www.kulturklik.euskadi.eus" target="_blank" rel="noopener">Kulturklik</a>
+      · <a href="https://turismo.euskadi.eus/agenda-turistica-de-euskadi/webtur00-recursostop/es/" target="_blank" rel="noopener">Euskadiko Agenda Turistikoa</a>
+      · <a href="https://www.eke.eus/eu/agenda" target="_blank" rel="noopener">Euskal Kultur Erakundea</a>
+      · <a href="https://dantzan.eus/agenda" target="_blank" rel="noopener">Dantzan.eus</a>
+      · <a href="https://www.en-pays-basque.fr/votre-sejour/tout-lagenda/" target="_blank" rel="noopener">Pays Basque turismo bulegoa</a>
+      · <a href="https://www.culturanavarra.es/es/agenda" target="_blank" rel="noopener">Cultura Navarra</a>
+      · <a href="https://www.visitnavarra.es/es/agenda" target="_blank" rel="noopener">Visit Navarra</a>
+      · tokiko hedabideak (Goiena, Anboto, Alea, Guka, Euskalerria Irratia…)
+      · udalen eta elkarteen agendak.
+      Ekitaldi bakoitzaren informazio zehatza jatorrizko iturrian dago.</p>
+    <p id="eguneratua"></p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

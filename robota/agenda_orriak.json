@@ -1,0 +1,21 @@
+[
+  {
+    "izena": "Geuria",
+    "url": "https://geuria.eus/agenda/"
+  },
+  {
+    "izena": "Eibar (udala)",
+    "url": "https://www.eibar.eus/eu/agenda",
+    "herria": "Eibar"
+  },
+  {
+    "izena": "Karrikiri",
+    "herria": "Iruñea",
+    "metodoa": "tribe",
+    "url": "https://www.karrikiri.eus/wp-json/tribe/events/v1/events"
+  },
+  {
+    "izena": "Herria astekaria",
+    "url": "https://herria.eus/agenda"
+  }
+]
