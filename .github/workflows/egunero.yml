@@ -10,6 +10,8 @@
 #
 # LLM gakoa: Settings → Secrets and variables → Actions → "New repository secret"
 #   Izena: OPENROUTER_API_KEY   (ez da inoiz biltegian gordetzen)
+#
+# Etxeko VPN-a (aukerakoa): WIREGUARD_KONFIG secret-a. Ikus robota/vpn_piztu.sh
 name: Ekitaldiak bildu
 
 on:
@@ -48,6 +50,14 @@ jobs:
             python robota/agendak_aurkitu.py
           fi
 
+      # Cloudflare-k GitHub-eko IPak blokeatzen ditu Cultura Navarra eta Zarata-n (403):
+      # haietarako trafikoa bakarrik etxeko WireGuard VPN-tik (secret-a: WIREGUARD_KONFIG)
+      - name: Etxeko VPN-a piztu (blokeatutako webguneetarako bakarrik)
+        continue-on-error: true   # VPN-a huts eginda ere, beste iturriak bildu
+        env:
+          WIREGUARD_KONFIG: ${{ secrets.WIREGUARD_KONFIG }}
+        run: bash robota/vpn_piztu.sh
+
       - name: Robota exekutatu
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
@@ -60,6 +70,11 @@ jobs:
             echo "Eguneko exekuzioa (LLMrik gabe)"
             python robota/bildu.py --salbu "LLM agendak"
           fi
+
+      - name: VPN-a itzali
+        if: always()
+        run: |
+          if [ -f /etc/wireguard/etxea.conf ]; then sudo wg-quick down etxea || true; fi
 
       - name: Aldaketak gorde
         if: always()   # iturri bat hautsita ere, besteen datuak gorde

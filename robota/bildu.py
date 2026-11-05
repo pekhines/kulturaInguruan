@@ -15,11 +15,14 @@ ITURRI BERRI bat gehitzeko: robota/iturriak/ karpetan fitxategi bat sortu
 `ekitaldiak(udalerriak)` funtzio batekin, eta ITURRIAK zerrendan gehitu.
 """
 import json
+import os
 import sqlite3
 import sys
 import traceback
 from collections import Counter
 from datetime import date, datetime, timezone
+
+import requests
 
 from bateratu import bateratu
 from lagungarriak import ERROA, Udalerriak, hizkuntza_asmatu, normalizatu
@@ -172,6 +175,10 @@ def main():
     konexioa = db_ireki()
     orain = datetime.now(timezone.utc).isoformat(timespec="seconds")
     hutsak = []
+    # GitHub-eko zerbitzariak (datu-zentroko IPak) webgune batzuek blokeatzen dituzte (Cloudflare → 403).
+    # Hor ez da gure akatsa: abisua eman, aurreko datuak mantendu eta workflow-a ez hautsi.
+    github_en = os.environ.get("GITHUB_ACTIONS") == "true"
+    blokeatuak = []
 
     # Iturri batzuk bakarrik:   python robota/bildu.py Dantzan.eus EKE
     # Iturri batzuk izan ezik:  python robota/bildu.py --salbu "LLM agendak"
@@ -195,6 +202,16 @@ def main():
         try:
             n = iturria_bildu(konexioa, izena, modulua, udalerriak, orain)
             print(f"  {n} ekitaldi")
+        except requests.HTTPError as errorea:
+            konexioa.rollback()
+            if github_en and errorea.response is not None and errorea.response.status_code == 403:
+                blokeatuak.append(izena)
+                print(f"::warning::{izena}: 403, webguneak GitHub-eko IPak blokeatzen ditu "
+                      "(aurreko datuak mantentzen dira; lokalean eguneratu daiteke)")
+            else:
+                hutsak.append(izena)
+                print(f"  ✗ ERROREA {izena} iturrian (aurreko datuak mantentzen dira):")
+                traceback.print_exc()
         except Exception:
             # Iturri bat hausten bada, aurreko datuak mantentzen dira eta besteekin jarraitzen da
             konexioa.rollback()
@@ -209,6 +226,8 @@ def main():
         print(f"  {lurraldea}: {n}")
     print("Kategoriak:", dict(Counter(e["kategoria"] for e in ekitaldiak).most_common()))
 
+    if blokeatuak:
+        print("\nGitHub-etik blokeatutako iturriak (lokalean eguneratu):", ", ".join(blokeatuak))
     if hutsak:
         print("\nHautsitako iturriak:", ", ".join(hutsak))
         sys.exit(1)  # GitHub Actions-ek abisua emateko
