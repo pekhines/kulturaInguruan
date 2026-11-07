@@ -3,14 +3,34 @@ import html
 import json
 import math
 import re
+import time
 import unicodedata
 from pathlib import Path
+
+import requests
 
 ERROA = Path(__file__).resolve().parent.parent
 UDALERRIAK_FITXATEGIA = ERROA / "docs" / "datuak" / "udalerriak.json"
 
 # Oharra: Kulturklik-ek User-Agent luzeak (parentesiekin) baztertzen ditu
 GOIBURUAK = {"User-Agent": "kulturaInguruan/0.1"}
+
+
+def eskuratu(url, saiakerak=3, itxaronaldia=10, **kwargs):
+    """requests.get, baina zerbitzariaren behin-behineko erroreetan (5xx, timeout, konexioa)
+    berriz saiatzen da. 4xx erroreak (403 blokeoa…) ez dira errepikatzen."""
+    kwargs.setdefault("headers", GOIBURUAK)
+    kwargs.setdefault("timeout", 30)
+    for saiakera in range(1, saiakerak + 1):
+        try:
+            r = requests.get(url, **kwargs)
+            if r.status_code < 500 or saiakera == saiakerak:
+                r.raise_for_status()
+                return r
+        except (requests.ConnectionError, requests.Timeout):
+            if saiakera == saiakerak:
+                raise
+        time.sleep(itxaronaldia * saiakera)
 
 # Kategoria bateratuak: iturri bakoitzaren motak hauetako batera eramaten dira
 KATEGORIAK = [

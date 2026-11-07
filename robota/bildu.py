@@ -179,6 +179,7 @@ def main():
     # Hor ez da gure akatsa: abisua eman, aurreko datuak mantendu eta workflow-a ez hautsi.
     github_en = os.environ.get("GITHUB_ACTIONS") == "true"
     blokeatuak = []
+    eroriak = []  # webgunea erorita (5xx, timeout): abisua bakarrik
 
     # Iturri batzuk bakarrik:   python robota/bildu.py Dantzan.eus EKE
     # Iturri batzuk izan ezik:  python robota/bildu.py --salbu "LLM agendak"
@@ -202,12 +203,23 @@ def main():
         try:
             n = iturria_bildu(konexioa, izena, modulua, udalerriak, orain)
             print(f"  {n} ekitaldi")
+        except (requests.ConnectionError, requests.Timeout) as errorea:
+            # Webgunea erorita edo motelegi: ez da gure akatsa, hurrengo egunean berriz saiatuko gara
+            konexioa.rollback()
+            eroriak.append(izena)
+            print(f"::warning::{izena}: webgunea ez dago eskuragarri ({type(errorea).__name__}); "
+                  "aurreko datuak mantentzen dira")
         except requests.HTTPError as errorea:
             konexioa.rollback()
-            if github_en and errorea.response is not None and errorea.response.status_code == 403:
+            kodea = errorea.response.status_code if errorea.response is not None else None
+            if github_en and kodea == 403:
                 blokeatuak.append(izena)
                 print(f"::warning::{izena}: 403, webguneak GitHub-eko IPak blokeatzen ditu "
                       "(aurreko datuak mantentzen dira; lokalean eguneratu daiteke)")
+            elif kodea is not None and kodea >= 500:
+                eroriak.append(izena)
+                print(f"::warning::{izena}: {kodea}, webgunearen zerbitzariak huts egin du "
+                      "(aurreko datuak mantentzen dira)")
             else:
                 hutsak.append(izena)
                 print(f"  ✗ ERROREA {izena} iturrian (aurreko datuak mantentzen dira):")
@@ -228,6 +240,8 @@ def main():
 
     if blokeatuak:
         print("\nGitHub-etik blokeatutako iturriak (lokalean eguneratu):", ", ".join(blokeatuak))
+    if eroriak:
+        print("\nWebgunea erorita zuten iturriak (bihar berriz):", ", ".join(eroriak))
     if hutsak:
         print("\nHautsitako iturriak:", ", ".join(hutsak))
         sys.exit(1)  # GitHub Actions-ek abisua emateko

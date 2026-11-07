@@ -13,20 +13,33 @@ from urllib.parse import urljoin
 import requests
 from bs4 import BeautifulSoup
 
-from lagungarriak import GOIBURUAK, html_garbitu, kategoria_asmatu, udal_kokapena
+from lagungarriak import eskuratu, html_garbitu, kategoria_asmatu, udal_kokapena
 
 URL = "https://www.pamplona.es/eu/gaurkotasuna/ekitaldiak"
 GEHIENEZ_ORRIAK = 30
 GEHIENEZKO_IRAUPENA = 120
+# Webguneak ausaz 502 ematen du (eskaeren erdiak inoiz, 2026-11-07): saiakera asko, itxaronaldi laburrak
+SAIAKERAK = 6
+HUTSEN_MUGA = 3  # jarraian huts egiten duten orriak: webgunea benetan erorita dago
 
 
 def ekitaldiak(udalerriak):
     irunea = udalerriak.bilatu("Iruñea")
     gaur = date.today()
     ikusiak = set()
+    hutsak_jarraian = 0
     for orria in range(GEHIENEZ_ORRIAK):
-        r = requests.get(URL, params={"page": orria}, headers=GOIBURUAK, timeout=30)
-        r.raise_for_status()
+        try:
+            r = eskuratu(URL, params={"page": orria}, saiakerak=SAIAKERAK, itxaronaldia=2)
+        except requests.HTTPError as errorea:
+            if errorea.response is None or errorea.response.status_code < 500:
+                raise
+            hutsak_jarraian += 1
+            if hutsak_jarraian >= HUTSEN_MUGA:
+                raise
+            print(f"  ! Iruñea: {orria}. orria saltatuta ({errorea.response.status_code})", flush=True)
+            continue
+        hutsak_jarraian = 0
         blokeak = [b for b in BeautifulSoup(r.text, "html.parser").select(".layout__region--first")
                    if b.select_one("h3 a") and b.select_one("time[datetime]")]
         if not blokeak:
