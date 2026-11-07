@@ -7,6 +7,10 @@
 #   - Ostegunetan:      dena, LLM agendak barne (asteburuko ekitaldiak harrapatzeko;
 #                       cacheari esker, aldatutako orriak bakarrik)
 #   - Eskuz ("Run workflow" botoia): dena, LLM barne
+#   - Jarraipenak:      LLM agendak denbora-mugara iristen badira (doako ereduak motelak dira),
+#                       workflow-ak bere burua berriz abiarazten du egun berean, LLM agendak
+#                       bakarrik eginez; cacheari esker utzitako orritik jarraitzen du.
+#                       Gehienez JARRAIPEN_MUGA aldiz egunean.
 #
 # LLM gakoa: Settings → Secrets and variables → Actions → "New repository secret"
 #   Izena: OPENROUTER_API_KEY   (ez da inoiz biltegian gordetzen)
@@ -18,9 +22,19 @@ on:
   schedule:
     - cron: "0 4 * * *"     # egunero 04:00etan (UTC)
   workflow_dispatch:         # eskuz ere exekutatu daiteke, GitHub-eko "Actions" fitxatik
+    inputs:
+      jarraipena:
+        description: "Jarraipen-zenbakia (0 = exekuzio osoa; >0 = LLM agendak bakarrik, robotak berak jartzen du)"
+        required: false
+        default: "0"
 
 permissions:
   contents: write
+  actions: write   # LLM agendak amaitu gabe badaude, workflow-a berriz abiarazteko
+
+env:
+  JARRAIPENA: ${{ inputs.jarraipena || '0' }}
+  JARRAIPEN_MUGA: "8"
 
 # Bi exekuzio aldi berean ez (bestela biek idatziko lukete JSONa)
 concurrency:
@@ -59,11 +73,18 @@ jobs:
         run: bash robota/vpn_piztu.sh
 
       - name: Robota exekutatu
+        id: robota
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          # Doako LLM ereduak motelak dira: 90 minutu igarota ez da dei berririk egiten
+          # (lanak 150 minutu ditu gehienez; gainerako orriak jarraipen-exekuzio batean)
+          LLM_MINUTUAK: "90"
         run: |
+          if [ "$JARRAIPENA" != "0" ]; then
+            echo "Jarraipena $JARRAIPENA/$JARRAIPEN_MUGA: LLM agendak bakarrik"
+            python robota/bildu.py "LLM agendak"
           # Ostegunetan (%u = 4) edo eskuz: exekuzio osoa
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%u)" = "4" ]; then
+          elif [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%u)" = "4" ]; then
             echo "Exekuzio osoa (LLM agendak barne)"
             python robota/bildu.py
           else
@@ -77,10 +98,25 @@ jobs:
           if [ -f /etc/wireguard/etxea.conf ]; then sudo wg-quick down etxea || true; fi
 
       - name: Aldaketak gorde
+        id: gorde
         if: always()   # iturri bat hautsita ere, besteen datuak gorde
         run: |
           git config user.name "kultura-robota"
           git config user.email "kultura-robota@users.noreply.github.com"
           git add docs/datuak robota/cache robota/agendak.json robota/udal_webguneak.json
-          git diff --cached --quiet || git commit -m "Ekitaldiak eguneratu $(date -u +%Y-%m-%d)"
+          git diff --cached --quiet || git commit -m "Ekitaldiak eguneratu $(date -u +%Y-%m-%d)$([ "$JARRAIPENA" != "0" ] && echo " (LLM jarraipena $JARRAIPENA)")"
           git push
+
+      # LLM agendak amaitu gabe: exekuzio berria orain bertan (datuak eta cachea jada gordeta daude)
+      - name: LLM agendekin jarraitu (egun berean)
+        if: always() && steps.gorde.outcome == 'success' && steps.robota.outputs.llm_amaitu_gabe == 'true'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          hurrengoa=$((JARRAIPENA + 1))
+          if [ "$hurrengoa" -gt "$JARRAIPEN_MUGA" ]; then
+            echo "::warning::LLM agendak amaitu gabe, baina $JARRAIPEN_MUGA jarraipenen mugara iritsi gara"
+            exit 0
+          fi
+          gh workflow run egunero.yml --ref "${{ github.ref_name }}" -f jarraipena="$hurrengoa"
+          echo "Jarraipena $hurrengoa abiarazita"

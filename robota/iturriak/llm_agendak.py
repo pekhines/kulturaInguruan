@@ -14,6 +14,8 @@ import hashlib
 import json
 import os
 import re
+import time
+from concurrent.futures import ThreadPoolExecutor
 from datetime import date, timedelta
 from urllib.parse import urljoin, urlparse
 
@@ -52,10 +54,6 @@ Rules:
   written in does NOT count.
 - Keep "izenburua" in the page's original language. Max 80 events.
 If there are no events, return {"ekitaldiak": []}."""
-
-saioa = requests.Session()
-saioa.headers.update(GOIBURUAK)
-
 
 def orria_testura(html, oinarria):
     """HTMLa testu garbi bihurtu, estekak [testua](url) gisa mantenduz."""
@@ -149,60 +147,110 @@ def bihurtu(izena, orri_url, herri_lehenetsia, e, udalerriak):
 
 def ekitaldiak(udalerriak):
     cachea = json.loads(CACHEA.read_text(encoding="utf-8")) if CACHEA.exists() else {}
-    berria, deiak, estatistika = {}, 0, {"cachea": 0, "llm": 0, "saltatuta": 0, "hutsak": 0}
+    azkenak = {}  # url → azken emaitza: saltatutako orrien ekitaldiak ez galtzeko
+    for v in sorted(cachea.values(), key=lambda v: v.get("data", "")):
+        azkenak[v.get("url")] = v
+    berria, ikusiak, deiak = {}, set(), 0
+    estatistika = {"cachea": 0, "llm": 0, "saltatuta": 0, "hutsak": 0}
     gakoa_badago = bool(llm.gakoa())
     if not gakoa_badago:
         print("  OHARRA: OPENROUTER_API_KEY ez dago; cacheko emaitzak bakarrik erabiliko dira.")
+    # GitHub-en lanak 150 minutu ditu gehienez: LLM_MINUTUAK igarota ez da dei berririk egiten.
+    # Saltatutako orriek aurreko emaitzak mantentzen dituzte, eta hurrengo exekuzioan jarraitzen da.
+    minutuak = float(os.environ.get("LLM_MINUTUAK") or 0)
+    muga = time.monotonic() + minutuak * 60 if minutuak else None
 
     gaur = date.today().isoformat()
-    for izena, url, herria in orriak_zerrenda(udalerriak):
-        try:
-            r = saioa.get(url, timeout=30)
-            r.raise_for_status()
-        except requests.RequestException:
-            estatistika["hutsak"] += 1
-            continue
-        mota = r.headers.get("Content-Type", "html")
-        irudia = None
-        if mota.startswith("image/") and len(r.content) < IRUDI_MUGA:
-            # Agenda kartel bat (adib. Lesakako hileko agenda JPEG gisa): irudia bera bidali
-            irudia = f"data:{mota.split(';')[0]};base64," + base64.b64encode(r.content).decode()
-            testua = "(The agenda is in the attached image.)"
-            edukia_hash = hashlib.sha256(r.content).hexdigest()
-        elif "html" in mota:
-            testua = orria_testura(r.text, r.url)
-            if len(testua) < 200:
-                continue
-            edukia_hash = testua
-        else:
-            continue  # PDFak… ez (oraingoz)
-        hash_ = hashlib.sha256(f"{PROMPT_BERTSIOA}|{url}|{edukia_hash}".encode()).hexdigest()
-
-        if hash_ in cachea:
-            emaitza = cachea[hash_]["ekitaldiak"]
-            estatistika["cachea"] += 1
-        elif gakoa_badago and deiak < GEHIENEZ_DEIAK:
-            deiak += 1
-            herri_testua = f"{herria['izena']} ({herria['lurraldea']})" if herria else "ezezaguna"
-            erantzuna = llm.eskatu_json(SISTEMA, f"TODAY: {gaur}\nSOURCE: {izena}\n"
-                                                 f"DEFAULT TOWN: {herri_testua}\nPAGE URL: {r.url}\n\n{testua}",
-                                         irudia=irudia)
-            if erantzuna is None:
+    orriak = orriak_zerrenda(udalerriak)
+    oraingoak = {url for _, url, _ in orriak}
+    # Orriak aldi berean jaitsi (gehienak webgune desberdinak dira); LLM deiak sekuentzialak dira
+    with ThreadPoolExecutor(max_workers=8) as exekutorea:
+        erantzunak = exekutorea.map(_orria_jaitsi, [url for _, url, _ in orriak])
+        for (izena, url, herria), r in zip(orriak, erantzunak):
+            if r is None:
                 estatistika["hutsak"] += 1
+                ikusiak.add(url)
                 continue
-            emaitza = erantzuna.get("ekitaldiak") or []
-            estatistika["llm"] += 1
-        else:
-            estatistika["saltatuta"] += 1
-            continue
+            mota = r.headers.get("Content-Type", "html")
+            irudia = None
+            if mota.startswith("image/") and len(r.content) < IRUDI_MUGA:
+                # Agenda kartel bat (adib. Lesakako hileko agenda JPEG gisa): irudia bera bidali
+                irudia = f"data:{mota.split(';')[0]};base64," + base64.b64encode(r.content).decode()
+                testua = "(The agenda is in the attached image.)"
+                edukia_hash = hashlib.sha256(r.content).hexdigest()
+            elif "html" in mota:
+                testua = orria_testura(r.text, r.url)
+                if len(testua) < 200:
+                    ikusiak.add(url)
+                    continue
+                edukia_hash = testua
+            else:
+                ikusiak.add(url)
+                continue  # PDFak… ez (oraingoz)
+            hash_ = hashlib.sha256(f"{PROMPT_BERTSIOA}|{url}|{edukia_hash}".encode()).hexdigest()
 
-        berria[hash_] = {"url": url, "data": gaur, "ekitaldiak": emaitza}
-        for e in emaitza:
-            ek = bihurtu(izena, r.url, herria, e, udalerriak) if isinstance(e, dict) else None
-            if ek:
-                yield ek
+            if hash_ in cachea:
+                emaitza = cachea[hash_]["ekitaldiak"]
+                estatistika["cachea"] += 1
+            elif gakoa_badago and deiak < GEHIENEZ_DEIAK and (muga is None or time.monotonic() < muga):
+                deiak += 1
+                herri_testua = f"{herria['izena']} ({herria['lurraldea']})" if herria else "ezezaguna"
+                erantzuna = llm.eskatu_json(SISTEMA, f"TODAY: {gaur}\nSOURCE: {izena}\n"
+                                                     f"DEFAULT TOWN: {herri_testua}\nPAGE URL: {r.url}\n\n{testua}",
+                                             irudia=irudia)
+                if erantzuna is None:
+                    estatistika["hutsak"] += 1
+                    ikusiak.add(url)
+                    continue
+                emaitza = erantzuna.get("ekitaldiak") or []
+                estatistika["llm"] += 1
+                if deiak % 10 == 0:  # tarteka gorde: exekuzioa hilda ere, egindako lana ez galtzeko
+                    _cachea_gorde(berria, cachea, ikusiak, oraingoak)
+            else:
+                # Dei-muga edo denbora-muga: orri honen aurreko emaitza (badago) mantendu
+                estatistika["saltatuta"] += 1
+                zaharra = azkenak.get(url)
+                for e in (zaharra or {}).get("ekitaldiak", []):
+                    ek = bihurtu(izena, zaharra.get("orri_url", url), herria, e, udalerriak) \
+                        if isinstance(e, dict) else None
+                    if ek:
+                        yield ek
+                continue
 
-    # Gaur erabilitakoak bakarrik gorde (orri aldatuen sarrera zaharrak ezabatzen dira)
-    CACHEA.parent.mkdir(exist_ok=True)
-    CACHEA.write_text(json.dumps(berria, ensure_ascii=False, indent=0), encoding="utf-8")
+            ikusiak.add(url)
+            berria[hash_] = {"url": url, "orri_url": r.url, "data": gaur, "ekitaldiak": emaitza}
+            for e in emaitza:
+                ek = bihurtu(izena, r.url, herria, e, udalerriak) if isinstance(e, dict) else None
+                if ek:
+                    yield ek
+
+    _cachea_gorde(berria, cachea, ikusiak, oraingoak)
     print(f"  orriak: {estatistika}")
+    # Denbora- edo dei-mugagatik orriak geratu badira, GitHub-eko workflow-ak exekuzio berri bat
+    # abiarazten du egun berean (cacheari esker, utzitako lekutik jarraitzen du).
+    # Dei on bakar bat ere ez bada egin (kuota agortuta, gakorik ez…), ez jarraitu: begizta litzateke.
+    if estatistika["saltatuta"] and estatistika["llm"]:
+        print(f"  {estatistika['saltatuta']} orri aztertu gabe: hurrengo exekuzioak jarraituko du")
+        irteera = os.environ.get("GITHUB_OUTPUT")
+        if irteera:
+            with open(irteera, "a", encoding="utf-8") as f:
+                f.write("llm_amaitu_gabe=true\n")
+
+
+def _orria_jaitsi(url):
+    try:
+        # Saio partekaturik ez: hari askotan erabiltzeko seguruagoa
+        r = requests.get(url, headers=GOIBURUAK, timeout=30)
+        r.raise_for_status()
+        return r
+    except requests.RequestException:
+        return None
+
+
+def _cachea_gorde(berria, zaharra, ikusiak, oraingoak):
+    """Gaurko sarrerak + oraindik ikusi gabeko orrien sarrera zaharrak (saltatuak). Ikusitako orri
+    aldatuen eta zerrendatik kendutako orrien sarrera zaharrak ezabatzen dira."""
+    gorde = {h: v for h, v in zaharra.items() if v.get("url") in oraingoak and v.get("url") not in ikusiak}
+    gorde.update(berria)
+    CACHEA.parent.mkdir(exist_ok=True)
+    CACHEA.write_text(json.dumps(gorde, ensure_ascii=False, indent=0), encoding="utf-8")
