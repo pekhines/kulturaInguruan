@@ -15,7 +15,8 @@
 # LLM gakoa: Settings → Secrets and variables → Actions → "New repository secret"
 #   Izena: OPENROUTER_API_KEY   (ez da inoiz biltegian gordetzen)
 #
-# Etxeko VPN-a (aukerakoa): WIREGUARD_KONFIG secret-a. Ikus robota/vpn_piztu.sh
+# Etxeko VPN-a (aukerakoa): WIREGUARD_KONFIG secret-a. Robotaren eskaera guztiak etxetik doaz
+# (git push eta GitHub-eko trafikoa ez). Ikus robota/vpn_piztu.sh eta robota/vpn_bidez.sh
 name: Ekitaldiak bildu
 
 on:
@@ -55,22 +56,22 @@ jobs:
 
       - run: pip install -r requirements.txt
 
+      # Webgune askok GitHub-eko IPak blokeatzen edo mugatzen dituzte (Cloudflare 403, Iruñea 502…):
+      # robotaren eskaera guztiak etxeko WireGuard VPN-tik (secret-a: WIREGUARD_KONFIG)
+      - name: Etxeko VPN-a piztu (robotaren eskaera guztietarako)
+        continue-on-error: true   # VPN-a huts eginda ere, robotak zuzenean jarraitzen du
+        env:
+          WIREGUARD_KONFIG: ${{ secrets.WIREGUARD_KONFIG }}
+        run: bash robota/vpn_piztu.sh
+
       # Astearteetan (%u = 2): udal webguneak berriro aztertu (agenda berriak, aldaketak…)
       - name: Udal agendak aurkitu (astearteetan)
         if: github.event_name == 'schedule'
         run: |
           if [ "$(date -u +%u)" = "2" ]; then
-            python robota/webguneak_asmatu.py
-            python robota/agendak_aurkitu.py
+            bash robota/vpn_bidez.sh python robota/webguneak_asmatu.py
+            bash robota/vpn_bidez.sh python robota/agendak_aurkitu.py
           fi
-
-      # Cloudflare-k GitHub-eko IPak blokeatzen ditu Cultura Navarra eta Zarata-n (403):
-      # haietarako trafikoa bakarrik etxeko WireGuard VPN-tik (secret-a: WIREGUARD_KONFIG)
-      - name: Etxeko VPN-a piztu (blokeatutako webguneetarako bakarrik)
-        continue-on-error: true   # VPN-a huts eginda ere, beste iturriak bildu
-        env:
-          WIREGUARD_KONFIG: ${{ secrets.WIREGUARD_KONFIG }}
-        run: bash robota/vpn_piztu.sh
 
       - name: Robota exekutatu
         id: robota
@@ -82,20 +83,20 @@ jobs:
         run: |
           if [ "$JARRAIPENA" != "0" ]; then
             echo "Jarraipena $JARRAIPENA/$JARRAIPEN_MUGA: LLM agendak bakarrik"
-            python robota/bildu.py "LLM agendak"
+            bash robota/vpn_bidez.sh python robota/bildu.py "LLM agendak"
           # Ostegunetan (%u = 4) edo eskuz: exekuzio osoa
           elif [ "${{ github.event_name }}" = "workflow_dispatch" ] || [ "$(date -u +%u)" = "4" ]; then
             echo "Exekuzio osoa (LLM agendak barne)"
-            python robota/bildu.py
+            bash robota/vpn_bidez.sh python robota/bildu.py
           else
             echo "Eguneko exekuzioa (LLMrik gabe)"
-            python robota/bildu.py --salbu "LLM agendak"
+            bash robota/vpn_bidez.sh python robota/bildu.py --salbu "LLM agendak"
           fi
 
       - name: VPN-a itzali
         if: always()
         run: |
-          if [ -f /etc/wireguard/etxea.conf ]; then sudo wg-quick down etxea || true; fi
+          sudo ip netns del etxea 2>/dev/null || true
 
       - name: Aldaketak gorde
         id: gorde
