@@ -58,6 +58,35 @@ Rules:
 - Keep "izenburua" in the page's original language. Max 80 events.
 If there are no events, return {"ekitaldiak": []}."""
 
+TELEGRAM_EGUNAK = 45  # kanal publikoetan, azken egun hauetako mezuak bakarrik
+
+
+def telegram_testura(html, gaur=None):
+    """Telegram kanal publiko baten web-bertsioa (t.me/s/IZENA) → mezuak, bakoitza bere datarekin.
+    Orriak ordua bakarrik erakusten du (17:24); data gabe LLMak ez luke "gaur", "bihar"… ulertuko."""
+    gaur = gaur or date.today()
+    soup = BeautifulSoup(html, "html.parser")
+    zatiak = ["Telegram channel posts. Relative dates in a post (gaur, bihar, larunbatean, hoy, mañana…) "
+              "are relative to that post's own date."]
+    for m in soup.select(".tgme_widget_message_wrap"):
+        denbora = m.select_one(".tgme_widget_message_date time[datetime]")
+        esteka = m.select_one("a.tgme_widget_message_date[href]")
+        testua_el = m.select_one(".tgme_widget_message_text")
+        if not denbora or not testua_el:
+            continue
+        data = date.fromisoformat(denbora["datetime"][:10])
+        if (gaur - data).days > TELEGRAM_EGUNAK:
+            continue
+        for br in testua_el.find_all("br"):
+            br.replace_with("\n")
+        for a in testua_el.find_all("a", href=True):
+            if a.get_text(strip=True):
+                a.replace_with(f"[{a.get_text(strip=True)}]({a['href']})")
+        testua = re.sub(r"\n{3,}", "\n\n", testua_el.get_text()).strip()
+        zatiak.append(f"--- POST of {data.isoformat()} ({esteka['href'] if esteka else ''}):\n{testua}")
+    return "\n\n".join(zatiak)
+
+
 def orria_testura(html, oinarria):
     """HTMLa testu garbi bihurtu, estekak [testua](url) gisa mantenduz."""
     soup = BeautifulSoup(html, "html.parser")
@@ -182,7 +211,7 @@ def ekitaldiak(udalerriak):
                 testua = "(The agenda is in the attached image.)"
                 edukia_hash = hashlib.sha256(r.content).hexdigest()
             elif "html" in mota:
-                testua = orria_testura(r.text, r.url)
+                testua = telegram_testura(r.text) if "//t.me/s/" in r.url else orria_testura(r.text, r.url)
                 if len(testua) < 200:
                     ikusiak.add(url)
                     continue
