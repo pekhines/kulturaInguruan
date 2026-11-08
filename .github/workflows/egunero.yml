@@ -107,7 +107,15 @@ jobs:
           git config user.email "kultura-robota@users.noreply.github.com"
           git add docs/datuak robota/cache robota/agendak.json robota/udal_webguneak.json
           git diff --cached --quiet || git commit -m "Ekitaldiak eguneratu $(date -u +%Y-%m-%d)$([ "$JARRAIPENA" != "0" ] && echo " (LLM jarraipena $JARRAIPENA)")"
-          git push
+          # Exekuzioak irauten duen bitartean main aurreratu bada (kode-aldaketak…), gure commit-a
+          # haren gainean jarri; datuak eta kodea fitxategi desberdinak dira, ez dago gatazkarik
+          for saiakera in 1 2 3; do
+            git pull --rebase -q origin "${{ github.ref_name }}" && git push && break
+            echo "::warning::git push-ek huts egin du ($saiakera. saiakera); berriz"
+            sleep 5
+          done
+          # Igo gabeko commit-ik geratzen bada, urratsak huts egin (eta jarraipena ez abiarazi)
+          [ -z "$(git log "origin/${{ github.ref_name }}..HEAD" --oneline)" ]
 
       # LLM agendak amaitu gabe: exekuzio berria orain bertan (datuak eta cachea jada gordeta daude)
       - name: LLM agendekin jarraitu (egun berean)
