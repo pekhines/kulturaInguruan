@@ -31,6 +31,9 @@ AGENDAK = ERROA / "robota" / "agendak.json"
 CACHEA = ERROA / "robota" / "cache" / "llm.json"
 PROMPT_BERTSIOA = "2"
 GEHIENEZ_DEIAK = int(os.environ.get("LLM_GEHIENEZ", "150"))  # exekuzio bakoitzeko
+# Robotaren hasiera (modulua bildu.py abiatzean kargatzen da): LLM_MINUTUAK hemendik kontatzen da,
+# ez LLM zatiaren hasieratik, aurreko iturriak motel badoaz ere GitHub-eko muga ez gainditzeko.
+HASIERA = time.monotonic()
 TESTU_LUZERA = 24000
 IRUDI_MUGA = 5_000_000  # byte; handiagoak ez
 # Bere irakurle propioa duten udalak (iturriak/irunea.py…): LLMak ez ditu irakurri behar
@@ -155,10 +158,10 @@ def ekitaldiak(udalerriak):
     gakoa_badago = bool(llm.gakoa())
     if not gakoa_badago:
         print("  OHARRA: OPENROUTER_API_KEY ez dago; cacheko emaitzak bakarrik erabiliko dira.")
-    # GitHub-en lanak 150 minutu ditu gehienez: LLM_MINUTUAK igarota ez da dei berririk egiten.
+    # GitHub-en lanak 150 minutu ditu gehienez: robota abiatu eta LLM_MINUTUAK igarota ez da dei berririk egiten.
     # Saltatutako orriek aurreko emaitzak mantentzen dituzte, eta hurrengo exekuzioan jarraitzen da.
     minutuak = float(os.environ.get("LLM_MINUTUAK") or 0)
-    muga = time.monotonic() + minutuak * 60 if minutuak else None
+    muga = HASIERA + minutuak * 60 if minutuak else None
 
     gaur = date.today().isoformat()
     orriak = orriak_zerrenda(udalerriak)

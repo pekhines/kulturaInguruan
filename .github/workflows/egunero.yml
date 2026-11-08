@@ -77,9 +77,10 @@ jobs:
         id: robota
         env:
           OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          # Doako LLM ereduak motelak dira: 90 minutu igarota ez da dei berririk egiten
-          # (lanak 150 minutu ditu gehienez; gainerako orriak jarraipen-exekuzio batean)
-          LLM_MINUTUAK: "90"
+          # Doako LLM ereduak motelak dira: robota abiatu eta 115 minutura ez da LLM dei berririk egiten
+          # (lanak 150 minutu ditu gehienez: azken deia, esportazioa eta commit-a egiteko tartea;
+          # gainerako orriak jarraipen-exekuzio batean)
+          LLM_MINUTUAK: "115"
         run: |
           if [ "$JARRAIPENA" != "0" ]; then
             echo "Jarraipena $JARRAIPENA/$JARRAIPEN_MUGA: LLM agendak bakarrik"
