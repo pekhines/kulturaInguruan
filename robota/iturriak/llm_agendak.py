@@ -229,6 +229,8 @@ def ekitaldiak(udalerriak):
 
     _cachea_gorde(berria, cachea, ikusiak, oraingoak)
     print(f"  orriak: {estatistika}")
+    if deiak:
+        print(f"  ereduak: {llm.laburpena()}")
     # Denbora- edo dei-mugagatik orriak geratu badira, GitHub-eko workflow-ak exekuzio berri bat
     # abiarazten du egun berean (cacheari esker, utzitako lekutik jarraitzen du).
     # Dei on bakar bat ere ez bada egin (kuota agortuta, gakorik ez…), ez jarraitu: begizta litzateke.
