@@ -48,6 +48,9 @@ Rules:
 - Only events explicitly listed on the page with a concrete date. Never invent events or dates.
 - Ignore news articles, past events, institutional meetings (plenos), job offers, ads, and administrative
   notices (taxes, payment deadlines, registration periods, public procedures, office hours).
+- Only cultural, festive, educational or leisure events (concerts, theatre, talks, workshops, screenings,
+  festivals, fairs, exhibitions, bertso sessions…). Exclude political or union actions: demonstrations,
+  strikes, rallies, protests, press conferences, assemblies and meetings.
 - If a date has no year, choose the year that makes it closest to TODAY (events are usually upcoming).
 - "herria": the town/village where the event happens, as written on the page; "" if not stated.
 - "mota": short type (kontzertua, antzerkia, jaiak, azoka, dantza, zinema, bertsoak, erakusketa, hitzaldia, haurrak, tailerra, kirola…).
@@ -58,33 +61,71 @@ Rules:
 - Keep "izenburua" in the page's original language. Max 80 events.
 If there are no events, return {"ekitaldiak": []}."""
 
-TELEGRAM_EGUNAK = 45  # kanal publikoetan, azken egun hauetako mezuak bakarrik
+TELEGRAM_EGUNAK = 45   # kanal publikoetan, azken egun hauetako mezuak bakarrik
+KARTEL_TESTU_MUGA = 300  # testu laburragoa duten argazki-mezuetan, kartela bera irakurri (LLM dei bat)
+KARTEL_EGUNAK = 21       # kartelak (dei bana) azken egun hauetakoak bakarrik; zaharragoak iraganekoak dira
+ARGAZKIA = re.compile(r"url\(['\"]?(https?://[^'\")]+)")
+_kartelak = {}  # mezuaren esteka → {"argazkia", "data", "testua"}; ekitaldiak()-k betetzen du
 
 
-def telegram_testura(html, gaur=None):
-    """Telegram kanal publiko baten web-bertsioa (t.me/s/IZENA) → mezuak, bakoitza bere datarekin.
-    Orriak ordua bakarrik erakusten du (17:24); data gabe LLMak ez luke "gaur", "bihar"… ulertuko."""
+def telegram_mezuak(html, gaur=None):
+    """Telegram kanal publiko baten web-bertsioa (t.me/s/IZENA) → [{data, esteka, testua, argazkia}],
+    azken TELEGRAM_EGUNAK egunetakoak."""
     gaur = gaur or date.today()
-    soup = BeautifulSoup(html, "html.parser")
-    zatiak = ["Telegram channel posts. Relative dates in a post (gaur, bihar, larunbatean, hoy, mañana…) "
-              "are relative to that post's own date."]
-    for m in soup.select(".tgme_widget_message_wrap"):
+    emaitza = []
+    for m in BeautifulSoup(html, "html.parser").select(".tgme_widget_message_wrap"):
         denbora = m.select_one(".tgme_widget_message_date time[datetime]")
         esteka = m.select_one("a.tgme_widget_message_date[href]")
-        testua_el = m.select_one(".tgme_widget_message_text")
-        if not denbora or not testua_el:
+        if not denbora or not esteka:
             continue
         data = date.fromisoformat(denbora["datetime"][:10])
         if (gaur - data).days > TELEGRAM_EGUNAK:
             continue
-        for br in testua_el.find_all("br"):
-            br.replace_with("\n")
-        for a in testua_el.find_all("a", href=True):
-            if a.get_text(strip=True):
-                a.replace_with(f"[{a.get_text(strip=True)}]({a['href']})")
-        testua = re.sub(r"\n{3,}", "\n\n", testua_el.get_text()).strip()
-        zatiak.append(f"--- POST of {data.isoformat()} ({esteka['href'] if esteka else ''}):\n{testua}")
+        testua = ""
+        testua_el = m.select_one(".tgme_widget_message_text")
+        if testua_el:
+            for br in testua_el.find_all("br"):
+                br.replace_with("\n")
+            for a in testua_el.find_all("a", href=True):
+                if a.get_text(strip=True):
+                    a.replace_with(f"[{a.get_text(strip=True)}]({a['href']})")
+            testua = re.sub(r"\n{3,}", "\n\n", testua_el.get_text()).strip()
+        argazkia = None
+        argazki_el = m.select_one(".tgme_widget_message_photo_wrap[style]")
+        if argazki_el:
+            ma = ARGAZKIA.search(argazki_el["style"])
+            argazkia = ma.group(1) if ma else None
+        emaitza.append({"data": data, "esteka": esteka["href"], "testua": testua, "argazkia": argazkia})
+    return emaitza
+
+
+def telegram_testura(html, gaur=None):
+    """Mezuen testua, bakoitza bere datarekin. Orriak ordua bakarrik erakusten du (17:24); data gabe
+    LLMak ez luke "gaur", "bihar"… ulertuko."""
+    zatiak = ["Telegram channel posts. Relative dates in a post (gaur, bihar, larunbatean, hoy, mañana…) "
+              "are relative to that post's own date."]
+    for m in telegram_mezuak(html, gaur):
+        if m["testua"]:
+            zatiak.append(f"--- POST of {m['data'].isoformat()} ({m['esteka']}):\n{m['testua']}")
     return "\n\n".join(zatiak)
+
+
+def telegram_kartelak(orriak):
+    """Telegram kanal bakoitzeko, testu gutxiko argazki-mezuak (kartelak) orri gisa gehitu:
+    (izena, mezuaren esteka, herria). Argazkia _kartelak-en gordetzen da, _orria_jaitsi-k jaisteko."""
+    berriak = []
+    for izena, url, herria in orriak:
+        if "//t.me/s/" not in url:
+            continue
+        r = _orria_jaitsi(url)
+        if r is None:
+            continue
+        for m in telegram_mezuak(r.text):
+            if m["argazkia"] and len(m["testua"]) < KARTEL_TESTU_MUGA \
+                    and (date.today() - m["data"]).days <= KARTEL_EGUNAK:
+                _kartelak[m["esteka"]] = m
+                berriak.append((f"{izena}", m["esteka"], herria))
+    return berriak
 
 
 def orria_testura(html, oinarria):
@@ -139,11 +180,22 @@ def _data(testua):
         return None
 
 
+# Kultur agenda da: deialdi politiko eta sindikalak ez (LLMari ere esaten zaio, baina cacheko emaitza
+# zaharretan egon daitezke, eta LLMak ez du beti betetzen)
+EZ_KULTURA_MOTA = re.compile(r"manifest|elkarretaratze|kontzentrazio|concentraci|greba|huelga|gr[eè]ve|"
+                             r"mobiliza|protest|rassemblement|prentsaurreko|rueda de prensa|asanblada|asamblea|"
+                             r"assembl[eé]e|bilera|batzar|reuni[oó]n", re.I)
+EZ_KULTURA_IZENBURUA = re.compile(r"\b(manifestazio|elkarretaratze|greba orokor|huelga general|"
+                                  r"manifestaci[oó]n|concentraci[oó]n|gr[eè]ve g[eé]n[eé]rale|manif)\w*", re.I)
+
+
 def bihurtu(izena, orri_url, herri_lehenetsia, e, udalerriak):
     gaur = date.today()
     hasiera, amaiera = _data(e.get("data_hasiera")), _data(e.get("data_amaiera"))
     izenburua = html_garbitu(e.get("izenburua", ""), 200)
     if not izenburua or not hasiera:
+        return None
+    if EZ_KULTURA_MOTA.search(e.get("mota") or "") or EZ_KULTURA_IZENBURUA.search(izenburua):
         return None
     amaiera = amaiera if amaiera and amaiera >= hasiera else hasiera
     if amaiera < gaur or hasiera > gaur + timedelta(days=365) or (amaiera - hasiera).days > 120:
@@ -194,6 +246,7 @@ def ekitaldiak(udalerriak):
 
     gaur = date.today().isoformat()
     orriak = orriak_zerrenda(udalerriak)
+    orriak += telegram_kartelak(orriak)
     oraingoak = {url for _, url, _ in orriak}
     # Orriak aldi berean jaitsi (gehienak webgune desberdinak dira); LLM deiak sekuentzialak dira
     with ThreadPoolExecutor(max_workers=8) as exekutorea:
@@ -205,10 +258,16 @@ def ekitaldiak(udalerriak):
                 continue
             mota = r.headers.get("Content-Type", "html")
             irudia = None
+            orri_url = url if url in _kartelak else r.url  # kartelak: mezuaren esteka, ez argazkiarena
             if mota.startswith("image/") and len(r.content) < IRUDI_MUGA:
                 # Agenda kartel bat (adib. Lesakako hileko agenda JPEG gisa): irudia bera bidali
                 irudia = f"data:{mota.split(';')[0]};base64," + base64.b64encode(r.content).decode()
                 testua = "(The agenda is in the attached image.)"
+                kartela = _kartelak.get(url)
+                if kartela:  # Telegram-eko kartela: mezuaren data eta testua testuinguru gisa
+                    testua = (f"(Event poster attached, from a Telegram post of {kartela['data'].isoformat()}. "
+                              f"Relative dates are relative to that day. Post text: "
+                              f"{kartela['testua'] or '(none)'})")
                 edukia_hash = hashlib.sha256(r.content).hexdigest()
             elif "html" in mota:
                 testua = telegram_testura(r.text) if "//t.me/s/" in r.url else orria_testura(r.text, r.url)
@@ -228,7 +287,7 @@ def ekitaldiak(udalerriak):
                 deiak += 1
                 herri_testua = f"{herria['izena']} ({herria['lurraldea']})" if herria else "ezezaguna"
                 erantzuna = llm.eskatu_json(SISTEMA, f"TODAY: {gaur}\nSOURCE: {izena}\n"
-                                                     f"DEFAULT TOWN: {herri_testua}\nPAGE URL: {r.url}\n\n{testua}",
+                                                     f"DEFAULT TOWN: {herri_testua}\nPAGE URL: {orri_url}\n\n{testua}",
                                              irudia=irudia)
                 if erantzuna is None:
                     estatistika["hutsak"] += 1
@@ -250,9 +309,9 @@ def ekitaldiak(udalerriak):
                 continue
 
             ikusiak.add(url)
-            berria[hash_] = {"url": url, "orri_url": r.url, "data": gaur, "ekitaldiak": emaitza}
+            berria[hash_] = {"url": url, "orri_url": orri_url, "data": gaur, "ekitaldiak": emaitza}
             for e in emaitza:
-                ek = bihurtu(izena, r.url, herria, e, udalerriak) if isinstance(e, dict) else None
+                ek = bihurtu(izena, orri_url, herria, e, udalerriak) if isinstance(e, dict) else None
                 if ek:
                     yield ek
 
@@ -274,7 +333,9 @@ def ekitaldiak(udalerriak):
 def _orria_jaitsi(url):
     try:
         # Saio partekaturik ez: hari askotan erabiltzeko seguruagoa
-        r = requests.get(url, headers=GOIBURUAK, timeout=30)
+        # Telegram-eko kartela bada, mezuaren esteka da gakoa, baina argazkia jaisten da
+        jaitsi = _kartelak[url]["argazkia"] if url in _kartelak else url
+        r = requests.get(jaitsi, headers=GOIBURUAK, timeout=30)
         r.raise_for_status()
         return r
     except requests.RequestException:
