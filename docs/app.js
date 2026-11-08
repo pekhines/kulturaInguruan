@@ -28,6 +28,8 @@ const ITURRIAK = {
   eke: ["EKE", "Euskal Kultur Erakundea (Iparraldea)"],
   culturanavarra: ["Cultura Navarra", "Nafarroako Gobernuaren kultur agenda"],
   zarata: ["Zarata", "MondoSonoro-ren kontzertu-agenda (Zarata edizioa)"],
+  musikazuzenean: ["Musika Zuzenean", "Euskal musikaren kontzertu-agenda: taldeek eta antolatzaileek igotakoak, gaztetxeak barne"],
+  metaleuskadi: ["Metal Euskadi", "Metal eta rock kontzertuak lurraldeka, gaztetxeak barne"],
   turismoa: ["Turismo bulegoak", "Pays Basque turismo bulegoa, Visit Navarra, Euskadiko Agenda Turistikoa"],
 };
 // Ekitaldiaren hizkuntza (robotak "hizkuntza" jartzen du testuak argi esaten duenean; bestela zehaztugabea)

@@ -27,7 +27,8 @@ import requests
 from bateratu import bateratu
 from lagungarriak import ERROA, Udalerriak, hizkuntza_asmatu, normalizatu
 from iturriak import (culturanavarra, dantzan, eke, elkarte_agendak, iparralde_turismoa, irunea, kulturklik,
-                      llm_agendak, tokikom, turismoa, udal_agendak, visitnavarra, zarata, zernonikusi)
+                      llm_agendak, metaleuskadi, musikazuzenean, tokikom, turismoa, udal_agendak, visitnavarra,
+                      zarata, zernonikusi)
 
 # Ordena garrantzitsua da: bikoiztuetan, lehenengo iturriarena gordetzen da
 # (datu egituratuak lehenengo, LLM bidez ateratakoak azkenik)
@@ -43,6 +44,8 @@ ITURRIAK = [
     ("Pays Basque turismoa", iparralde_turismoa),
     ("Visit Navarra", visitnavarra),
     ("Zarata", zarata),
+    ("Musika Zuzenean", musikazuzenean),
+    ("Metal Euskadi", metaleuskadi),
     ("Pantailak Euskaraz", zernonikusi),
     ("Agenda Turistikoa", turismoa),
     ("LLM agendak", llm_agendak),
@@ -57,6 +60,7 @@ TALDEAK = {
     # Iturri espezializatuak: bakoitzak bere txipa webgunean
     "EKE": "eke", "Dantzan.eus": "dantzan", "Cultura Navarra": "culturanavarra",
     "Pantailak Euskaraz": "pantailak", "Zarata": "zarata",
+    "Musika Zuzenean": "musikazuzenean", "Metal Euskadi": "metaleuskadi",
     "Pays Basque turismoa": "turismoa", "Visit Navarra": "turismoa", "Agenda Turistikoa": "turismoa",
 }
 

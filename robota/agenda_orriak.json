@@ -18,5 +18,24 @@
   {
     "izena": "Herria astekaria",
     "url": "https://herria.eus/agenda"
+  },
+  {
+    "izena": "Katakrak",
+    "url": "https://www.katakrak.net/cas/agenda",
+    "herria": "Iruñea"
+  },
+  {
+    "izena": "Tudela Cultura",
+    "url": "https://tudelacultura.com/agenda/",
+    "herria": "Tutera"
+  },
+  {
+    "izena": "Kafe Antzokia",
+    "url": "https://www.kafeantzokia.eus/agenda/",
+    "herria": "Bilbo"
+  },
+  {
+    "izena": "Guide du Pays Basque (kontzertuak)",
+    "url": "https://www.guide-du-paysbasque.com/fr/agenda/concerts.html"
   }
 ]
