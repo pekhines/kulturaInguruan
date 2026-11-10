@@ -18,8 +18,14 @@
   {
     "izena": "Karrikiri",
     "herria": "Iruñea",
+    "metodoa": "ical",
+    "url": "https://www.karrikiri.eus/agenda/?ical=1"
+  },
+  {
+    "izena": "Campos Elíseos Antzokia",
+    "herria": "Bilbo",
     "metodoa": "tribe",
-    "url": "https://www.karrikiri.eus/wp-json/tribe/events/v1/events"
+    "url": "https://www.teatrocampos.com/wp-json/tribe/events/v1/events"
   },
   {
     "izena": "Herria astekaria",

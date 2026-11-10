@@ -22,7 +22,7 @@ import requests
 from bs4 import BeautifulSoup
 from icalendar import Calendar
 
-from lagungarriak import (ERROA, GOIBURUAK, HILABETE_LABURDURAK, html_garbitu,
+from lagungarriak import (ERROA, GOIBURUAK, HILABETE_LABURDURAK, html_garbitu, robots_baimena,
                           kategoria_asmatu, udal_kokapena, urtea_asmatu)
 
 AGENDAK = ERROA / "robota" / "agendak.json"
@@ -33,6 +33,8 @@ saioa.headers.update(GOIBURUAK)
 
 
 def eskuratu(url, **kw):
+    if not robots_baimena(url):
+        raise PermissionError(f"robots.txt-ek debekatzen du: {url}")
     r = saioa.get(url, timeout=30, **kw)
     r.raise_for_status()
     return r
@@ -227,6 +229,8 @@ def mec(orria, udala, udalerriak, hilabeteak=12):
         urtea, hila = int(hurrengoa.group(1)), int(hurrengoa.group(2))
         for _ in range(hilabeteak):
             time.sleep(1)
+            if not robots_baimena(ajax.group(1).replace("\\/", "/")):
+                break
             r = saioa.post(ajax.group(1).replace("\\/", "/"), timeout=30, data=(
                 f"action=mec_monthly_view_load_month&mec_year={urtea}&mec_month={hila}"
                 f"&{atts.group(1)}&apply_sf_date=1"),
@@ -288,7 +292,11 @@ def metodoak(t):
         oinarria = f"{urlparse(t['webgunea']).scheme}://{urlparse(t['webgunea']).netloc}"
         hizkuntza = "es" if "/es/" in t["webgunea"] else "eu"
         emaitza.append(("izfe", f"{oinarria}/{hizkuntza}/agenda"))
-    return emaitza
+    # robots.txt-ek debekatzen dituenak kanpo (adib. "Disallow: /*?" → ?ical=1 ez). Metodorik
+    # geratzen ez bada, udala LLM bidez irakurtzen da bere agenda-orri arruntetik (baimenduta badago).
+    def benetakoa(m, u):  # irakurleek benetan eskatzen duten URLa
+        return u + "?per_page=50" if m == "tribe" else re.sub(r"^webcal://", "https://", u, flags=re.I)
+    return [(m, u) for m, u in emaitza if robots_baimena(benetakoa(m, u))]
 
 
 # ---------- 5. Plone (Eibar, Dantzan.eus…) ----------

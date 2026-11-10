@@ -23,7 +23,8 @@ import requests
 from bs4 import BeautifulSoup
 
 import llm
-from lagungarriak import ERROA, HIZKUNTZAK, GOIBURUAK, html_garbitu, kategoria_asmatu, udal_kokapena
+from lagungarriak import (ERROA, HIZKUNTZAK, GOIBURUAK, html_garbitu, kategoria_asmatu, robots_baimena,
+                          udal_kokapena)
 from iturriak.udal_agendak import metodoak
 
 ORRIAK = ERROA / "robota" / "agenda_orriak.json"
@@ -163,9 +164,12 @@ def orriak_zerrenda(udalerriak):
             if ag.get("url") and not ag.get("errorea") and not metodoak(t) and t["id"] in ids \
                     and t["izena"] not in IRAKURLE_PROPIOA:
                 emaitza.append((f"{t['izena']} (udala)", ag["url"], ids[t["id"]]))
-    # URL bera behin bakarrik (eskuzko zerrendakoak lehentasuna)
+    # URL bera behin bakarrik (eskuzko zerrendakoak lehentasuna); robots.txt-ek debekatuak kanpo
     ikusiak, garbiak = set(), []
     for o in emaitza:
+        if not robots_baimena(o[1]):
+            print(f"  robots.txt-ek debekatua, ez da irakurtzen: {o[1]}")
+            continue
         gakoa = o[1].rstrip("/").split("://", 1)[-1].removeprefix("www.")
         if gakoa not in ikusiak:
             ikusiak.add(gakoa)

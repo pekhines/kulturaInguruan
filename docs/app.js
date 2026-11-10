@@ -30,6 +30,7 @@ const ITURRIAK = {
   zarata: ["Zarata", "MondoSonoro-ren kontzertu-agenda (Zarata edizioa)"],
   musikazuzenean: ["Musika Zuzenean", "Euskal musikaren kontzertu-agenda: taldeek eta antolatzaileek igotakoak, gaztetxeak barne"],
   metaleuskadi: ["Metal Euskadi", "Metal eta rock kontzertuak lurraldeka, gaztetxeak barne"],
+  antzokiak: ["Antzokiak", "Antzokien karteldegiak: Kursaal, Campos Elíseos, LABA, Scène Nationale (Baiona, Angelu, Donibane Lohizune, Bokale)"],
   kutxabank: ["Kutxabank Tickets", "Kutxabank-en sarrera-salmenta: antzoki, auditorio eta herrietako zinemak"],
   turismoa: ["Turismo bulegoak", "Pays Basque turismo bulegoa, Visit Navarra, Euskadiko Agenda Turistikoa"],
 };

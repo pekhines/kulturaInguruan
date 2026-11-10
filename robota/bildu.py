@@ -26,7 +26,7 @@ import requests
 
 from bateratu import bateratu
 from lagungarriak import ERROA, Udalerriak, hizkuntza_asmatu, normalizatu
-from iturriak import (culturanavarra, dantzan, eke, elkarte_agendak, iparralde_turismoa, irunea, kulturklik,
+from iturriak import (antzokiak, culturanavarra, dantzan, eke, elkarte_agendak, iparralde_turismoa, irunea, kulturklik,
                       kutxabank, llm_agendak, metaleuskadi, musikazuzenean, tokikom, turismoa, udal_agendak, visitnavarra,
                       zarata, zernonikusi)
 
@@ -47,6 +47,7 @@ ITURRIAK = [
     ("Musika Zuzenean", musikazuzenean),
     ("Metal Euskadi", metaleuskadi),
     ("Kutxabank Tickets", kutxabank),
+    ("Antzokiak", antzokiak),
     ("Pantailak Euskaraz", zernonikusi),
     ("Agenda Turistikoa", turismoa),
     ("LLM agendak", llm_agendak),
@@ -62,12 +63,18 @@ TALDEAK = {
     "EKE": "eke", "Dantzan.eus": "dantzan", "Cultura Navarra": "culturanavarra",
     "Pantailak Euskaraz": "pantailak", "Zarata": "zarata",
     "Musika Zuzenean": "musikazuzenean", "Metal Euskadi": "metaleuskadi",
-    "Kutxabank Tickets": "kutxabank",
+    "Kutxabank Tickets": "kutxabank", "Antzokiak": "antzokiak",
     "Pays Basque turismoa": "turismoa", "Visit Navarra": "turismoa", "Agenda Turistikoa": "turismoa",
 }
 
 
+# Beste bilduma batetik datozen arren (adib. agenda_orriak.json-eko "tribe"), antzokiak direnak
+ANTZOKIAK = {"Campos Elíseos Antzokia"}
+
+
 def taldea(bilduma, iturria):
+    if iturria in ANTZOKIAK:
+        return "antzokiak"
     if iturria.endswith("(udala)"):  # udal baten agenda, edozein irakurlerekin irakurrita
         return "udalak"
     if bilduma == "LLM agendak":

@@ -3,9 +3,11 @@ import html
 import json
 import math
 import re
+import threading
 import time
 import unicodedata
 from pathlib import Path
+from urllib.parse import urlparse
 
 import requests
 
@@ -14,6 +16,64 @@ UDALERRIAK_FITXATEGIA = ERROA / "docs" / "datuak" / "udalerriak.json"
 
 # Oharra: Kulturklik-ek User-Agent luzeak (parentesiekin) baztertzen ditu
 GOIBURUAK = {"User-Agent": "kulturaInguruan/0.1"}
+
+
+# ---------- robots.txt ----------
+# Python-en urllib.robotparser-ek "User-agent: *" LEHEN taldea bakarrik irakurtzen du; RFC 9309-k izen
+# bereko talde guztiak batzeko dio (Yoast-ek, adib., hainbat "User-agent: *" talde sortzen ditu, eta
+# /wp-json/ debekua bigarrenean egon ohi da). Horregatik geure irakurle txikia.
+_ROBOTS = {}
+_ROBOTS_LOCK = threading.Lock()
+
+
+def _robots_arauak(testua):
+    taldeak, ua, arauak, aurrekoa_ua = [], [], [], False
+    for lerroa in testua.splitlines():
+        lerroa = lerroa.split("#")[0].strip()
+        if ":" not in lerroa:
+            continue
+        gakoa, balioa = (x.strip() for x in lerroa.split(":", 1))
+        gakoa = gakoa.lower()
+        if gakoa == "user-agent":
+            if not aurrekoa_ua and ua:
+                taldeak.append((ua, arauak))
+                ua, arauak = [], []
+            ua.append(balioa.lower())
+            aurrekoa_ua = True
+        else:
+            if gakoa in ("allow", "disallow") and balioa:
+                arauak.append((gakoa, balioa))
+            aurrekoa_ua = False
+    if ua:
+        taldeak.append((ua, arauak))
+    gureak = [a for u, a in taldeak if any(x != "*" and x in GOIBURUAK["User-Agent"].lower() for x in u)]
+    return [r for a in (gureak or [a for u, a in taldeak if "*" in u]) for r in a]
+
+
+def robots_baimena(url):
+    """robots.txt-ek URL hau irakurtzen uzten digu? (domeinu bakoitzeko behin jaisten da)
+    Arau luzeena nagusi; berdinketan, Allow. robots.txt-ik ez badago edo ezin bada jaitsi: baimena."""
+    p = urlparse(url)
+    oinarria = f"{p.scheme}://{p.netloc}"
+    with _ROBOTS_LOCK:
+        arauak = _ROBOTS.get(oinarria)
+    if arauak is None:
+        try:
+            r = requests.get(oinarria + "/robots.txt", headers=GOIBURUAK, timeout=20)
+            testua = r.text if r.status_code == 200 and "<html" not in r.text[:300].lower() else ""
+        except requests.RequestException:
+            testua = ""
+        arauak = _robots_arauak(testua)
+        with _ROBOTS_LOCK:
+            _ROBOTS[oinarria] = arauak
+    bidea = (p.path or "/") + (f"?{p.query}" if p.query else "")
+    onena = ("allow", "")
+    for mota, patroia in arauak:
+        regex = "^" + re.escape(patroia).replace(r"\*", ".*").replace(r"\$", "$")
+        if re.match(regex, bidea) and (len(patroia) > len(onena[1]) or
+                                       (len(patroia) == len(onena[1]) and mota == "allow")):
+            onena = (mota, patroia)
+    return onena[0] == "allow"
 
 
 def eskuratu(url, saiakerak=3, itxaronaldia=10, **kwargs):

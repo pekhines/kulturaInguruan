@@ -137,11 +137,14 @@ saioak eta bertsolaritza beti euskaraz; LLMari ere orriak argi esaten duenean ba
 | [Iruñeko udala](https://www.pamplona.es/eu/gaurkotasuna/ekitaldiak) | Iruñea | HTMLa irakurrita |
 | [Visit Navarra](https://www.visitnavarra.es/es/agenda) | Nafarroa Garaia (jai eta feria handiak) | HTMLa irakurrita |
 | Elkarteen agendak (Karrikiri…) eta Eibarko udala ([eibarkultura.eus](https://eibarkultura.eus/egutegia/) barne) | 7ak | `agenda_orriak.json`, formatu estandarrak (WordPress, iCal, schema.org, Modern Events Calendar, Plone) |
+| Antzokien karteldegiak: [Kursaal](https://www.kursaal.eus/eu/agenda/), [Scène Nationale du Sud-Aquitain](https://www.scenenationale.fr/spectacles) (Baiona, Angelu, Donibane Lohizune, Bokale), [LABA](https://laba.eus/ekintzak/) (Iruñea), [Campos Elíseos](https://www.teatrocampos.com) (Bilbo) | Gipuzkoa, Lapurdi, Nafarroa Garaia, Bizkaia | HTMLa irakurrita / WordPress APIa (LLMrik gabe). Beste antzoki nagusiak (Gayarre, Baluarte, Victoria Eugenia, Arriaga, Euskalduna…) Kulturklik eta Kutxabank bidez |
 | [Kutxabank Tickets](https://tickets.kutxabank.es/) | Bizkaia, Gipuzkoa (antzoki, auditorio, herrietako zinemak) | Webguneak berak erabiltzen duen Firestore datu-base publikoa (JSON) |
 | [Zarata (MondoSonoro)](https://www.mondosonoro.com/agenda-zarata/) | 7ak (kontzertuak; Errioxakoak ez) | WordPress APIa, testua irakurrita (LLMrik gabe) |
 | [Pantailak Euskaraz / Zer non ikusi](https://www.zernonikusi.eus/zinema) | Hegoaldea | Euskarazko zinema-saioak, API irekia (JSON) |
 | [Euskadiko Agenda Turistikoa](https://turismo.euskadi.eus/agenda-turistica-de-euskadi/webtur00-recursostop/es/) | EAE (jaiak, azokak) | Datu irekiak (JSON) |
 | Beste agenda-orriak (udalak, hedabideak) | 7ak | LLM (OpenRouter, doako eredua) + cachea |
+
+**robots.txt**: robotak URL bakoitza egiaztatzen du irakurri aurretik (`lagungarriak.robots_baimena`, RFC 9309: izen bereko talde guztiak batuta). Udal batek metodo egituratu baimendurik ez badu, LLM bidez irakurtzen da bere agenda-orri arruntetik (hori ere baimenduta badago). AA erabilera debekatzen duten webguneak (Cultura Navarra) LLMrik gabe irakurtzen dira, edo ez dira irakurtzen (Zentral, Tabakalera: Kulturklik bidez daude).
 
 ## Hurrengo pausoak (ideiak)
 
