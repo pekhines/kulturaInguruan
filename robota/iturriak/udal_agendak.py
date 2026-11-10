@@ -292,6 +292,11 @@ def metodoak(t):
         oinarria = f"{urlparse(t['webgunea']).scheme}://{urlparse(t['webgunea']).netloc}"
         hizkuntza = "es" if "/es/" in t["webgunea"] else "eu"
         emaitza.append(("izfe", f"{oinarria}/{hizkuntza}/agenda"))
+        # Udal batzuek ez dute /agenda orririk (404: Lasarte-Oria, Zumarraga…); orduan,
+        # agendak_aurkitu.py-k aurkitutako agenda-orria, domeinu berekoa bada
+        if ag.get("url") and urlparse(ag["url"]).netloc == urlparse(t["webgunea"]).netloc \
+                and ag["url"].rstrip("/") != f"{oinarria}/{hizkuntza}/agenda":
+            emaitza.append(("izfe", ag["url"]))
     # robots.txt-ek debekatzen dituenak kanpo (adib. "Disallow: /*?" → ?ical=1 ez). Metodorik
     # geratzen ez bada, udala LLM bidez irakurtzen da bere agenda-orri arruntetik (baimenduta badago).
     def benetakoa(m, u):  # irakurleek benetan eskatzen duten URLa

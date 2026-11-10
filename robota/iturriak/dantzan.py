@@ -10,10 +10,9 @@ Ekitaldi bakoitza <article class="event-item"> bat da:
 """
 from datetime import date, datetime
 
-import requests
 from bs4 import BeautifulSoup
 
-from lagungarriak import GOIBURUAK, html_garbitu, kategoria_asmatu, udal_kokapena
+from lagungarriak import eskuratu, html_garbitu, kategoria_asmatu, udal_kokapena
 
 URL = "https://dantzan.eus/agenda"
 GEHIENEZKO_IRAUPENA = 120  # egunak; luzeagoak (urte osoko zikloak…) ez ditugu sartzen
@@ -27,8 +26,7 @@ def _data(abbr):
 
 
 def ekitaldiak(udalerriak):
-    r = requests.get(URL, headers=GOIBURUAK, timeout=30)
-    r.raise_for_status()
+    r = eskuratu(URL)  # 429 (eskaera gehiegi) bada, itxaron eta berriz saiatzen da
     soup = BeautifulSoup(r.text, "html.parser")
     gaur = date.today()
 

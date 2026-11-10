@@ -48,6 +48,10 @@ jobs:
     timeout-minutes: 150
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Ilaran zain egon bada (beste exekuzio bat amaitu arte), main-en azken bertsioa hartu,
+          # ez exekuzioa sortu zenekoa (bestela gure datuak zaharkituta daude eta push-ak talka egiten du)
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-python@v5
         with:
@@ -108,9 +112,16 @@ jobs:
           git add docs/datuak robota/cache robota/agendak.json robota/udal_webguneak.json
           git diff --cached --quiet || git commit -m "Ekitaldiak eguneratu $(date -u +%Y-%m-%d)$([ "$JARRAIPENA" != "0" ] && echo " (LLM jarraipena $JARRAIPENA)")"
           # Exekuzioak irauten duen bitartean main aurreratu bada (kode-aldaketak…), gure commit-a
-          # haren gainean jarri; datuak eta kodea fitxategi desberdinak dira, ez dago gatazkarik
+          # haren gainean jarri. Beste exekuzio batek datuak ere igo baditu (gatazka datu-fitxategietan),
+          # gureak dira berrienak: fitxategi osoak gure bertsiotik hartu
           for saiakera in 1 2 3; do
-            git pull --rebase -q origin "${{ github.ref_name }}" && git push && break
+            if ! git pull --rebase -q origin "${{ github.ref_name }}"; then
+              gatazkak=$(git diff --name-only --diff-filter=U)
+              echo "::warning::Datu-gatazka ($gatazkak); gure bertsioa gordetzen"
+              [ -n "$gatazkak" ] && git checkout --theirs -- $gatazkak && git add -- $gatazkak \
+                && GIT_EDITOR=true git rebase --continue || { git rebase --abort 2>/dev/null || true; sleep 5; continue; }
+            fi
+            git push && break
             echo "::warning::git push-ek huts egin du ($saiakera. saiakera); berriz"
             sleep 5
           done

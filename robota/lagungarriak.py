@@ -77,20 +77,25 @@ def robots_baimena(url):
 
 
 def eskuratu(url, saiakerak=3, itxaronaldia=10, **kwargs):
-    """requests.get, baina zerbitzariaren behin-behineko erroreetan (5xx, timeout, konexioa)
-    berriz saiatzen da. 4xx erroreak (403 blokeoa…) ez dira errepikatzen."""
+    """requests.get, baina zerbitzariaren behin-behineko erroreetan (5xx, 429, timeout, konexioa)
+    berriz saiatzen da. Beste 4xx erroreak (403 blokeoa…) ez dira errepikatzen.
+    429 (eskaera gehiegi) bada, zerbitzariaren Retry-After errespetatzen da (gehienez 2 min)."""
     kwargs.setdefault("headers", GOIBURUAK)
     kwargs.setdefault("timeout", 30)
     for saiakera in range(1, saiakerak + 1):
+        itxaron = itxaronaldia * saiakera
         try:
             r = requests.get(url, **kwargs)
-            if r.status_code < 500 or saiakera == saiakerak:
+            if (r.status_code < 500 and r.status_code != 429) or saiakera == saiakerak:
                 r.raise_for_status()
                 return r
+            if r.status_code == 429:
+                ra = r.headers.get("Retry-After", "")
+                itxaron = min(int(ra), 120) if ra.isdigit() else 30 * saiakera
         except (requests.ConnectionError, requests.Timeout):
             if saiakera == saiakerak:
                 raise
-        time.sleep(itxaronaldia * saiakera)
+        time.sleep(itxaron)
 
 # Kategoria bateratuak: iturri bakoitzaren motak hauetako batera eramaten dira
 KATEGORIAK = [
