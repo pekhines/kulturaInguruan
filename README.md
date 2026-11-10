@@ -136,7 +136,8 @@ saioak eta bertsolaritza beti euskaraz; LLMari ere orriak argi esaten duenean ba
 | [Cultura Navarra](https://www.culturanavarra.es/es/agenda) (Nafarroako Gobernua) | Nafarroa Garaia | HTMLa irakurrita (LLMrik gabe: webguneak ez du AA erabilera onartzen) |
 | [Iruñeko udala](https://www.pamplona.es/eu/gaurkotasuna/ekitaldiak) | Iruñea | HTMLa irakurrita |
 | [Visit Navarra](https://www.visitnavarra.es/es/agenda) | Nafarroa Garaia (jai eta feria handiak) | HTMLa irakurrita |
-| Elkarteen agendak (Karrikiri…) eta Eibarko udala | 7ak | `agenda_orriak.json`, formatu estandarrak (WordPress, iCal, schema.org, Plone) |
+| Elkarteen agendak (Karrikiri…) eta Eibarko udala ([eibarkultura.eus](https://eibarkultura.eus/egutegia/) barne) | 7ak | `agenda_orriak.json`, formatu estandarrak (WordPress, iCal, schema.org, Modern Events Calendar, Plone) |
+| [Kutxabank Tickets](https://tickets.kutxabank.es/) | Bizkaia, Gipuzkoa (antzoki, auditorio, herrietako zinemak) | Webguneak berak erabiltzen duen Firestore datu-base publikoa (JSON) |
 | [Zarata (MondoSonoro)](https://www.mondosonoro.com/agenda-zarata/) | 7ak (kontzertuak; Errioxakoak ez) | WordPress APIa, testua irakurrita (LLMrik gabe) |
 | [Pantailak Euskaraz / Zer non ikusi](https://www.zernonikusi.eus/zinema) | Hegoaldea | Euskarazko zinema-saioak, API irekia (JSON) |
 | [Euskadiko Agenda Turistikoa](https://turismo.euskadi.eus/agenda-turistica-de-euskadi/webtur00-recursostop/es/) | EAE (jaiak, azokak) | Datu irekiak (JSON) |
