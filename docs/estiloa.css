@@ -8,6 +8,7 @@
 }
 
 * { box-sizing: border-box; }
+[hidden] { display: none !important; }
 
 body {
   margin: 0;
@@ -35,9 +36,9 @@ header h1 { margin: 0; font-size: 1.6rem; }
 .lerroa { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: end; }
 label span { display: block; font-size: 0.85rem; color: var(--grisa); margin-bottom: 0.15rem; }
 .herria { flex: 1 1 18rem; }
-.km { flex: 1 1 18rem; max-width: 30rem; }
+.km { display: block; max-width: 30rem; }
 
-input[type="text"], input:not([type]), input[list] {
+input[type="text"], input[type="search"], input:not([type]), input[list] {
   width: 100%;
   padding: 0.55rem 0.7rem;
   font-size: 1rem;
@@ -58,7 +59,7 @@ button {
 button:hover { border-color: var(--grisa); }
 button.aktiboa { background: var(--testua); color: #fff; border-color: var(--testua); }
 #kokapena { border-radius: 6px; padding: 0.55rem 0.8rem; }
-.data-tartea { display: flex; align-items: center; gap: 0.25rem; font-size: 0.9rem; }
+.data-tartea .datak { display: flex; align-items: center; gap: 0.25rem; font-size: 0.9rem; flex-wrap: wrap; }
 
 .kategoriak button { font-size: 0.85rem; padding: 0.3rem 0.65rem; }
 .kategoriak button.aktiboa { background: var(--berdea); border-color: var(--berdea); }
@@ -70,7 +71,7 @@ main {
   min-height: 60vh;
 }
 .emaitzak { padding: 0.75rem 1.25rem; }
-.mapa-edukiontzia { position: sticky; top: 0; height: 100vh; border-left: 1px solid var(--marra); }
+.mapa-edukiontzia { position: sticky; top: 0; z-index: 0; height: 100vh; border-left: 1px solid var(--marra); }
 #mapa { height: 100%; }
 
 .laburpena { color: var(--grisa); margin: 0 0 0.5rem; }
@@ -118,10 +119,6 @@ footer {
 }
 footer a { color: inherit; }
 
-@media (max-width: 800px) {
-  main { grid-template-columns: 1fr; }
-  .mapa-edukiontzia { position: static; height: 45vh; order: -1; border-left: 0; border-bottom: 1px solid var(--marra); }
-}
 
 /* "Zein Elizondo?" — izen bereko herrien aukerak */
 .aukerak { margin: 0.2rem 0 0.6rem; color: var(--grisa); font-size: 0.95rem; }
@@ -135,3 +132,90 @@ footer a { color: inherit; }
 .hizkuntzak button.aktiboa { background: #2b5f8a; border-color: #2b5f8a; }
 .hizkuntza-etiketa { background: #e6eff7; color: #2b5f8a; }
 .ekitaldia .xehetasunak a { color: inherit; }
+
+/* ---------- Noiz-lerroa eta iragazkien botoia ---------- */
+.noiz-lerroa { flex-wrap: nowrap; align-items: center; }
+.noiz { display: flex; flex-wrap: wrap; gap: 0.4rem; flex: 1 1 auto; min-width: 0; }
+.iragazki-botoia { flex: none; border-radius: 6px; padding: 0.55rem 0.8rem; }
+.iragazki-botoia[aria-expanded="true"] { border-color: var(--testua); }
+.kopurua {
+  display: inline-block; margin-left: 0.35rem; min-width: 1.3rem; padding: 0 0.35rem;
+  border-radius: 999px; background: var(--gorria); color: #fff; font-size: 0.8rem; text-align: center;
+}
+
+/* Iragazki aktiboak */
+.txip-aktiboak { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+.txip-aktiboak button { font-size: 0.8rem; padding: 0.2rem 0.6rem; background: var(--testua); color: #fff; border-color: var(--testua); }
+.txip-aktiboak button::after { content: " ×"; font-weight: 700; }
+
+/* Iragazkien panela (ordenagailuan: bilatzailearen barruan zabaltzen da) */
+.iragazki-panela {
+  display: flex; flex-direction: column; gap: 0.7rem;
+  padding: 0.75rem; background: #fff; border: 1px solid var(--marra); border-radius: 8px;
+}
+.panela-goiburua { display: flex; justify-content: space-between; align-items: center; }
+.esteka-botoia { border: 0; background: none; padding: 0; color: var(--gorria); text-decoration: underline; font-size: 0.9rem; }
+.aurreratua summary { cursor: pointer; color: var(--grisa); font-size: 0.9rem; margin-bottom: 0.4rem; }
+.panela-itxi { align-self: flex-start; background: var(--testua); color: #fff; border-color: var(--testua); border-radius: 6px; }
+.atzealdea { display: none; }
+
+/* Fitxak: telefonoan bakarrik */
+.fitxak { display: none; }
+
+/* Zerrenda: bilaketa eta "gehiago" */
+.bilaketa { margin-bottom: 0.5rem; }
+.gehiago { display: block; margin: 1rem auto; }
+.herri-esteka {
+  border: 0; padding: 0; background: none; font: inherit; font-weight: 700; color: inherit;
+  border-radius: 0; text-decoration: underline dotted; text-underline-offset: 3px;
+}
+
+/* Maparen popup-a */
+.popup-botoia {
+  margin-top: 0.45rem; background: var(--gorria); color: #fff; border-color: var(--gorria);
+  border-radius: 6px; font-size: 0.85rem;
+}
+
+/* ---------- Telefonoa ---------- */
+@media (max-width: 800px) {
+  header { padding: 0.5rem 0.9rem 0.35rem; border-bottom-width: 3px; }
+  header h1 { font-size: 1.2rem; }
+  .azpititulua { display: none; }
+
+  .bilatzailea { padding: 0.5rem 0.9rem; gap: 0.45rem; }
+  .herria > span, .testu-luzea { display: none; }
+  .herria { flex: 1 1 0; min-width: 0; }
+
+  /* Noiz botoiak lerro bakarrean, alboetara mugituz */
+  .noiz { flex-wrap: nowrap; overflow-x: auto; scrollbar-width: none; }
+  .noiz::-webkit-scrollbar { display: none; }
+  .noiz { gap: 0.3rem; }
+  .noiz button { flex: none; padding: 0.35rem 0.55rem; font-size: 0.88rem; }
+
+  /* Panela behetik igotzen da */
+  .atzealdea { display: block; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.35); z-index: 1100; }
+  .iragazki-panela {
+    position: fixed; left: 0; right: 0; bottom: 0; z-index: 1101;
+    max-height: 85vh; max-height: 85dvh; overflow-y: auto;
+    border-radius: 14px 14px 0 0; border: 0; box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    padding: 1rem 1rem calc(1rem + env(safe-area-inset-bottom));
+  }
+  .panela-itxi { align-self: stretch; padding: 0.7rem; font-size: 1rem; }
+  body.panela-irekita { overflow: hidden; }
+
+  .fitxak {
+    display: flex; position: sticky; top: 0; z-index: 1001;
+    background: #fff; border-bottom: 1px solid var(--marra);
+  }
+  .fitxak button {
+    flex: 1; border: 0; border-radius: 0; padding: 0.65rem; background: none;
+    border-bottom: 3px solid transparent; font-weight: 600; color: var(--grisa);
+  }
+  .fitxak button.aktiboa { color: var(--testua); border-bottom-color: var(--gorria); background: none; }
+
+  main { grid-template-columns: 1fr; }
+  main[data-fitxa="zerrenda"] .mapa-edukiontzia,
+  main[data-fitxa="mapa"] .emaitzak { display: none; }
+  .mapa-edukiontzia { position: relative; height: calc(100vh - 3rem); height: calc(100dvh - 3rem); border-left: 0; }
+  .emaitzak { padding: 0.6rem 0.9rem; }
+}

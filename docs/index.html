@@ -21,38 +21,61 @@
         <input id="herria" list="herri-zerrenda" placeholder="Idatzi herri bat: Eibar, Baiona, Iruñea…" autocomplete="off">
         <datalist id="herri-zerrenda"></datalist>
       </label>
-      <button id="kokapena" type="button" title="Nire kokapena erabili">📍 Nire kokapena</button>
+      <button id="kokapena" type="button" title="Nire kokapena erabili" aria-label="Nire kokapena erabili">📍<span class="testu-luzea"> Nire kokapena</span></button>
+      <button id="iragazki-botoia" class="iragazki-botoia" type="button" aria-expanded="false" aria-controls="iragazkiak" aria-label="Iragazkiak">⚙<span class="testu-luzea"> Iragazkiak</span><span id="iragazki-kopurua" class="kopurua" hidden></span></button>
     </div>
     <p id="aukerak" class="aukerak" hidden></p>
 
-    <div class="lerroa">
+    <!-- Beti ikusgai: noiz (gehien erabiltzen dena); gainerakoak ⚙ panelean -->
+    <div class="lerroa noiz-lerroa">
+      <div class="noiz" role="group" aria-label="Noiz">
+        <button type="button" data-noiz="gaur">Gaur</button>
+        <button type="button" data-noiz="bihar">Bihar</button>
+        <button type="button" data-noiz="asteburua">Asteburua</button>
+        <button type="button" data-noiz="astea" class="aktiboa">7 egun</button>
+        <button type="button" data-noiz="hilabetea">Hilabete</button>
+      </div>
+    </div>
+    <!-- Iragazki aktiboak: "Musika ×" — panela ireki gabe kentzeko -->
+    <div id="txip-aktiboak" class="txip-aktiboak" hidden></div>
+
+    <!-- Iragazkien panela: ordenagailuan tolesgarria, telefonoan behetik igotzen da -->
+    <div id="iragazki-atzealdea" class="atzealdea" hidden></div>
+    <div id="iragazkiak" class="iragazki-panela" role="dialog" aria-label="Iragazkiak" hidden>
+      <div class="panela-goiburua">
+        <strong>Iragazkiak</strong>
+        <button type="button" id="iragazkiak-garbitu" class="esteka-botoia">Garbitu denak</button>
+      </div>
       <label class="km">
-        <span>Distantzia: <strong id="km-balioa">20</strong> km</span>
-        <input id="km" type="range" min="2" max="100" step="1" value="20">
+        <span>Distantzia: <strong id="km-balioa">20 km</strong></span>
+        <input id="km" type="range" min="0" max="100" step="1" value="20">
       </label>
+      <div class="data-tartea">
+        <span>Data-tartea</span>
+        <span class="datak"><input id="data-noiz" type="date" aria-label="Noiztik"> – <input id="data-arte" type="date" aria-label="Noiz arte"></span>
+      </div>
+      <div class="lerroa kategoriak" id="kategoriak" role="group" aria-label="Kategoriak"><span class="txip-etiketa">Motak:</span></div>
+      <div class="lerroa kategoriak hizkuntzak" id="hizkuntzak" role="group" aria-label="Hizkuntza"><span class="txip-etiketa">Hizkuntza:</span></div>
+      <details class="aurreratua">
+        <summary>Aurreratua: iturriak</summary>
+        <div class="lerroa kategoriak iturriak" id="iturriak" role="group" aria-label="Iturriak"><span class="txip-etiketa">Iturriak:</span></div>
+      </details>
+      <button type="button" id="panela-itxi" class="panela-itxi">Erakutsi emaitzak</button>
     </div>
-
-    <div class="lerroa noiz" role="group" aria-label="Noiz">
-      <button type="button" data-noiz="gaur">Gaur</button>
-      <button type="button" data-noiz="bihar">Bihar</button>
-      <button type="button" data-noiz="asteburua">Asteburua</button>
-      <button type="button" data-noiz="astea" class="aktiboa">7 egun</button>
-      <button type="button" data-noiz="hilabetea">Hilabete</button>
-      <label class="data-tartea">
-        <input id="data-noiz" type="date"> –
-        <input id="data-arte" type="date">
-      </label>
-    </div>
-
-    <div class="lerroa kategoriak" id="kategoriak" role="group" aria-label="Kategoriak"><span class="txip-etiketa">Motak:</span></div>
-    <div class="lerroa kategoriak iturriak" id="iturriak" role="group" aria-label="Iturriak"><span class="txip-etiketa">Iturriak:</span></div>
-    <div class="lerroa kategoriak hizkuntzak" id="hizkuntzak" role="group" aria-label="Hizkuntza"><span class="txip-etiketa">Hizkuntza:</span></div>
   </section>
 
-  <main>
+  <!-- Telefonoan: zerrenda edo mapa (ordenagailuan biak batera) -->
+  <nav class="fitxak" aria-label="Ikuspegia">
+    <button type="button" data-fitxa="zerrenda" class="aktiboa">Zerrenda <span id="fitxa-kopurua"></span></button>
+    <button type="button" data-fitxa="mapa">Mapa</button>
+  </nav>
+
+  <main data-fitxa="zerrenda">
     <section class="emaitzak">
+      <input id="bilaketa" class="bilaketa" type="search" placeholder="🔎 Bilatu: izenburua, lekua, herria…" aria-label="Bilatu ekitaldietan" autocomplete="off">
       <p id="laburpena" class="laburpena">Ekitaldiak kargatzen…</p>
       <div id="zerrenda"></div>
+      <button id="gehiago" class="gehiago" type="button" hidden></button>
     </section>
     <aside class="mapa-edukiontzia">
       <div id="mapa"></div>

@@ -49,13 +49,18 @@ const ASTEGUNAK = ["igandea", "astelehena", "asteartea", "asteazkena", "osteguna
 const HILABETEAK = ["urtarrilak", "otsailak", "martxoak", "apirilak", "maiatzak", "ekainak",
   "uztailak", "abuztuak", "irailak", "urriak", "azaroak", "abenduak"];
 const EGUN_ASKOTAKOA = 7; // egun hauek baino gehiago irauten dutenak bereizita erakusten dira
+const KM_LEHENETSIA = 20;
+const HERRIAN_BERTAN = 0.5; // km = 0 ("herrian bertan"): ekitaldiak herriaren koordenatuetan daude
+const ORRIKO = 100;         // zerrendan aldi bakoitzean margotzen diren ekitaldiak
 
 const egoera = {
   udalerriak: [],
   ekitaldiak: [],
   zentroa: null,          // {izena, lat, lon}
-  km: 20,
+  km: KM_LEHENETSIA,
   noiz: "astea",
+  bilaketa: "",
+  muga: ORRIKO,
   tartea: null,           // [hasiera, amaiera] "YYYY-MM-DD"
   kategoriak: new Set(Object.keys(KATEGORIAK)),
   iturriak: new Set(Object.keys(ITURRIAK)),
@@ -157,19 +162,30 @@ function aukerakErakutsi(hautatua, aukerak) {
 }
 
 function zentroaEzarri(u) {
-  egoera.zentroa = u ? { id: u.id, izena: u.izena, lat: u.lat, lon: u.lon } : null;
+  egoera.zentroa = u ? { id: u.id || null, izena: u.izena, lat: u.lat, lon: u.lon } : null;
   if (u && u.id) localStorage.setItem("azken-herria", u.id);
   eguneratu();
 }
 
 // ---------- Iragazkia ----------
 
+// Bilaketarako testua (izenburua, lekua, herriak), behin bakarrik normalizatua
+function bilaketaTestua(e) {
+  if (e._bilatu === undefined) {
+    e._bilatu = normalizatu([e.izenburua, e.lekua, ...e.kokapenak.map((k) => k.herria)].join(" "));
+  }
+  return e._bilatu;
+}
+
 function iragazi() {
   const [hasiera, amaiera] = egoera.tartea;
   const z = egoera.zentroa;
+  const kmMuga = egoera.km === 0 ? HERRIAN_BERTAN : egoera.km;
+  const hitzak = normalizatu(egoera.bilaketa).split(" ").filter(Boolean);
   const emaitza = [];
   for (const e of egoera.ekitaldiak) {
     if (!egoera.kategoriak.has(e.kategoria)) continue;
+    if (hitzak.length && !hitzak.every((h) => bilaketaTestua(e).includes(h))) continue;
     // Batutako ekitaldiek talde bat baino gehiago izan dezakete (iturri bat baino gehiagotan agertzen da)
     if (e.taldea && !(e.taldeak || [e.taldea]).some((t) => egoera.iturriak.has(t))) continue;
     if (!egoera.hizkuntzak.has(hizkuntza(e))) continue;
@@ -180,7 +196,7 @@ function iragazi() {
         const d = distantzia(z.lat, z.lon, k.lat, k.lon);
         if (km === null || d < km) { km = d; herria = k; }
       }
-      if (km > egoera.km) continue;
+      if (km > kmMuga) continue;
     }
     emaitza.push({ e, km, herria });
   }
@@ -199,14 +215,14 @@ function ekitaldiaHTML({ e, km, herria }, egunAskotakoa) {
     ? `<a href="${ihes(e.url)}" target="_blank" rel="noopener">${ihes(e.izenburua)}</a>`
     : ihes(e.izenburua);
   return `
-    <article class="ekitaldia" data-herria="${ihes(herria.herria)}">
+    <article class="ekitaldia" data-gakoa="${herria.lat},${herria.lon}">
       <div class="ordua">${ordua}</div>
       <div>
         <h3>${izenburua}</h3>
         <div class="non">
           <span class="etiketa">${ihes(KATEGORIAK[e.kategoria] || e.kategoria)}</span>${
             HIZKUNTZA_ETIKETAK[e.hizkuntza] ? ` <span class="etiketa hizkuntza-etiketa">${HIZKUNTZA_ETIKETAK[e.hizkuntza]}</span>` : ""}
-          <strong>${ihes(herria.herria)}</strong>${km !== null ? ` · <span class="km-etiketa">${km < 1 ? "<1" : Math.round(km)} km</span>` : ""}${besteHerriak}
+          <button type="button" class="herri-esteka" title="Mapan erakutsi">${ihes(herria.herria)}</button>${km !== null && egoera.km !== 0 ? ` · <span class="km-etiketa">${km < 1 ? "<1" : Math.round(km)} km</span>` : ""}${besteHerriak}
         </div>
         ${xehetasunak ? `<div class="xehetasunak">${xehetasunak}</div>` : ""}
         <div class="xehetasunak">${iturriakHTML(e)}</div>
@@ -238,26 +254,51 @@ function zerrendaMargotu(emaitzak) {
   }
   const ordenatu = (a, b) => (a.e.ordua || "99").localeCompare(b.e.ordua || "99") || (a.km ?? 0) - (b.km ?? 0);
 
-  let html = "";
+  // Ordena: egunez egun, eta bukaeran egun askotakoak. Lehen `muga` ekitaldiak bakarrik margotzen dira
+  // (milaka <article> aldi berean margotzeak telefonoa moteltzen du).
+  const zatiak = [];
   for (const eguna of [...egunak.keys()].sort()) {
-    html += `<h2 class="eguna">${dataTestua(eguna)}</h2>`;
-    html += egunak.get(eguna).sort(ordenatu).map((r) => ekitaldiaHTML(r, false)).join("");
+    zatiak.push({ goiburua: dataTestua(eguna) });
+    egunak.get(eguna).sort(ordenatu).forEach((r) => zatiak.push({ r, luzea: false }));
   }
   if (luzeak.length) {
-    html += `<h2 class="eguna">Egun askotan zehar (erakusketak, zikloak…)</h2>`;
-    html += luzeak.sort((a, b) => (a.km ?? 0) - (b.km ?? 0)).map((r) => ekitaldiaHTML(r, true)).join("");
+    zatiak.push({ goiburua: "Egun askotan zehar (erakusketak, zikloak…)" });
+    luzeak.sort((a, b) => (a.km ?? 0) - (b.km ?? 0)).forEach((r) => zatiak.push({ r, luzea: true }));
   }
-  $("zerrenda").innerHTML = html || `<p class="hutsik">Ez dago ekitaldirik iragazki hauekin. Probatu distantzia handitzen edo data-tartea zabaltzen.</p>`;
+  let html = "", margotuak = 0, goiburua = null;
+  for (const z of zatiak) {
+    if (z.goiburua) { goiburua = z.goiburua; continue; }
+    if (margotuak >= egoera.muga) break;
+    if (goiburua) { html += `<h2 class="eguna">${goiburua}</h2>`; goiburua = null; }
+    html += ekitaldiaHTML(z.r, z.luzea);
+    margotuak++;
+  }
+  const iradokizuna = egoera.bilaketa ? "Probatu beste hitz batzuekin, edo distantzia edo data-tartea zabaltzen."
+    : "Probatu distantzia handitzen edo data-tartea zabaltzen.";
+  $("zerrenda").innerHTML = html || `<p class="hutsik">Ez dago ekitaldirik iragazki hauekin. ${iradokizuna}</p>`;
 
-  const non = !egoera.zentroa ? "Euskal Herri osoan"
-    : egoera.zentroa.id ? `${ihes(egoera.zentroa.izena)} inguruan (${egoera.km} km)`
-    : `zure inguruan (${egoera.km} km)`;
+  const geratzen = emaitzak.length - margotuak;
+  $("gehiago").hidden = geratzen <= 0;
+  $("gehiago").textContent = `Erakutsi gehiago (${geratzen} geratzen dira)`;
+
+  const z = egoera.zentroa;
+  const non = !z ? "Euskal Herri osoan"
+    : z.geo ? `zure inguruan (${egoera.km === 0 ? "<1" : egoera.km} km)`
+    : egoera.km === 0 ? `${ihes(z.izena)} herrian bertan`
+    : `${ihes(z.izena)} inguruan (${egoera.km} km)`;
   $("laburpena").innerHTML = `<strong>${emaitzak.length}</strong> ekitaldi · ${non} · ${dataLaburra(egoera.tartea[0])}–${dataLaburra(egoera.tartea[1])}`;
+  $("fitxa-kopurua").textContent = `(${emaitzak.length})`;
+  $("panela-itxi").textContent = `Erakutsi ${emaitzak.length} ekitaldi`;
 }
 
 // ---------- Mapa ----------
 
 let mapa, geruza, zirkulua;
+const markatzaileak = new Map(); // "lat,lon" → circleMarker
+const mapakoHerriak = new Map(); // "lat,lon" → {herria, lurraldea, lat, lon}
+let nabarmendua = null;
+const ESTILOA = { color: "#c8102e", weight: 1 };
+const ESTILO_NABARMENDUA = { color: "#1f2328", weight: 3 };
 
 function mapaHasieratu() {
   mapa = L.map("mapa").setView([43.1, -1.9], 8);
@@ -266,11 +307,73 @@ function mapaHasieratu() {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
   }).addTo(mapa);
   geruza = L.layerGroup().addTo(mapa);
+  // Popup-eko "Ikusi herri honetako ekitaldiak" botoia (Leaflet-ek popup-eko klikak ez ditu
+  // maparen edukiontzira igortzen; horregatik popup-a irekitzean lotzen da)
+  mapa.on("popupopen", (ev) => {
+    const b = ev.popup.getElement().querySelector(".popup-botoia");
+    if (b) b.addEventListener("click", () => herriaAukeratuMapan(mapakoHerriak.get(b.dataset.gakoa)));
+  });
+}
+
+// Mapako herri bat zentro gisa jarri, "herrian bertan" moduan (km = 0)
+function herriaAukeratuMapan(k) {
+  if (!k) return;
+  const n = normalizatu(k.herria);
+  const gertukoak = egoera.udalerriak.filter((u) => distantzia(u.lat, u.lon, k.lat, k.lon) < HERRIAN_BERTAN);
+  const u = gertukoak.find((x) => x.izenak.some((i) => normalizatu(i) === n)) || gertukoak[0];
+  mapa.closePopup();
+  $("aukerak").hidden = true;
+  $("herria").value = u ? herriEtiketa(u) : k.herria;
+  egoera.km = 0;
+  fitxaAldatu("zerrenda");
+  zentroaEzarri(u || { izena: k.herria, lat: k.lat, lon: k.lon });
+  window.scrollTo({ top: $("laburpena").getBoundingClientRect().top + window.scrollY - 60 });
+}
+
+// Zerrendako ekitaldi baten herria mapan nabarmendu
+function nabarmendu(gakoa) {
+  if (nabarmendua === (gakoa ? markatzaileak.get(gakoa) || null : null)) return;
+  if (nabarmendua) nabarmendua.setStyle(ESTILOA);
+  nabarmendua = gakoa ? markatzaileak.get(gakoa) || null : null;
+  if (nabarmendua) nabarmendua.setStyle(ESTILO_NABARMENDUA).bringToFront();
+}
+
+function herriaMapanErakutsi(gakoa) {
+  const m = markatzaileak.get(gakoa);
+  if (!m) return;
+  fitxaAldatu("mapa", false);
+  mapa.setView(m.getLatLng(), Math.max(mapa.getZoom(), 12));
+  m.openPopup();
+}
+
+// Zirkulua (edo herria) ikusteko moduan kokatu mapa
+function mapaKokatu() {
+  const z = egoera.zentroa;
+  if (!z) return;
+  if (egoera.km === 0) mapa.setView([z.lat, z.lon], 13);
+  else if (zirkulua) mapa.fitBounds(zirkulua.getBounds(), { padding: [10, 10] });
+}
+
+// ---------- Fitxak (telefonoan: zerrenda edo mapa) ----------
+
+function fitxaAldatu(fitxa, kokatu = true) {
+  const main = document.querySelector("main");
+  if (main.dataset.fitxa === fitxa) return;
+  main.dataset.fitxa = fitxa;
+  document.querySelectorAll(".fitxak [data-fitxa]").forEach((b) => b.classList.toggle("aktiboa", b.dataset.fitxa === fitxa));
+  if (fitxa === "mapa") {
+    mapa.invalidateSize();  // ezkutuan egon da: Leaflet-ek tamaina berriro neurtu behar du
+    if (kokatu) mapaKokatu();
+  }
 }
 
 function mapaMargotu(emaitzak) {
   geruza.clearLayers();
+  markatzaileak.clear();
+  mapakoHerriak.clear();
+  nabarmendua = null;
   if (zirkulua) { zirkulua.remove(); zirkulua = null; }
+  const z = egoera.zentroa;
 
   // Herri bakoitzeko markatzaile bat
   const herriak = new Map();
@@ -280,20 +383,26 @@ function mapaMargotu(emaitzak) {
     if (!herriak.has(gakoa)) herriak.set(gakoa, { k, zerrenda: [] });
     herriak.get(gakoa).zerrenda.push(r.e);
   }
-  for (const { k, zerrenda } of herriak.values()) {
+  for (const [gakoa, { k, zerrenda }] of herriak) {
     const erradioa = Math.min(6 + Math.sqrt(zerrenda.length) * 2.5, 22);
+    // Herri hau jada aukeratuta "herrian bertan" moduan badago, botoia ez da behar
+    const hemen = z && egoera.km === 0 && distantzia(z.lat, z.lon, k.lat, k.lon) < HERRIAN_BERTAN;
     const popup = `<strong>${ihes(k.herria)}</strong> (${zerrenda.length})<br>` +
       zerrenda.slice(0, 8).map((e) => `· ${ihes(e.izenburua)}`).join("<br>") +
-      (zerrenda.length > 8 ? `<br>… eta ${zerrenda.length - 8} gehiago` : "");
-    L.circleMarker([k.lat, k.lon], { radius: erradioa, color: "#c8102e", weight: 1, fillOpacity: 0.55 })
+      (zerrenda.length > 8 ? `<br>… eta ${zerrenda.length - 8} gehiago` : "") +
+      (hemen ? "" : `<br><button type="button" class="popup-botoia" data-gakoa="${gakoa}">Ikusi herri honetako ekitaldiak</button>`);
+    const m = L.circleMarker([k.lat, k.lon], { radius: erradioa, ...ESTILOA, fillOpacity: 0.55 })
       .bindPopup(popup).addTo(geruza);
+    markatzaileak.set(gakoa, m);
+    mapakoHerriak.set(gakoa, k);
   }
 
-  if (egoera.zentroa) {
-    const z = egoera.zentroa;
-    zirkulua = L.circle([z.lat, z.lon], { radius: egoera.km * 1000, color: "#1f2328", weight: 1, fill: false, dashArray: "4 4" }).addTo(mapa);
+  if (z) {
+    if (egoera.km > 0) {
+      zirkulua = L.circle([z.lat, z.lon], { radius: egoera.km * 1000, color: "#1f2328", weight: 1, fill: false, dashArray: "4 4" }).addTo(mapa);
+    }
     L.marker([z.lat, z.lon]).bindTooltip(z.izena).addTo(geruza);
-    mapa.fitBounds(zirkulua.getBounds(), { padding: [10, 10] });
+    mapaKokatu();
   }
 }
 
@@ -307,6 +416,7 @@ function urlaEguneratu() {
   if (egoera.kategoriak.size !== Object.keys(KATEGORIAK).length) p.set("mota", [...egoera.kategoriak].join(","));
   if (egoera.iturriak.size !== Object.keys(ITURRIAK).length) p.set("iturri", [...egoera.iturriak].join(","));
   if (egoera.hizkuntzak.size !== Object.keys(HIZKUNTZAK).length) p.set("hizk", [...egoera.hizkuntzak].join(","));
+  if (egoera.bilaketa) p.set("bilatu", egoera.bilaketa);
   history.replaceState(null, "", "#" + p.toString());
 }
 
@@ -315,7 +425,9 @@ function urlaIrakurri() {
   const herriId = p.get("herria") || localStorage.getItem("azken-herria");
   const u = egoera.udalerriak.find((x) => x.id === herriId);
   if (u) { egoera.zentroa = { id: u.id, izena: u.izena, lat: u.lat, lon: u.lon }; $("herria").value = herriEtiketa(u); }
-  if (p.get("km")) egoera.km = Math.max(2, Math.min(100, Number(p.get("km")) || 20));
+  const km = Number(p.get("km") ?? NaN);  // 0 = herrian bertan (balio baliozkoa)
+  if (p.get("km") !== null && Number.isFinite(km)) egoera.km = Math.max(0, Math.min(100, Math.round(km)));
+  if (p.get("bilatu")) { egoera.bilaketa = p.get("bilatu"); $("bilaketa").value = egoera.bilaketa; }
   const noiz = p.get("noiz");
   if (noiz && noiz.includes("_")) { egoera.noiz = "tartea"; egoera.tartea = noiz.split("_"); }
   else if (noiz) egoera.noiz = noiz;
@@ -327,18 +439,68 @@ function urlaIrakurri() {
   if (!egoera.hizkuntzak.size) egoera.hizkuntzak = new Set(Object.keys(HIZKUNTZAK));
 }
 
+const kmTestua = (km) => (km === 0 ? "herrian bertan" : `${km} km`);
+
+// Iragazki aktiboak: [testua, kentzeko ekintza]
+function iragazkiAktiboak() {
+  const txipak = [];
+  if (egoera.zentroa && egoera.km !== KM_LEHENETSIA) {
+    txipak.push([egoera.km === 0 ? "Herrian bertan" : `${egoera.km} km`, () => { egoera.km = KM_LEHENETSIA; }]);
+  }
+  if (egoera.noiz === "tartea") {
+    txipak.push([`${dataLaburra(egoera.tartea[0])}–${dataLaburra(egoera.tartea[1])}`, () => { egoera.noiz = "astea"; }]);
+  }
+  const multzoa = (aukerak, gakoa, izena) => {
+    const denak = Object.keys(aukerak);
+    const m = egoera[gakoa];
+    if (m.size === denak.length) return;
+    const izenOsoa = (k) => (Array.isArray(aukerak[k]) ? aukerak[k][0] : aukerak[k]);
+    if (m.size <= 3) {
+      for (const k of m) {
+        txipak.push([izenOsoa(k), () => { m.delete(k); if (!m.size) egoera[gakoa] = new Set(denak); }]);
+      }
+    } else {
+      txipak.push([`${izena}: ${m.size}`, () => { egoera[gakoa] = new Set(denak); }]);
+    }
+  };
+  multzoa(KATEGORIAK, "kategoriak", "Motak");
+  multzoa(HIZKUNTZAK, "hizkuntzak", "Hizkuntzak");
+  multzoa(ITURRIAK, "iturriak", "Iturriak");
+  return txipak;
+}
+
+let txipEkintzak = [];
+function txipAktiboakMargotu() {
+  const txipak = iragazkiAktiboak();
+  txipEkintzak = txipak.map(([, ekintza]) => ekintza);
+  $("txip-aktiboak").innerHTML = txipak.map(([testua], i) =>
+    `<button type="button" data-txipa="${i}" title="Kendu iragazki hau">${ihes(testua)}</button>`).join("");
+  $("txip-aktiboak").hidden = !txipak.length;
+  $("iragazki-kopurua").textContent = txipak.length;
+  $("iragazki-kopurua").hidden = !txipak.length;
+}
+
+let azkenEmaitzak = [];
+
 function eguneratu() {
   if (egoera.noiz !== "tartea") egoera.tartea = tarteaKalkulatu(egoera.noiz);
-  $("km-balioa").textContent = egoera.km;
+  egoera.muga = ORRIKO;
+  $("km-balioa").textContent = kmTestua(egoera.km);
   $("km").value = egoera.km;
   $("data-noiz").value = egoera.tartea[0];
   $("data-arte").value = egoera.tartea[1];
   document.querySelectorAll("[data-noiz]").forEach((b) => b.classList.toggle("aktiboa", b.dataset.noiz === egoera.noiz));
+  // Telefonoan noiz-lerroa alboetara mugitzen da: aukeratutakoa ikusgai jarri
+  const noizAktiboa = document.querySelector("[data-noiz].aktiboa");
+  if (noizAktiboa) noizAktiboa.parentElement.scrollLeft = Math.max(0, noizAktiboa.offsetLeft - noizAktiboa.parentElement.offsetLeft - 40);
   document.querySelectorAll("[data-kategoria]").forEach((b) => b.classList.toggle("aktiboa", egoera.kategoriak.has(b.dataset.kategoria)));
   document.querySelectorAll("[data-iturria]").forEach((b) => b.classList.toggle("aktiboa", egoera.iturriak.has(b.dataset.iturria)));
   document.querySelectorAll("[data-hizkuntza]").forEach((b) => b.classList.toggle("aktiboa", egoera.hizkuntzak.has(b.dataset.hizkuntza)));
 
+  txipAktiboakMargotu();
+
   const emaitzak = iragazi();
+  azkenEmaitzak = emaitzak;
   zerrendaMargotu(emaitzak);
   mapaMargotu(emaitzak);
   urlaEguneratu();
@@ -371,7 +533,7 @@ function kontrolakLotu() {
     navigator.geolocation.getCurrentPosition(
       (pos) => {
         $("herria").value = "📍 Nire kokapena";
-        egoera.zentroa = { id: null, izena: "Zure kokapena", lat: pos.coords.latitude, lon: pos.coords.longitude };
+        egoera.zentroa = { id: null, geo: true, izena: "Zure kokapena", lat: pos.coords.latitude, lon: pos.coords.longitude };
         eguneratu();
       },
       () => alert("Ezin izan da kokapena lortu."),
@@ -381,7 +543,7 @@ function kontrolakLotu() {
   let kmTimer;
   $("km").addEventListener("input", (ev) => {
     egoera.km = Number(ev.target.value);
-    $("km-balioa").textContent = egoera.km;
+    $("km-balioa").textContent = kmTestua(egoera.km);
     clearTimeout(kmTimer);
     kmTimer = setTimeout(eguneratu, 120);
   });
@@ -399,6 +561,54 @@ function kontrolakLotu() {
   };
   $("data-noiz").addEventListener("change", tarteaAldatu);
   $("data-arte").addEventListener("change", tarteaAldatu);
+
+  // Iragazkien panela
+  const panela = (ireki) => {
+    $("iragazkiak").hidden = !ireki;
+    $("iragazki-atzealdea").hidden = !ireki;
+    $("iragazki-botoia").setAttribute("aria-expanded", String(ireki));
+    document.body.classList.toggle("panela-irekita", ireki);
+  };
+  $("iragazki-botoia").addEventListener("click", () => panela($("iragazkiak").hidden));
+  $("iragazki-atzealdea").addEventListener("click", () => panela(false));
+  $("panela-itxi").addEventListener("click", () => panela(false));
+  document.addEventListener("keydown", (ev) => { if (ev.key === "Escape" && !$("iragazkiak").hidden) panela(false); });
+  $("iragazkiak-garbitu").addEventListener("click", () => {
+    egoera.kategoriak = new Set(Object.keys(KATEGORIAK));
+    egoera.iturriak = new Set(Object.keys(ITURRIAK));
+    egoera.hizkuntzak = new Set(Object.keys(HIZKUNTZAK));
+    egoera.km = KM_LEHENETSIA;
+    if (egoera.noiz === "tartea") egoera.noiz = "astea";
+    eguneratu();
+  });
+  $("txip-aktiboak").addEventListener("click", (ev) => {
+    const b = ev.target.closest("[data-txipa]");
+    if (!b) return;
+    txipEkintzak[Number(b.dataset.txipa)]?.();
+    eguneratu();
+  });
+
+  // Testu-bilaketa
+  let bilaketaTimer;
+  $("bilaketa").addEventListener("input", (ev) => {
+    clearTimeout(bilaketaTimer);
+    bilaketaTimer = setTimeout(() => { egoera.bilaketa = ev.target.value.trim(); eguneratu(); }, 200);
+  });
+
+  // Zerrenda: "gehiago", herria mapan, eta sagua gainean → mapan nabarmendu
+  $("gehiago").addEventListener("click", () => { egoera.muga += ORRIKO; zerrendaMargotu(azkenEmaitzak); });
+  $("zerrenda").addEventListener("click", (ev) => {
+    const b = ev.target.closest(".herri-esteka");
+    if (b) herriaMapanErakutsi(b.closest(".ekitaldia").dataset.gakoa);
+  });
+  $("zerrenda").addEventListener("mouseover", (ev) => {
+    const a = ev.target.closest(".ekitaldia");
+    nabarmendu(a ? a.dataset.gakoa : null);
+  });
+  $("zerrenda").addEventListener("mouseleave", () => nabarmendu(null));
+
+  document.querySelectorAll(".fitxak [data-fitxa]").forEach((b) =>
+    b.addEventListener("click", () => fitxaAldatu(b.dataset.fitxa)));
 
   txipak($("kategoriak"), KATEGORIAK, "kategoriak", "kategoria");
   txipak($("iturriak"), ITURRIAK, "iturriak", "iturria");
