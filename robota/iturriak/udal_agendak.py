@@ -149,32 +149,95 @@ def _data(testua):
         return (date(*map(int, m.groups())), "") if m else (None, "")
 
 
-def jsonld(orria, udala, udalerriak):
-    soup = BeautifulSoup(eskuratu(orria).text, "html.parser")
-    for s in soup.select('script[type="application/ld+json"]'):
+def _errepikapenak_kendu(ekitaldiak):
+    """Modern Events Calendar-ek (adib. eibarkultura.eus) egun bakoitzeko sarrera bat ematen du
+    (…/?occurrence=2026-11-14). Ekitaldi bereko (URL bera, 'occurrence' gabe) beste baten
+    data-tartearen barruan dagoen errepikapena kendu: erakusketa batek tarte osoko sarrera bakarra
+    izango du, eta asteroko saioek (tarterik gabekoek) bakoitzak berea."""
+    def oinarria(e):
+        return re.sub(r"[?&]occurrence=[^&]*", "", str(e.get("url") or "")) or id(e)
+
+    def tartea(e):
+        hasiera = _data(e.get("startDate"))[0]
+        return hasiera, _data(e.get("endDate"))[0] or hasiera
+
+    taldeak = {}
+    for e in ekitaldiak:
+        taldeak.setdefault(oinarria(e), []).append(e)
+    for taldea in taldeak.values():
+        tarteak = [tartea(e) for e in taldea]
+
+        def barruan(i, j):  # i-garrena j-garrenaren barruan (berdinak badira, lehena gorde)
+            (h, a), (h2, a2) = tarteak[i], tarteak[j]
+            return h2 <= h and a <= a2 and ((h, a) != (h2, a2) or j < i)
+
+        for i, (h, _) in enumerate(tarteak):
+            if h and not any(j != i and tarteak[j][0] and barruan(i, j) for j in range(len(tarteak))):
+                yield taldea[i]
+
+
+def _jsonld_bildu(html):
+    """HTML batean dauden schema.org Event guztiak."""
+    ekitaldiak = []
+    for s in BeautifulSoup(html, "html.parser").select('script[type="application/ld+json"]'):
         try:
-            datuak = json.loads(s.string or "")
+            ekitaldiak.extend(_jsonld_ekitaldiak(json.loads(s.string or "")))
         except json.JSONDecodeError:
             continue
-        for e in _jsonld_ekitaldiak(datuak):
-            hasiera, ordua = _data(e.get("startDate"))
-            amaiera, _ = _data(e.get("endDate"))
-            lekua = e.get("location") or {}
-            if isinstance(lekua, list):
-                lekua = lekua[0] if lekua else {}
-            helbidea = lekua.get("address") or {} if isinstance(lekua, dict) else {}
-            irudia = e.get("image")
-            if isinstance(irudia, list):
-                irudia = irudia[0] if irudia else ""
-            if isinstance(irudia, dict):
-                irudia = irudia.get("url", "")
-            yield ekitaldia(
-                udala, udalerriak, "jsonld", e.get("url") or f"{hasiera}-{e.get('name')}",
-                e.get("name", ""), hasiera, amaiera, ordua=ordua, url=e.get("url", orria),
-                lekua=lekua.get("name", "") if isinstance(lekua, dict) else "",
-                deskribapena=e.get("description", ""), irudia=irudia,
-                herria=helbidea.get("addressLocality") if isinstance(helbidea, dict) else None,
-            )
+    return ekitaldiak
+
+
+def _jsonld_sortu(ekitaldiak, orria, udala, udalerriak, metodoa="jsonld"):
+    for e in _errepikapenak_kendu(ekitaldiak):
+        hasiera, ordua = _data(e.get("startDate"))
+        amaiera, _ = _data(e.get("endDate"))
+        lekua = e.get("location") or {}
+        if isinstance(lekua, list):
+            lekua = lekua[0] if lekua else {}
+        helbidea = lekua.get("address") or {} if isinstance(lekua, dict) else {}
+        irudia = e.get("image")
+        if isinstance(irudia, list):
+            irudia = irudia[0] if irudia else ""
+        if isinstance(irudia, dict):
+            irudia = irudia.get("url", "")
+        yield ekitaldia(
+            udala, udalerriak, metodoa, e.get("url") or f"{hasiera}-{e.get('name')}",
+            e.get("name", ""), hasiera, amaiera, ordua=ordua, url=e.get("url", orria),
+            lekua=lekua.get("name", "") if isinstance(lekua, dict) else "",
+            deskribapena=e.get("description", ""), irudia=irudia,
+            herria=helbidea.get("addressLocality") if isinstance(helbidea, dict) else None,
+        )
+
+
+def jsonld(orria, udala, udalerriak):
+    yield from _jsonld_sortu(_jsonld_bildu(eskuratu(orria).text), orria, udala, udalerriak)
+
+
+def mec(orria, udala, udalerriak, hilabeteak=12):
+    """Modern Events Calendar-en hilabete-ikuspegia (adib. eibarkultura.eus/egutegia).
+    Orriak hilabete bakarra dakar; hurrengoak "hurrengo hilabetea" botoiak bezala eskatzen dira
+    (admin-ajax.php, action=mec_monthly_view_load_month), hilabete bat hutsik etorri arte.
+    Erantzunak ere JSON-LD dakar, beraz irakurketa jsonld-ren berdina da."""
+    html = eskuratu(orria).text
+    ekitaldiak = _jsonld_bildu(html)
+    atts = re.search(r'atts:\s*"([^"]*)"', html)
+    hurrengoa = re.search(r'next_month:\s*\{\s*year:\s*"(\d{4})",\s*month:\s*"(\d{1,2})"', html)
+    ajax = re.search(r'"ajax_url":"([^"]+)"', html)
+    if atts and hurrengoa and ajax:
+        urtea, hila = int(hurrengoa.group(1)), int(hurrengoa.group(2))
+        for _ in range(hilabeteak):
+            time.sleep(1)
+            r = saioa.post(ajax.group(1).replace("\\/", "/"), timeout=30, data=(
+                f"action=mec_monthly_view_load_month&mec_year={urtea}&mec_month={hila}"
+                f"&{atts.group(1)}&apply_sf_date=1"),
+                headers={"Content-Type": "application/x-www-form-urlencoded"})
+            r.raise_for_status()
+            berriak = _jsonld_bildu(r.json().get("month", ""))
+            if not berriak:
+                break
+            ekitaldiak.extend(berriak)
+            urtea, hila = (urtea + 1, 1) if hila == 12 else (urtea, hila + 1)
+    yield from _jsonld_sortu(ekitaldiak, orria, udala, udalerriak, "mec")
 
 
 # ---------- 4. IZFE (Gipuzkoa) ----------
@@ -272,7 +335,7 @@ def plone(orria, udala, udalerriak):
         time.sleep(1)
 
 
-IRAKURLEAK = {"tribe": tribe, "ical": ical, "jsonld": jsonld, "izfe": izfe, "plone": plone}
+IRAKURLEAK = {"tribe": tribe, "ical": ical, "jsonld": jsonld, "mec": mec, "izfe": izfe, "plone": plone}
 
 
 def udal_bat(t, udalerriak):

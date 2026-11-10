@@ -12,6 +12,8 @@ Metodoak:
   tribe  = WordPress "The Events Calendar" (…/wp-json/tribe/events/v1/events)
   ical   = .ics egutegia
   jsonld = schema.org Event duen orria
+  mec    = Modern Events Calendar (WordPress) hilabete-egutegia, hurrengo hilabeteak barne
+           (adib. eibarkultura.eus/egutegia)
   plone  = Plone-ko ekitaldi-zerrenda (class="dtstart"), adib. Eibarko udalaren kultura-agenda
 "herria" aukerakoa da: ekitaldiak herria adierazten ez badu, hori erabiltzen da.
 """
@@ -34,7 +36,8 @@ def ekitaldiak(udalerriak):
     for o in egituratuak():
         herria = udalerriak.bilatu(o["herria"]) if o.get("herria") else None
         # Udal-irakurleek "udala" bat espero dute: herri lehenetsia + iturriaren izena
-        iturria = dict(herria or {}, id=urlparse(o["url"]).netloc, izena=o["izena"], iturria=o["izena"])
+        # ("izena" herriarena da eta ez da zapaldu behar: ekitaldiaren kokapena da)
+        iturria = dict(herria or {}, id=urlparse(o["url"]).netloc, iturria=o["izena"])
         try:
             zerrenda = [e for e in IRAKURLEAK[o["metodoa"]](o["url"], iturria, udalerriak) if e]
         except Exception as e:  # noqa: BLE001 — bat hausten bada, besteekin jarraitu
