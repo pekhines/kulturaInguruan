@@ -51,7 +51,6 @@ const HILABETEAK = ["urtarrilak", "otsailak", "martxoak", "apirilak", "maiatzak"
 const EGUN_ASKOTAKOA = 7; // egun hauek baino gehiago irauten dutenak bereizita erakusten dira
 const KM_LEHENETSIA = 20;
 const HERRIAN_BERTAN = 0.5; // km = 0 ("herrian bertan"): ekitaldiak herriaren koordenatuetan daude
-const ORRIKO = 100;         // zerrendan aldi bakoitzean margotzen diren ekitaldiak
 
 const egoera = {
   udalerriak: [],
@@ -60,7 +59,6 @@ const egoera = {
   km: KM_LEHENETSIA,
   noiz: "astea",
   bilaketa: "",
-  muga: ORRIKO,
   tartea: null,           // [hasiera, amaiera] "YYYY-MM-DD"
   kategoriak: new Set(Object.keys(KATEGORIAK)),
   iturriak: new Set(Object.keys(ITURRIAK)),
@@ -254,8 +252,8 @@ function zerrendaMargotu(emaitzak) {
   }
   const ordenatu = (a, b) => (a.e.ordua || "99").localeCompare(b.e.ordua || "99") || (a.km ?? 0) - (b.km ?? 0);
 
-  // Ordena: egunez egun, eta bukaeran egun askotakoak. Lehen `muga` ekitaldiak bakarrik margotzen dira
-  // (milaka <article> aldi berean margotzeak telefonoa moteltzen du).
+  // Ordena: egunez egun, eta bukaeran egun askotakoak. Denak margotzen dira (Ctrl+F-k aurkitzeko);
+  // pantailatik kanpokoak ez ditu nabigatzaileak marrazten (CSS: content-visibility).
   const zatiak = [];
   for (const eguna of [...egunak.keys()].sort()) {
     zatiak.push({ goiburua: dataTestua(eguna) });
@@ -265,21 +263,16 @@ function zerrendaMargotu(emaitzak) {
     zatiak.push({ goiburua: "Egun askotan zehar (erakusketak, zikloak…)" });
     luzeak.sort((a, b) => (a.km ?? 0) - (b.km ?? 0)).forEach((r) => zatiak.push({ r, luzea: true }));
   }
-  let html = "", margotuak = 0, goiburua = null;
+  let html = "", goiburua = null;
   for (const z of zatiak) {
     if (z.goiburua) { goiburua = z.goiburua; continue; }
-    if (margotuak >= egoera.muga) break;
     if (goiburua) { html += `<h2 class="eguna">${goiburua}</h2>`; goiburua = null; }
     html += ekitaldiaHTML(z.r, z.luzea);
-    margotuak++;
   }
   const iradokizuna = egoera.bilaketa ? "Probatu beste hitz batzuekin, edo distantzia edo data-tartea zabaltzen."
     : "Probatu distantzia handitzen edo data-tartea zabaltzen.";
   $("zerrenda").innerHTML = html || `<p class="hutsik">Ez dago ekitaldirik iragazki hauekin. ${iradokizuna}</p>`;
 
-  const geratzen = emaitzak.length - margotuak;
-  $("gehiago").hidden = geratzen <= 0;
-  $("gehiago").textContent = `Erakutsi gehiago (${geratzen} geratzen dira)`;
 
   const z = egoera.zentroa;
   const non = !z ? "Euskal Herri osoan"
@@ -480,11 +473,8 @@ function txipAktiboakMargotu() {
   $("iragazki-kopurua").hidden = !txipak.length;
 }
 
-let azkenEmaitzak = [];
-
 function eguneratu() {
   if (egoera.noiz !== "tartea") egoera.tartea = tarteaKalkulatu(egoera.noiz);
-  egoera.muga = ORRIKO;
   $("km-balioa").textContent = kmTestua(egoera.km);
   $("km").value = egoera.km;
   $("data-noiz").value = egoera.tartea[0];
@@ -500,7 +490,6 @@ function eguneratu() {
   txipAktiboakMargotu();
 
   const emaitzak = iragazi();
-  azkenEmaitzak = emaitzak;
   zerrendaMargotu(emaitzak);
   mapaMargotu(emaitzak);
   urlaEguneratu();
@@ -595,8 +584,7 @@ function kontrolakLotu() {
     bilaketaTimer = setTimeout(() => { egoera.bilaketa = ev.target.value.trim(); eguneratu(); }, 200);
   });
 
-  // Zerrenda: "gehiago", herria mapan, eta sagua gainean → mapan nabarmendu
-  $("gehiago").addEventListener("click", () => { egoera.muga += ORRIKO; zerrendaMargotu(azkenEmaitzak); });
+  // Zerrenda: herria mapan, eta sagua gainean → mapan nabarmendu
   $("zerrenda").addEventListener("click", (ev) => {
     const b = ev.target.closest(".herri-esteka");
     if (b) herriaMapanErakutsi(b.closest(".ekitaldia").dataset.gakoa);

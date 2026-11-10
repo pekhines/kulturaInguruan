@@ -162,9 +162,9 @@ footer a { color: inherit; }
 /* Fitxak: telefonoan bakarrik */
 .fitxak { display: none; }
 
-/* Zerrenda: bilaketa eta "gehiago" */
+/* Zerrenda: bilaketa; pantailatik kanpoko ekitaldiak ez marraztu ikusi arte (milaka izan daitezke) */
 .bilaketa { margin-bottom: 0.5rem; }
-.gehiago { display: block; margin: 1rem auto; }
+.ekitaldia { content-visibility: auto; contain-intrinsic-size: auto 5.5rem; }
 .herri-esteka {
   border: 0; padding: 0; background: none; font: inherit; font-weight: 700; color: inherit;
   border-radius: 0; text-decoration: underline dotted; text-underline-offset: 3px;
