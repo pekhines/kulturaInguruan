@@ -1,0 +1,171 @@
+[
+  {
+    "izena": "Arriaga Antzokia",
+    "herria": "Bilbao",
+    "url": "https://www.teatroarriaga.eus/?lang=eu"
+  },
+  {
+    "izena": "Arriola Antzokia",
+    "herria": "Elorrio",
+    "url": "https://www.arriolaka.eus/"
+  },
+  {
+    "izena": "AZ Azkuna Zentroa",
+    "herria": "Bilbao",
+    "url": "https://www.azkunazentroa.eus/es"
+  },
+  {
+    "izena": "Barakaldo Antzokia",
+    "herria": "Barakaldo",
+    "url": "https://www.teatrobarakaldo.com/eu/programazio-hedatua/"
+  },
+  {
+    "izena": "Bastero Kulturgunea",
+    "herria": "Andoain",
+    "url": "https://www.bastero.eus/eu/kultur-agenda-2/"
+  },
+  {
+    "izena": "Bermeoko Kafe Antzokia",
+    "herria": "Bermeo",
+    "url": "http://bermeokokafeantzokia.com/es/egitaraua/"
+  },
+  {
+    "izena": "Herri Antzokia (Ordizia)",
+    "herria": "Ordizia",
+    "url": "https://www.ordiziaekintzak.eus/"
+  },
+  {
+    "izena": "Herriko Antzokia",
+    "herria": "Elgoibar",
+    "url": "https://herrikoantzokia.eus/calendario/"
+  },
+  {
+    "izena": "Klaret Antzokia",
+    "herria": "Balmaseda",
+    "url": "https://www.balmaseda.eus/es-ES/Paginas/default.aspx"
+  },
+  {
+    "izena": "Kotxepin Kultur Etxea",
+    "herria": "Lemoa",
+    "url": "https://kultura.lemoa.net/sarrerak/"
+  },
+  {
+    "izena": "Kultur Leioa",
+    "herria": "Leioa",
+    "url": "http://www.kulturleioa.com/agenda/"
+  },
+  {
+    "izena": "Nestor Basterretxea Aretoa (Bermeo)",
+    "herria": "Bermeo",
+    "url": "https://www.bermeo.eus/115.html?&L=0"
+  },
+  {
+    "izena": "Niessen Kulturgunea",
+    "herria": "Errenteria",
+    "url": "https://kultura.errenteria.eus/agenda/"
+  },
+  {
+    "izena": "Sanagustin Kulturgunea",
+    "herria": "Azpeitia",
+    "url": "https://www.kulturaz.eus/agenda"
+  },
+  {
+    "izena": "Sarobe Arte Eszenikoen Gunea",
+    "herria": "Urnieta",
+    "url": "https://www.sarobeurnieta.eus/antzinakogertaerak/?ical=1",
+    "metodoa": "ical"
+  },
+  {
+    "izena": "Seminarixoa",
+    "herria": "Bergara",
+    "url": "https://seminarixoa.eus/programazio-guztia/"
+  },
+  {
+    "izena": "Serantes Kultur Aretoa",
+    "herria": "Santurtzi",
+    "url": "https://www.serantes.com/"
+  },
+  {
+    "izena": "Social Antzokia",
+    "herria": "Basauri",
+    "url": "https://socialantzokia.eus/"
+  },
+  {
+    "izena": "Txema Blasco Auditorioa",
+    "herria": "Alegría-Dulantzi",
+    "url": "https://www.alegria-dulantzi.eus/eu/subfamilia-135-Dulantziko_Agenda.html"
+  },
+  {
+    "izena": "Victoria Eugenia Antzokia",
+    "herria": "Donostia-San Sebastián",
+    "url": "https://www.victoriaeugenia.eus/eu/agenda-sarrerak",
+    "metodoa": "jsonld"
+  },
+  {
+    "izena": "Zelai Arizti Aretoa",
+    "herria": "Zumarraga",
+    "url": "https://www.zelaiarizti.eus/eu/agenda"
+  },
+  {
+    "izena": "Zigoitia Antzokia",
+    "herria": "Zigoitia",
+    "url": "https://www.gorbeialdekokuadrilla.eus/eu/informazio-orokorra-/kuadrillaren-agenda.html"
+  },
+  {
+    "izena": "Zornotza Aretoa",
+    "herria": "Amorebieta-Etxano",
+    "url": "https://sarrerakzornotzaaretoa.com/"
+  },
+  {
+    "izena": "Borderline Fabrika",
+    "herria": "Hendaye",
+    "url": "https://borderlinefabrika.weebly.com/agenda-eus.html"
+  },
+  {
+    "izena": "La Luna Negra Café-Théâtre",
+    "herria": "Bayonne",
+    "url": "http://www.lunanegra.fr/"
+  },
+  {
+    "izena": "Café Culturel La Mer",
+    "herria": "Hélette",
+    "url": "https://traboules.com"
+  },
+  {
+    "izena": "Chemins - Bideak",
+    "herria": "Saint-Palais",
+    "url": "http://www.chemins-bideak.com/wp-json/tribe/events/v1/events",
+    "metodoa": "tribe"
+  },
+  {
+    "izena": "Hebentikenea",
+    "herria": "Mauléon-Licharre",
+    "url": "https://hebentik.eu/"
+  },
+  {
+    "izena": "Hodi Aldean",
+    "herria": "Mendionde",
+    "url": "https://mendionde.fr/agenda/"
+  },
+  {
+    "izena": "L'Atabal",
+    "herria": "Biarritz",
+    "url": "https://www.atabal-biarritz.fr/agenda/"
+  },
+  {
+    "izena": "Le Magnéto",
+    "herria": "Bayonne",
+    "url": "https://loco-motive.fr/agenda/"
+  },
+  {
+    "izena": "Salle \"Les découvertes\"",
+    "herria": "Biarritz",
+    "url": "https://theatre-des-chimeres.com/"
+  },
+  {
+    "izena": "Espace culturel et artistique Mendi Zolan",
+    "herria": "Hendaye",
+    "url": "https://www.hendaye-culture.fr/wp-json/tribe/events/v1/events",
+    "metodoa": "tribe"
+  }
+]

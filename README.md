@@ -40,6 +40,9 @@ uv venv .venv && uv pip install --python .venv/bin/python -r requirements.txt
 # Udal webguneetan agendak bilatu (hilean behin nahikoa)
 .venv/bin/python robota/agendak_aurkitu.py
 
+# Antzokien webguneetan agendak bilatu (Sarea + EKE zerrendak) → robota/antzoki_orriak.json
+.venv/bin/python robota/antzokiak_aurkitu.py
+
 # Wikidatan webgunerik ez duten udalentzat webgunea asmatu (baztan.eus…), gero aurkitzailea berriro
 .venv/bin/python robota/webguneak_asmatu.py
 
@@ -138,6 +141,8 @@ saioak eta bertsolaritza beti euskaraz; LLMari ere orriak argi esaten duenean ba
 | [Visit Navarra](https://www.visitnavarra.es/es/agenda) | Nafarroa Garaia (jai eta feria handiak) | HTMLa irakurrita |
 | Elkarteen agendak (Karrikiri…) eta Eibarko udala ([eibarkultura.eus](https://eibarkultura.eus/egutegia/) barne) | 7ak | `agenda_orriak.json`, formatu estandarrak (WordPress, iCal, schema.org, Modern Events Calendar, Plone) |
 | Antzokien karteldegiak: [Gayarre](https://teatrogayarre.com/programacion/), [Baluarte](https://www.baluarte.com/es/agenda), [Kursaal](https://www.kursaal.eus/eu/agenda/), [Scène Nationale du Sud-Aquitain](https://www.scenenationale.fr/spectacles) (Baiona, Angelu, Donibane Lohizune, Bokale), [LABA](https://laba.eus/ekintzak/) (Iruñea), [Campos Elíseos](https://www.teatrocampos.com) (Bilbo) | Gipuzkoa, Lapurdi, Nafarroa Garaia, Bizkaia | HTMLa irakurrita / WordPress APIa (LLMrik gabe; kongresuak eta eskola-saioak kanpo). Beste antzoki nagusiak (Victoria Eugenia, Arriaga, Euskalduna…) Kulturklik eta Kutxabank bidez |
+| [Nafarroako Antzoki Sarea](https://www.redteatrosnavarra.com/es/agenda) | Nafarroa Garaia (~30 udalerri) | Agenda bateratua, HTMLa irakurrita (hizkuntza barne) |
+| Antzokiak: [Sarea](https://www.sarea.euskadi.eus) (EAE) eta [EKE-ren direktorioa](https://www.eke.eus/fr/repertoire-artistes-acteurs-basques) (Iparraldea) | EAE, Iparraldea | `antzokiak_aurkitu.py` → `antzoki_orriak.json`: udal-webgunera bidaltzen ez dutenak; tribe/iCal/JSON-LD/MEC, bestela LLM |
 | [Destination Biarritz](https://www.destination-biarritz.fr/agenda/) (Gare du Midi, Colisée, Casinoko antzokia, Atabal…) | Lapurdi (Biarritz) | HTMLa irakurrita, LLMrik gabe (`ai-train=no`) |
 | [Kutxabank Tickets](https://tickets.kutxabank.es/) | Bizkaia, Gipuzkoa (antzoki, auditorio, herrietako zinemak) | Webguneak berak erabiltzen duen Firestore datu-base publikoa (JSON) |
 | [Zarata (MondoSonoro)](https://www.mondosonoro.com/agenda-zarata/) | 7ak (kontzertuak; Errioxakoak ez) | WordPress APIa, testua irakurrita (LLMrik gabe) |

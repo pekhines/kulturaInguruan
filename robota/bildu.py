@@ -69,8 +69,10 @@ TALDEAK = {
 }
 
 
-# Beste bilduma batetik datozen arren (adib. agenda_orriak.json-eko "tribe"), antzokiak direnak
-ANTZOKIAK = {"Campos Elíseos Antzokia"}
+# Beste bilduma batetik datozen arren (agenda_orriak.json-eko "tribe", antzoki_orriak.json…), antzokiak direnak
+ANTZOKIAK = {"Campos Elíseos Antzokia"} | {
+    o["izena"] for o in json.loads((ERROA / "robota" / "antzoki_orriak.json").read_text(encoding="utf-8"))
+} if (ERROA / "robota" / "antzoki_orriak.json").exists() else {"Campos Elíseos Antzokia"}
 
 
 def taldea(bilduma, iturria):

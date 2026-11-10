@@ -11,6 +11,7 @@ eta Kutxabank Tickets bidez jasotzen dira jada. Hemen hutsuneak betetzen dira:
     https://www.scenenationale.fr/spectacles  (+ fitxa bakoitza, data, ordua eta prezioarentzat)
   - LABA (Iruñea): euskarazko kultur gunea. https://laba.eus/ekintzak/
   - Baluarte eta Gayarre (Iruñea): beren webguneetatik, Kulturklik-en ez dauden saioengatik.
+  - Nafarroako Antzoki Sarea (redteatrosnavarra.com): ~30 udalerritako antzokien agenda bateratua.
 
 Zentral (Iruñea) eta Tabakalera (Donostia) ez: AA bot guztiak blokeatzen dituzte (Anthropic barne),
 eta Kulturklik bidez jasotzen dira jada.
@@ -351,8 +352,64 @@ def gayarre(udalerriak):
                              deskribapena=deskribapena.get("content", "") if deskribapena else "")
 
 
+# ---------- Nafarroako Antzoki Sarea (Red de Teatros de Navarra) ----------
+
+RTN = "https://www.redteatrosnavarra.com"
+_RTN_DATA = re.compile(r"(\d{1,2})\s+(" + "|".join(_ES_HILAK) + r"),?\s+(\d{4})(?:\s*-\s*(\d{1,2}:\d{2}))?", re.I)
+_RTN_HIZKUNTZAK = {"castellano": "es", "euskera": "eu", "euskara": "eu", "bilingüe": "bi", "bilingue": "bi"}
+
+
+def red_teatros_navarra(udalerriak):
+    """Sareko ~30 udalerrien agenda bateratua: "Teatro ¦ LA COSA ¦ Ansoáin / Antsoain ¦
+    Viernes, 13 Noviembre, 2026 - 19:30 ¦ Función: Castellano". Orrikatua (?page=N)."""
+    ikusiak = set()
+    for orria in range(0, 30):
+        url = f"{RTN}/es/agenda" + (f"?page={orria}" if orria else "")
+        try:
+            html = eskuratu(url).text
+        except Exception as e:  # noqa: BLE001
+            if orria == 0:
+                raise
+            print(f"  ! Red de Teatros {orria}. orria: {type(e).__name__} (aurrekoak gorde)")
+            return
+        txartelak = BeautifulSoup(html, "html.parser").select(".views-row")
+        berriak = 0
+        for t in txartelak:
+            a = next((x for x in t.select('a[href^="/es/agenda/"]') if x.get_text(strip=True)), None)
+            if not a or a["href"] in ikusiak:
+                continue
+            ikusiak.add(a["href"])
+            berriak += 1
+            testuak = list(t.stripped_strings)
+            m = next((m for x in testuak if (m := _RTN_DATA.search(x))), None)
+            if not m:
+                continue
+            try:
+                d = date(int(m.group(3)), _ES_HILAK[m.group(2).lower()], int(m.group(1)))
+            except ValueError:
+                continue
+            if d < date.today():
+                continue
+            izenburua = a.get_text(" ", strip=True)
+            i = testuak.index(izenburua) if izenburua in testuak else -1
+            herria = herria_bilatu(testuak[i + 1], udalerriak) if 0 <= i < len(testuak) - 1 else None
+            if not herria:
+                continue
+            mota = testuak[0] if i > 0 else ""
+            hizkuntza = next((h for x in testuak if x.lower().startswith("función")
+                              for k, h in _RTN_HIZKUNTZAK.items() if k in x.lower()), "")
+            e = _ekitaldia("Nafarroako Antzoki Sarea", a["href"].rsplit("-", 1)[-1], herria, izenburua, d,
+                           ordua=(m.group(4) or "").zfill(5) if m.group(4) else "", url=RTN + a["href"], mota=mota)
+            if hizkuntza:
+                e["hizkuntza"] = hizkuntza
+            yield e
+        if not berriak:
+            return
+        time.sleep(1)
+
+
 def ekitaldiak(udalerriak):
-    for izena, irakurlea in (("Kursaal", kursaal), ("Scène Nationale", scene_nationale), ("LABA", laba),
+    for izena, irakurlea in (("Nafarroako Antzoki Sarea", red_teatros_navarra), ("Kursaal", kursaal), ("Scène Nationale", scene_nationale), ("LABA", laba),
                              ("Baluarte", baluarte), ("Gayarre", gayarre)):
         try:
             zerrenda = list(irakurlea(udalerriak))

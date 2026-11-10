@@ -25,6 +25,7 @@ from bs4 import BeautifulSoup
 import llm
 from lagungarriak import (ERROA, HIZKUNTZAK, GOIBURUAK, html_garbitu, kategoria_asmatu, robots_baimena,
                           udal_kokapena)
+from iturriak.elkarte_agendak import orriak
 from iturriak.udal_agendak import metodoak
 
 ORRIAK = ERROA / "robota" / "agenda_orriak.json"
@@ -152,7 +153,7 @@ def orriak_zerrenda(udalerriak):
     """[(izena, url, herri_lehenetsia)]"""
     emaitza = []
     if ORRIAK.exists():
-        for o in json.loads(ORRIAK.read_text(encoding="utf-8")):
+        for o in orriak():  # agenda_orriak.json + antzoki_orriak.json
             if o.get("metodoa"):
                 continue  # formatu estandarrekoa: elkarte_agendak.py-k irakurtzen du
             herria = udalerriak.bilatu(o["herria"]) if o.get("herria") else None

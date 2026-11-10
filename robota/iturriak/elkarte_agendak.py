@@ -24,12 +24,24 @@ from lagungarriak import ERROA
 from iturriak.udal_agendak import IRAKURLEAK
 
 ORRIAK = ERROA / "robota" / "agenda_orriak.json"
+# antzokiak_aurkitu.py-k sortua (Sarea, EKE…): formatu berean
+ANTZOKIAK = ERROA / "robota" / "antzoki_orriak.json"
+
+
+def orriak():
+    """agenda_orriak.json + antzoki_orriak.json (URL bera behin)."""
+    emaitza, ikusiak = [], set()
+    for f in (ORRIAK, ANTZOKIAK):
+        if f.exists():
+            for o in json.loads(f.read_text(encoding="utf-8")):
+                if o["url"] not in ikusiak:
+                    ikusiak.add(o["url"])
+                    emaitza.append(o)
+    return emaitza
 
 
 def egituratuak():
-    if not ORRIAK.exists():
-        return []
-    return [o for o in json.loads(ORRIAK.read_text(encoding="utf-8")) if o.get("metodoa")]
+    return [o for o in orriak() if o.get("metodoa")]
 
 
 def ekitaldiak(udalerriak):

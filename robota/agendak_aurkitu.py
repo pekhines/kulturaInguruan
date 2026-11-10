@@ -19,13 +19,12 @@ import time
 from collections import Counter
 from concurrent.futures import ThreadPoolExecutor
 from urllib.parse import urljoin, urlparse
-from urllib.robotparser import RobotFileParser
 
 import requests
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, str(__import__("pathlib").Path(__file__).parent))
-from lagungarriak import ERROA, GOIBURUAK, UDALERRIAK_FITXATEGIA  # noqa: E402
+from lagungarriak import ERROA, GOIBURUAK, UDALERRIAK_FITXATEGIA, robots_baimena  # noqa: E402
 
 WEBGUNEAK = ERROA / "robota" / "udal_webguneak.json"
 IRTEERA = ERROA / "robota" / "agendak.json"
@@ -60,21 +59,11 @@ PLATAFORMAK = {
 
 saioa = requests.Session()
 saioa.headers.update(GOIBURUAK)
-robots_cache = {}
 
 
 def baimena(url):
-    """robots.txt-ek uzten digu?"""
-    host = urlparse(url).scheme + "://" + urlparse(url).netloc
-    if host not in robots_cache:
-        rp = RobotFileParser()
-        try:
-            r = saioa.get(host + "/robots.txt", timeout=15)
-            rp.parse(r.text.splitlines() if r.ok else [])
-        except requests.RequestException:
-            rp.parse([])
-        robots_cache[host] = rp
-    return robots_cache[host].can_fetch(GOIBURUAK["User-Agent"], url)
+    """robots.txt-ek uzten digu? (lagungarriak.robots_baimena: izen bereko talde guztiak batuta)"""
+    return robots_baimena(url)
 
 
 def eskuratu(url):
