@@ -10,6 +10,7 @@ eta Kutxabank Tickets bidez jasotzen dira jada. Hemen hutsuneak betetzen dira:
     Angeluko Quintaou, Donibane Lohizuneko Tanka, Bokaleko Apollo…), ia ezein iturrik jasotzen ez zituenak.
     https://www.scenenationale.fr/spectacles  (+ fitxa bakoitza, data, ordua eta prezioarentzat)
   - LABA (Iruñea): euskarazko kultur gunea. https://laba.eus/ekintzak/
+  - Baluarte eta Gayarre (Iruñea): beren webguneetatik, Kulturklik-en ez dauden saioengatik.
 
 Zentral (Iruñea) eta Tabakalera (Donostia) ez: AA bot guztiak blokeatzen dituzte (Anthropic barne),
 eta Kulturklik bidez jasotzen dira jada.
@@ -38,6 +39,15 @@ def _hurrengoa(hila, eguna):
         if d >= gaur:
             return d
     return None
+
+
+def _prezioa(prezioak):
+    """[12.5, 25.0] → '12,5–25 €'"""
+    if not prezioak:
+        return ""
+    f = lambda x: f"{x:g}".replace(".", ",")  # noqa: E731
+    a, b = min(prezioak), max(prezioak)
+    return f"{f(a)} €" if a == b else f"{f(a)}–{f(b)} €"
 
 
 def _ekitaldia(iturria, gakoa, u, izenburua, hasiera, amaiera=None, ordua="", lekua="", url="",
@@ -178,10 +188,7 @@ def scene_nationale(udalerriak):
         deskribapena = fitxa.select_one(".description")
         tarifak = [float(x.replace(",", ".")) for li in fitxa.select("li.tarif")
                    for x in re.findall(r"(\d+(?:[.,]\d+)?)\s*€", li.get_text())]
-        prezioa = ""
-        if tarifak:
-            a_, b_ = min(tarifak), max(tarifak)
-            prezioa = f"{a_:g} €" if a_ == b_ else f"{a_:g}–{b_:g} €"
+        prezioa = _prezioa(tarifak)
         titulua = izenburua.get_text(" ", strip=True)
         if artista and artista.get_text(strip=True):
             titulua += " – " + artista.get_text(" ", strip=True)
@@ -238,8 +245,115 @@ def laba(udalerriak):
                          lekua="Laba", url="https://laba.eus" + bidea)
 
 
+# ---------- Baluarte (Iruñea) ----------
+
+BALUARTE = "https://www.baluarte.com"
+
+
+def baluarte(udalerriak):
+    """https://www.baluarte.com/es/agenda — kongresu eta jardunaldiak kanpo: ikuskizunek sarrera-botoia
+    ("Entradas") edo "Aretoa | ordua" dute; kongresuek ordu-tartea bakarrik."""
+    iruñea = udalerriak.bilatu("Iruñea")
+    zerrenda = BeautifulSoup(eskuratu(f"{BALUARTE}/es/agenda").text, "html.parser")
+    for t in zerrenda.select("a.bal__eventcard--evento[href]"):
+        g = lambda k: t.select_one(k).get_text(" ", strip=True) if t.select_one(k) else ""  # noqa: E731
+        izenburua, gehiago, botoia = g(".bal__eventcard-title"), g(".bal__eventcard-more"), g(".bal__eventcard-btn")
+        if not izenburua or ("|" not in gehiago and "entradas" not in botoia.lower()):
+            continue
+        hila = HILABETE_LABURDURAK.get(g(".bal__eventcard-month").lower()[:3])
+        egunak = [int(x) for x in re.findall(r"\d{1,2}", g(".bal__eventcard-day"))]
+        if not hila or not egunak:
+            continue
+        # Urtea URLan egon ohi da ("…-18-19-diciembre-2026"); bestela, hurrengo data
+        urtea = re.search(r"-(20\d\d)(?:$|-)", t["href"])
+        try:
+            hasiera = date(int(urtea.group(1)), hila, egunak[0]) if urtea else _hurrengoa(hila, egunak[0])
+        except ValueError:
+            continue
+        if not hasiera:
+            continue
+        amaiera = hasiera.replace(day=egunak[-1]) if len(egunak) > 1 and egunak[-1] >= egunak[0] else hasiera
+        if amaiera < date.today():
+            continue
+        aretoa, _, ordua = gehiago.partition("|")
+        ordua = re.search(r"\d{1,2}:\d{2}", ordua)
+        irudia = t.select_one("img")
+        yield _ekitaldia("Baluarte", t["href"].rstrip("/").rsplit("/", 1)[-1], iruñea, izenburua, hasiera, amaiera,
+                         ordua=ordua.group(0).zfill(5) if ordua else "", lekua=f"Baluarte – {aretoa.strip()}",
+                         url=BALUARTE + t["href"], irudia=irudia.get("src", "") if irudia else "")
+
+
+# ---------- Gayarre (Iruñea) ----------
+
+GAYARRE = "https://teatrogayarre.com"
+_ES_HILAK = {"enero": 1, "febrero": 2, "marzo": 3, "abril": 4, "mayo": 5, "junio": 6, "julio": 7, "agosto": 8,
+             "septiembre": 9, "setiembre": 9, "octubre": 10, "noviembre": 11, "diciembre": 12}
+_ES_EGUNAK = {"lunes": 0, "martes": 1, "miércoles": 2, "miercoles": 2, "jueves": 3, "viernes": 4,
+              "sábado": 5, "sabado": 5, "domingo": 6}
+_GAYARRE_SAIOA = re.compile(r"(" + "|".join(_ES_EGUNAK) + r"),?\s+(\d{1,2})\s+(?:de\s+)?(" + "|".join(_ES_HILAK)
+                            + r")(?:\s+a\s+las\s+(\d{1,2}[:.]\d{2}))?", re.I)
+
+
+def _asteko_egunarekin(asteguna, eguna, hila):
+    """'domingo, 28 febrero' → asteko egunarekin bat datorren urtea (gaur.urtea-1 … +1). Iraganekoa bada: None."""
+    gaur = date.today()
+    for urtea in (gaur.year - 1, gaur.year, gaur.year + 1):
+        try:
+            d = date(urtea, hila, eguna)
+        except ValueError:
+            continue
+        if d.weekday() == asteguna:
+            return d if d >= gaur else None
+    return None
+
+
+def gayarre(udalerriak):
+    """Ikuskizunak WordPress bidalketak dira ("programacion" kategoria), baina datak fitxan bakarrik daude
+    ("Fechas y horarios: domingo, 28 febrero a las 19:00"), urterik gabe: asteko egunak ematen du urtea.
+    (Sarrera-plataformak, Patronbase-k, robot guztiak debekatzen ditu: ez da erabiltzen.)"""
+    iruñea = udalerriak.bilatu("Iruñea")
+    kat = eskuratu(f"{GAYARRE}/wp-json/wp/v2/categories?slug=programacion").json()
+    if not kat:
+        return
+    bidalketak = eskuratu(f"{GAYARRE}/wp-json/wp/v2/posts?categories={kat[0]['id']}&per_page=100"
+                          "&_fields=id,link,title").json()
+    for b in bidalketak:
+        if re.search(r"funci[oó]n(es)? escolar", b["title"]["rendered"], re.I):
+            continue  # ikastetxeentzako saioak, ez publikoarentzat
+        time.sleep(1)
+        try:
+            fitxa = BeautifulSoup(eskuratu(b["link"]).text, "html.parser")
+        except Exception as e:  # noqa: BLE001
+            print(f"  ! Gayarre {b['link']}: {type(e).__name__}")
+            continue
+        testua = fitxa.get_text("\n", strip=True)
+        i = testua.find("Fechas y horarios")
+        if i < 0:
+            continue
+        zatia = testua[i:i + 1500]
+        j = zatia.find("Precios")
+        saioak = []
+        for m in _GAYARRE_SAIOA.finditer(zatia[:j] if j > 0 else zatia):
+            d = _asteko_egunarekin(_ES_EGUNAK[m.group(1).lower()], int(m.group(2)), _ES_HILAK[m.group(3).lower()])
+            if d:
+                saioak.append((d, (m.group(4) or "").replace(".", ":").zfill(5) if m.group(4) else ""))
+        if not saioak:
+            continue
+        prezioak = [float(x.replace(",", ".")) for x in re.findall(r"(\d+(?:[.,]\d+)?)\s*€", zatia[j:j + 200])] \
+            if j > 0 else []
+        prezioa = _prezioa(prezioak)
+        irudia = fitxa.select_one('meta[property="og:image"]')
+        deskribapena = fitxa.select_one('meta[property="og:description"]')
+        for d, ordua in sorted(set(saioak)):
+            yield _ekitaldia("Gayarre", f"{b['id']}:{d}", iruñea, html_garbitu(b["title"]["rendered"], 200), d,
+                             ordua=ordua, lekua="Gayarre antzokia", url=b["link"], prezioa=prezioa,
+                             irudia=irudia.get("content", "") if irudia else "",
+                             deskribapena=deskribapena.get("content", "") if deskribapena else "")
+
+
 def ekitaldiak(udalerriak):
-    for izena, irakurlea in (("Kursaal", kursaal), ("Scène Nationale", scene_nationale), ("LABA", laba)):
+    for izena, irakurlea in (("Kursaal", kursaal), ("Scène Nationale", scene_nationale), ("LABA", laba),
+                             ("Baluarte", baluarte), ("Gayarre", gayarre)):
         try:
             zerrenda = list(irakurlea(udalerriak))
         except Exception as e:  # noqa: BLE001 — bat hausten bada, besteekin jarraitu

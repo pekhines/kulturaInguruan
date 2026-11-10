@@ -26,7 +26,7 @@ import requests
 
 from bateratu import bateratu
 from lagungarriak import ERROA, Udalerriak, hizkuntza_asmatu, normalizatu
-from iturriak import (antzokiak, culturanavarra, dantzan, eke, elkarte_agendak, iparralde_turismoa, irunea, kulturklik,
+from iturriak import (antzokiak, biarritz, culturanavarra, dantzan, eke, elkarte_agendak, iparralde_turismoa, irunea, kulturklik,
                       kutxabank, llm_agendak, metaleuskadi, musikazuzenean, tokikom, turismoa, udal_agendak, visitnavarra,
                       zarata, zernonikusi)
 
@@ -42,6 +42,7 @@ ITURRIAK = [
     ("Dantzan.eus", dantzan),
     ("Cultura Navarra", culturanavarra),
     ("Pays Basque turismoa", iparralde_turismoa),
+    ("Destination Biarritz", biarritz),
     ("Visit Navarra", visitnavarra),
     ("Zarata", zarata),
     ("Musika Zuzenean", musikazuzenean),
@@ -64,7 +65,7 @@ TALDEAK = {
     "Pantailak Euskaraz": "pantailak", "Zarata": "zarata",
     "Musika Zuzenean": "musikazuzenean", "Metal Euskadi": "metaleuskadi",
     "Kutxabank Tickets": "kutxabank", "Antzokiak": "antzokiak",
-    "Pays Basque turismoa": "turismoa", "Visit Navarra": "turismoa", "Agenda Turistikoa": "turismoa",
+    "Pays Basque turismoa": "turismoa", "Destination Biarritz": "turismoa", "Visit Navarra": "turismoa", "Agenda Turistikoa": "turismoa",
 }
 
 

@@ -30,9 +30,9 @@ const ITURRIAK = {
   zarata: ["Zarata", "MondoSonoro-ren kontzertu-agenda (Zarata edizioa)"],
   musikazuzenean: ["Musika Zuzenean", "Euskal musikaren kontzertu-agenda: taldeek eta antolatzaileek igotakoak, gaztetxeak barne"],
   metaleuskadi: ["Metal Euskadi", "Metal eta rock kontzertuak lurraldeka, gaztetxeak barne"],
-  antzokiak: ["Antzokiak", "Antzokien karteldegiak: Kursaal, Campos Elíseos, LABA, Scène Nationale (Baiona, Angelu, Donibane Lohizune, Bokale)"],
+  antzokiak: ["Antzokiak", "Antzokien karteldegiak: Gayarre, Baluarte, LABA, Kursaal, Campos Elíseos, Scène Nationale (Baiona, Angelu, Donibane Lohizune, Bokale)"],
   kutxabank: ["Kutxabank Tickets", "Kutxabank-en sarrera-salmenta: antzoki, auditorio eta herrietako zinemak"],
-  turismoa: ["Turismo bulegoak", "Pays Basque turismo bulegoa, Visit Navarra, Euskadiko Agenda Turistikoa"],
+  turismoa: ["Turismo bulegoak", "Pays Basque turismo bulegoa, Destination Biarritz (Gare du Midi, Colisée…), Visit Navarra, Euskadiko Agenda Turistikoa"],
 };
 // Ekitaldiaren hizkuntza (robotak "hizkuntza" jartzen du testuak argi esaten duenean; bestela zehaztugabea)
 const HIZKUNTZAK = {
