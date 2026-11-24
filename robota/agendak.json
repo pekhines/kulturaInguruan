@@ -47,7 +47,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 76065
+   "tamaina": 74703
   }
  },
  {
@@ -133,6 +133,11 @@
     "testua": "Actividades deportivas Curso 2026/2027",
     "url": "https://ablitas.es/anuncios-noticias/actividades-deportivas-curso-2026-2027/",
     "kanpokoa": false
+   },
+   {
+    "testua": "Programación Carnaval",
+    "url": "https://ablitas.es/actividades/programacion-carnaval/",
+    "kanpokoa": false
    }
   ],
   "agenda": {
@@ -155,7 +160,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 190702
+   "tamaina": 195805
   }
  },
  {
@@ -217,7 +222,12 @@
   "plataforma": [
    "liferay"
   ],
-  "jarioak_hasieran": [],
+  "jarioak_hasieran": [
+   {
+    "mota": "esteka",
+    "url": "https://agurain.eus/eu/hasiera/-/asset_publisher/4qFKYTSREojU/content/mon%C3%B3logo-musicalizado-patas-arriba-?p_r_p_assetEntryId=6651545&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_4qFKYTSREojU_type=content&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_4qFKYTSREojU_urlTitle=mon%25C3%25B3logo-musicalizado-patas-arriba-&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_4qFKYTSREojU_redirect=https%3A%2F%2Fagurain.eus%2Feu%2Fhasiera%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_4qFKYTSREojU%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26p_r_p_assetEntryId%3D6651545%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_4qFKYTSREojU_cur%3D0%26p_r_p_resetCur%3Dfalse"
+   }
+  ],
   "agenda_estekak": [
    {
     "testua": "Agenda",
@@ -242,7 +252,7 @@
    "plataforma": [
     "liferay"
    ],
-   "tamaina": 138936
+   "tamaina": 150114
   }
  },
  {
@@ -313,7 +323,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 96016
+   "tamaina": 95191
   },
   "tribe_api": "http://www.ahetze.fr/wp-json/tribe/events/v1/events"
  },
@@ -369,7 +379,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 99725
+   "tamaina": 101051
   }
  },
  {
@@ -449,7 +459,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 151461
+   "tamaina": 151573
   }
  },
  {
@@ -496,7 +506,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 12260
+   "tamaina": 13121
   }
  },
  {
@@ -532,7 +542,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 73662
+   "tamaina": 72300
   }
  },
  {
@@ -569,8 +579,8 @@
   ],
   "agenda_estekak": [
    {
-    "testua": "Soirée Burger & Frites",
-    "url": "https://mairie-came.fr/evenements/soiree-burger-frites/",
+    "testua": "Le marché de Noël",
+    "url": "https://mairie-came.fr/evenements/le-marche-de-noel/",
     "kanpokoa": false
    },
    {
@@ -590,7 +600,7 @@
    }
   ],
   "agenda": {
-   "url": "https://mairie-came.fr/evenements/soiree-burger-frites/",
+   "url": "https://mairie-came.fr/evenements/le-marche-de-noel/",
    "jarioak": [
     {
      "mota": "application/rss+xml",
@@ -601,7 +611,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 176943
+   "tamaina": 175261
   }
  },
  {
@@ -635,7 +645,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 69467
+   "tamaina": 70813
   }
  },
  {
@@ -688,18 +698,18 @@
     "kanpokoa": false
    },
    {
-    "testua": "Aza 18 Nagore dokumentala eta Asun Casasolarekin solasaldia",
-    "url": "https://www.alegia.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=82818&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
+    "testua": "Aza 25 Liburutegia Topagune: Maite Franko",
+    "url": "https://www.alegia.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=83503&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
     "kanpokoa": false
    },
    {
-    "testua": "Aza 19 Hitzaldia: 'Fabrensa, suitzarren fabrika (1957-1980)'",
-    "url": "https://www.alegia.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=82815&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
+    "testua": "Aza 25 Emakumenganako Indarkeriaren Aurkako Nazioarteko Eguna",
+    "url": "https://www.alegia.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=83504&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
     "kanpokoa": false
    },
    {
-    "testua": "Aza 22 Xexili eguna",
-    "url": "https://www.alegia.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=82819&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
+    "testua": "Aza 26 Hitzaldia: 'Arropari begira'",
+    "url": "https://www.alegia.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=86301&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
     "kanpokoa": false
    }
   ],
@@ -878,7 +888,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 95989
+   "tamaina": 94647
   }
  },
  {
@@ -958,7 +968,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 157998
+   "tamaina": 158023
   }
  },
  {
@@ -1013,11 +1023,6 @@
     "testua": "Jaiak eta Ospakizunak",
     "url": "https://www.amezketa.eus/herria_ezagutu/jaiak_eta_ospakizunak/",
     "kanpokoa": false
-   },
-   {
-    "testua": "AZAROAN HAINBAT EKITALDI",
-    "url": "https://www.amezketa.eus/san-martin-eguna-eta-beste-hainbat-ekitaldi-2/",
-    "kanpokoa": false
    }
   ],
   "agenda": {
@@ -1036,7 +1041,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 58581
+   "tamaina": 58579
   }
  },
  {
@@ -1095,7 +1100,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 68955
+   "tamaina": 68954
   }
  },
  {
@@ -1115,12 +1120,21 @@
    {
     "mota": "application/rss+xml",
     "url": "https://andosilla.net/comments/feed/"
+   },
+   {
+    "mota": "esteka",
+    "url": "https://andosilla.net/encuentro-narrativo-y-musical/"
    }
   ],
   "agenda_estekak": [
    {
     "testua": "ACTIVIDADES ECONÓMICAS",
     "url": "https://andosilla.net/actividades-economicas/",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Actividades 25 N",
+    "url": "https://andosilla.net/actividades-25-n/",
     "kanpokoa": false
    }
   ],
@@ -1201,7 +1215,7 @@
    "plataforma": [
     "typo3"
    ],
-   "tamaina": 118793
+   "tamaina": 205898
   }
  },
  {
@@ -1415,8 +1429,11 @@
   "id": "Q976743",
   "izena": "Aramaio",
   "lurraldea": "Araba",
-  "webgunea": null,
-  "errorea": "SSLError"
+  "webgunea": "https://ww16.aramaio.org/?sub1=20261125-0140-21e6-bab7-2a01347ec018",
+  "errorea": null,
+  "plataforma": [],
+  "jarioak_hasieran": [],
+  "agenda_estekak": []
  },
  {
   "id": "Q1645785",
@@ -1669,11 +1686,6 @@
     "testua": "Jaiak",
     "url": "https://www.aretxabaleta.eus/eu/aretxabaleta-1/jaiak",
     "kanpokoa": false
-   },
-   {
-    "testua": "Haurren eskubideak aldarrikatzeko eta elkartasuna sustatzeko egitarau zabala pre",
-    "url": "https://www.aretxabaleta.eus/eu/aktualitatea/haurren-eskubideak-aldarrikatzeko-eta-elkartasuna-sustatzeko-egitarau-zabala-prestatu-dute-aretxabaletan",
-    "kanpokoa": false
    }
   ],
   "agenda": {
@@ -1829,7 +1841,7 @@
   "id": "Q1369040",
   "izena": "Arraia-Maeztu",
   "lurraldea": "Araba",
-  "webgunea": "https://www.arraia-maeztu.eus/",
+  "webgunea": "https://www.arraia-maeztu.eus",
   "errorea": null,
   "plataforma": [
    "wordpress"
@@ -1944,13 +1956,13 @@
     "kanpokoa": false
    },
    {
-    "testua": "Atelier Form’Bien-être",
-    "url": "https://www.arcangues.fr/agenda/atelier-formbien-etre/",
+    "testua": "Ateliers Stimuler sa mémoire",
+    "url": "https://www.arcangues.fr/agenda/ateliers-stimuler-sa-memoire/",
     "kanpokoa": false
    },
    {
-    "testua": "Ateliers Stimuler sa mémoire",
-    "url": "https://www.arcangues.fr/agenda/ateliers-stimuler-sa-memoire/",
+    "testua": "Marché d’Arcangues",
+    "url": "https://www.arcangues.fr/agenda/marche-darcangues-10-2/",
     "kanpokoa": false
    }
   ],
@@ -2003,7 +2015,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 1308347
+   "tamaina": 1306877
   },
   "tribe_api": "https://www.arcangues.fr/wp-json/tribe/events/v1/events"
  },
@@ -2071,20 +2083,7 @@
   "errorea": null,
   "plataforma": [],
   "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "Agenda cultural",
-    "url": "https://www.arroniz.org/es/actualidad/agenda-cultural",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://www.arroniz.org/es/actualidad/agenda-cultural",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [],
-   "tamaina": 22648
-  }
+  "agenda_estekak": []
  },
  {
   "id": "FR64468",
@@ -2120,11 +2119,6 @@
     "kanpokoa": false
    },
    {
-    "testua": "jeudi 19/11/2026 Réunion PLUI",
-    "url": "https://www.saintmartindarrossa.fr/evenements/reunion-plui/",
-    "kanpokoa": false
-   },
-   {
     "testua": "21/11/2026 28/11/2026 Euskararen Urtaroa : Larrain dantza",
     "url": "https://www.saintmartindarrossa.fr/evenements/euskararen-urtaroa-larrain-dantza/",
     "kanpokoa": false
@@ -2132,6 +2126,11 @@
    {
     "testua": "jeudi 26/11/2026 Réunion commission « Sociale/solidarité »",
     "url": "https://www.saintmartindarrossa.fr/evenements/reunion-commission-sociale-solidarite/",
+    "kanpokoa": false
+   },
+   {
+    "testua": "samedi 28/11/2026 Euskararen Urtaroa : chants/apéritif",
+    "url": "https://www.saintmartindarrossa.fr/evenements/euskararen-urtaroa-chants-aperitif/",
     "kanpokoa": false
    }
   ],
@@ -2152,7 +2151,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 49653
+   "tamaina": 49143
   }
  },
  {
@@ -2208,11 +2207,8 @@
   "id": "Q587131",
   "izena": "Artziniega",
   "lurraldea": "Araba",
-  "webgunea": "http://www.artziniega.info/",
-  "errorea": null,
-  "plataforma": [],
-  "jarioak_hasieran": [],
-  "agenda_estekak": []
+  "webgunea": null,
+  "errorea": "ConnectionError"
  },
  {
   "id": "FR64049",
@@ -2239,8 +2235,50 @@
   "id": "Q1639355",
   "izena": "Astigarraga",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.astigarraga.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Agenda",
+    "url": "https://www.astigarraga.eus/eu/agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "AZAROKO AGENDA",
+    "url": "https://www.astigarraga.eus/eu/hasiera/-/asset_publisher/Z6YypiJzhRh2/content/azaroko-agenda?_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_Z6YypiJzhRh2_assetEntryId=45579803&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_Z6YypiJzhRh2_redirect=https%3A%2F%2Fwww.astigarraga.eus%2Feu%2Fhasiera%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_Z6YypiJzhRh2%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_Z6YypiJzhRh2_cur%3D0%26p_r_p_resetCur%3Dfalse%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_Z6YypiJzhRh2_assetEntryId%3D45579803",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Hainbat ekitaldi egingo dira Astigarragan, Haurren eta Nerabeen Eskubideen Nazio",
+    "url": "https://www.astigarraga.eus/eu/-/hainbat-ekitaldi-egingo-dira-astigarragan-haurren-eta-nerabeen-eskubideen-nazioarteko-eguna-ospatzeko",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Sarrerak erosi",
+    "url": "http://bibe.me/ekitaldiak-ASTIGARRAGAKOUDALA",
+    "kanpokoa": true
+   },
+   {
+    "testua": "",
+    "url": "https://bibe.me/ekitaldiak-ASTIGARRAGAKOUDALA",
+    "kanpokoa": true
+   }
+  ],
+  "agenda": {
+   "url": "https://www.astigarraga.eus/eu/agenda",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 94224
+  }
  },
  {
   "id": "Q600671",
@@ -2287,8 +2325,22 @@
   "id": "Q4472",
   "izena": "Aulesti",
   "lurraldea": "Bizkaia",
-  "webgunea": null,
-  "errorea": "ReadTimeout"
+  "webgunea": "https://aulesti.net/",
+  "errorea": null,
+  "plataforma": [
+   "wordpress"
+  ],
+  "jarioak_hasieran": [
+   {
+    "mota": "application/rss+xml",
+    "url": "https://aulesti.net/feed/"
+   },
+   {
+    "mota": "application/rss+xml",
+    "url": "https://aulesti.net/comments/feed/"
+   }
+  ],
+  "agenda_estekak": []
  },
  {
   "id": "Q5431",
@@ -2368,7 +2420,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 18404
+   "tamaina": 18386
   }
  },
  {
@@ -2436,23 +2488,18 @@
     "kanpokoa": false
    },
    {
-    "testua": "Kapsula kuantikoa: bidaiatu materiaren mundura",
-    "url": "https://www.azpeitia.eus/agenda/kapsula-kuantikoa-bidaiatu-materiaren-mundura",
+    "testua": "Azpeitiko Zaintza Planaren aurkezpena",
+    "url": "https://www.azpeitia.eus/agenda/azpeitiko-zaintza-planaren-aurkezpena",
     "kanpokoa": false
    },
    {
-    "testua": "Memoria eta erresistentzia feministaren genealogia Azpeitian",
-    "url": "https://www.azpeitia.eus/agenda/memoria-eta-erresistentzia-feministaren-genealogia-azpeitian",
+    "testua": "Saneloiak Landetan",
+    "url": "https://www.azpeitia.eus/agenda/saneloiak-landetan",
     "kanpokoa": false
    },
    {
-    "testua": "Esnatu Dinamika",
-    "url": "https://www.azpeitia.eus/agenda/esnatu-dinamika",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Kontzertua: 'Igo bolumena euskarari'",
-    "url": "https://www.azpeitia.eus/agenda/kontzertua-igo-bolumena-euskarari",
+    "testua": "Santaluziak Elosiagan",
+    "url": "https://www.azpeitia.eus/agenda/santaluziak-elosiagan",
     "kanpokoa": false
    }
   ],
@@ -2463,7 +2510,7 @@
    "plataforma": [
     "plone"
    ],
-   "tamaina": 49869
+   "tamaina": 27428
   }
  },
  {
@@ -2556,7 +2603,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 17682
+   "tamaina": 17524
   }
  },
  {
@@ -2584,35 +2631,8 @@
   "id": "Q385872",
   "izena": "Baliarrain",
   "lurraldea": "Gipuzkoa",
-  "webgunea": "https://www.baliarrain.eus/eu/",
-  "errorea": null,
-  "plataforma": [
-   "izfe",
-   "liferay"
-  ],
-  "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "Agenda eta komunikazioa",
-    "url": "https://www.baliarrain.eus/eu/agenda-komunikazioa",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Agenda",
-    "url": "https://www.baliarrain.eus/eu/agenda1",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://www.baliarrain.eus/eu/agenda-komunikazioa",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [
-    "izfe",
-    "liferay"
-   ],
-   "tamaina": 69173
-  }
+  "webgunea": null,
+  "errorea": "ConnectTimeout"
  },
  {
   "id": "Q4480",
@@ -2694,15 +2714,18 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 18063
+   "tamaina": 17484
   }
  },
  {
   "id": "Q1757471",
   "izena": "Bargota",
   "lurraldea": "Nafarroa Garaia",
-  "webgunea": null,
-  "errorea": "SSLError"
+  "webgunea": "https://ww16.bargota.org/?sub1=20261125-0142-20dc-b3d4-48a8bc10c599",
+  "errorea": null,
+  "plataforma": [],
+  "jarioak_hasieran": [],
+  "agenda_estekak": []
  },
  {
   "id": "Q1645760",
@@ -2793,7 +2816,7 @@
     "animsa",
     "wordpress"
    ],
-   "tamaina": 102598
+   "tamaina": 102624
   }
  },
  {
@@ -2834,7 +2857,7 @@
     "google-sites",
     "joomla"
    ],
-   "tamaina": 280128
+   "tamaina": 280159
   }
  },
  {
@@ -2945,28 +2968,28 @@
     "kanpokoa": false
    },
    {
-    "testua": "TALO TAILERRA",
-    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/120294/-/talo-tailerra",
+    "testua": "Erakusketa: Banaezinak. Natura eta gizakia: historia partekatu bat",
+    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/120095/-/erakusketa-banaezinak-natura-eta-gizakia-historia-partekatu-bat",
     "kanpokoa": false
    },
    {
-    "testua": "HERIOTZARI BELDURRA (EUSKARAZ)",
-    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/120060/-/heriotzari-beldurra-euskaraz",
+    "testua": "KAPSULA KUANTIKOA",
+    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/120144/-/kapsula-kuantikoa",
     "kanpokoa": false
    },
    {
-    "testua": "MOSCAS",
-    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/120188/-/moscas",
+    "testua": "COMPETENCIAS COGNITIVAS Y EMOCIONALES PARA PREVENIR EL DETERIORO COGNITIVO (EN C",
+    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/120061/-/competencias-cognitivas-y-emocionales-para-prevenir-el-deterioro-cognitivo-en-castellano",
+    "kanpokoa": false
+   },
+   {
+    "testua": "HITZALDIA: KLIMA, FOSILAK, BERRIZTAGARRIAK",
+    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/120297/-/hitzaldia-klima-fosilak-berriztagarriak",
     "kanpokoa": false
    },
    {
     "testua": "WIKIEMAKUMEOK - JABETZE ESKOLA",
-    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/119751/-/wikiemakumeok-jabetze-eskola",
-    "kanpokoa": false
-   },
-   {
-    "testua": "MIGRAZIO-DOLUARI BURUZKO TAILERRA",
-    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/120175/-/migrazio-doluari-buruzko-tailerra",
+    "url": "https://www.beasain.eus/ezagutu/zatoz/agenda/ekitaldiaren%20zehaztasunak/119752/-/wikiemakumeok-jabetze-eskola",
     "kanpokoa": false
    }
   ],
@@ -2986,7 +3009,7 @@
    "plataforma": [
     "joomla"
    ],
-   "tamaina": 436320
+   "tamaina": 434986
   }
  },
  {
@@ -3104,7 +3127,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 33400
+   "tamaina": 33423
   }
  },
  {
@@ -3139,8 +3162,55 @@
   "id": "Q1639406",
   "izena": "Berastegi",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.berastegi.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Agenda",
+    "url": "https://www.berastegi.eus/eu/agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "AZAROKO AGENDA",
+    "url": "https://www.berastegi.eus/eu/-/azaroko-agenda-1",
+    "kanpokoa": false
+   },
+   {
+    "testua": "URRIKO AGENDA",
+    "url": "https://www.berastegi.eus/eu/-/urriko-agenda-2",
+    "kanpokoa": false
+   },
+   {
+    "testua": "IRAILEKO AGENDA",
+    "url": "https://www.berastegi.eus/eu/-/iraileko-agenda-1",
+    "kanpokoa": false
+   },
+   {
+    "testua": "EKAINEKO AGENDA",
+    "url": "https://www.berastegi.eus/eu/-/ekaineko-agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "APIRILEKO AGENDA",
+    "url": "https://www.berastegi.eus/eu/-/apirileko-agenda",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.berastegi.eus/eu/agenda",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 79167
+  }
  },
  {
   "id": "Q1645757",
@@ -3166,44 +3236,44 @@
   ],
   "agenda_estekak": [
    {
-    "testua": "17",
-    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-17",
+    "testua": "25",
+    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-25",
     "kanpokoa": false
    },
    {
-    "testua": "18",
-    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-18",
+    "testua": "27",
+    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-27",
     "kanpokoa": false
    },
    {
-    "testua": "19",
-    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-19",
+    "testua": "28",
+    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-28",
     "kanpokoa": false
    },
    {
-    "testua": "21",
-    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-21",
+    "testua": "29",
+    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-29",
     "kanpokoa": false
    },
    {
-    "testua": "22",
-    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-22",
+    "testua": "30",
+    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-30",
     "kanpokoa": false
    },
    {
-    "testua": "23",
-    "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-23",
+    "testua": "1",
+    "url": "https://www.bergara.eus/eu/agenda#egun-2026-12-01",
     "kanpokoa": false
    }
   ],
   "agenda": {
-   "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-17",
+   "url": "https://www.bergara.eus/eu/agenda#egun-2026-11-25",
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [
     "drupal"
    ],
-   "tamaina": 121554
+   "tamaina": 206239
   }
  },
  {
@@ -3313,7 +3383,13 @@
   ],
   "agenda": {
    "url": "https://www.berrobi.eus/eu/-/kultur-agenda",
-   "errorea": "ConnectTimeout"
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 70238
   }
  },
  {
@@ -3350,7 +3426,7 @@
    "plataforma": [
     "typo3"
    ],
-   "tamaina": 198783
+   "tamaina": 202595
   }
  },
  {
@@ -3385,6 +3461,11 @@
     "kanpokoa": false
    },
    {
+    "testua": "",
+    "url": "https://www.briscous.fr/evenement/agenda-novembre-3",
+    "kanpokoa": false
+   },
+   {
     "testua": "Planning annuel des manifestations sur la commune",
     "url": "https://www.briscous.fr/au-quotidien/planning-annuel-des-manifestations-sur-la-commune",
     "kanpokoa": false
@@ -3397,7 +3478,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 64659
+   "tamaina": 62095
   }
  },
  {
@@ -3431,17 +3512,12 @@
   ],
   "agenda": {
    "url": "https://www.biarritz.fr/l-agenda",
-   "jarioak": [
-    {
-     "mota": "esteka",
-     "url": "https://www.biarritz.fr/l-agenda?query=EI2nI3LChkE5rWl5lnbrki5sVHJ4RTFGWS80dTE4TWdnL2tqVnhNQ2dFYlFFdGNaMXIva3lNMXVTalUrZWQzaDd4OFVnVW9RQjNFZEpFVlgvVDNOVENFdFNzeHFYNTF6Vm5VanFRNkJXSUprYWJCbXUzOEExWHVKVWFIWm53aHBwN3pCNFJ2emRic1J4Rk9rSFRHN09jS0VNdnpDejRQUEVJSmkyQkZEQVJrZXVjV3lTZS8ybER1Q2NDS21DeXFYTVNaT1RHK1Ria0NvSFFjSFZSM0psNHMrUWdrd0ozeEVWTlJIdHhjdmdITjhqdTU3cW55SVFuMVNhUDNiWTMzVW9oY3BENjFTdmVZelpXUGpFYjBMWUszZUFLWlNBRDhNWld0OURuYUxIdG52VU9pV200M29hbkxzeHBrbFlrYm9ma1FWM0owcGZoRERuSDErOHN1Ui9ySzE1TGpYdEVORmpuUEZHQ2IxMDlkNUVJMFp2cHoxaTBkSlJwOCswTGN6ODRYd0pWV2hvUXVNVG5sK25IS1hJMGJ6OStvcnJMTGpzbWkzQitmL0RYMXRjeHR1QnVZNjcrRkJnSEtOdFNWcGJsQjZEb1dHUGp4aGNQa1h0N3JLOHlldnRweHQyR2Z2UExhZjBaMElCQ2RSV0tJNGo2dmJtbkNsTmVkR0lsVkFEaXVFTDJOUDBRLzZ0cEoyWVFtZnFaUGRUaUI0dENSMTB2Zm4xUUx5RG9IdU1ONFVTdFI2MGJPVnFPdy8xOVNOaHAyMFYyQnVnR0VkcHNZV0lwTFluWHpkWkFuRm5qdllrblBwWEVrWE9WNjYvVEVXMm5USUcwKzZ0UFo5SEgxdFBiL1BFWnQyVG5tOUR0NHFmSDh4TklWYWVuNW05SjYrWlBmNzBKZnAxUm1ac3ZRMXkxZTZTc2srdVlObE9PSjlCZDljOENvSWUwZXBmajFjcnh1eEJFdStXNzhGTVQ5S0Y1NzNxZmlXbkg3RUpsS1RGNHdTWkEwaTRhUnZlZjVsbEtLM1VxSUR0Q29GZGtCektTekhWZndPcW02bkJ6ZzlkVmR5YWRRTFJZVnZROXNsQmNZOFVXVkNCQTBWUXU2YmFOVk4rUndRUkUzMDJuQmo5d2NhRXNXaG9sc0tEKzd0T05panZ3TU5VZEZqcjk2K213MHloQmREaWo4bVBNbjJMRmtNdEppU1NyTm5aUUg1eXZ4eERWRGhGQmJ2a1lGc21WTUpLYUF3MGxmT1RDN3k0UlJSNnZQTExYVW1EV0Q4UHl0MlN1VVg4YzFXaTgvMXVQbXV1UzRZb21WQTFQaVZyNGNvbUlmdFd1WjlvNnBoRkt3OHhadjU1Q3luVUp0QjkvR1FWVTU2LzUwTW5UdldTWDRpSjZaOHBjRmgyaUkwM1Flb2MreWhLYVkzcHRFK3p1V25GbXdTaUFHNDRreXJUcXJ0R0w4eG5XMEE3cFNjalJ4TDAwY0tpaFhpNCtBYXJMc1grREwvZTJ4eDM1d0FWZ2Z0ZlFkaEVzdHZiTDRoS3dWcDhTZW1KZDVvc05HNzZRdmdYZEtCeUpMbGdFYy91UFN5NGFucUhMS2R0MGVqSkR4TWRWeThGdGFjeDRIMlJ3WjlGby9idXB0Vk1YcnFSWFJWSWtxSVVHeWVFVkxFaXFLT29iVHUrbXdlc0Mrdk02VGlaSHAwVEJQSDlpSmJDbFJIRWhPd05mOGIydWZveXhiZXpUVGRGMm1KdTBWcWUwVzdUVXc1a2R3NkR4enZvM1lieGpzamhkN1lPbnh1WitHalhxUk9SczhlNkpicFZVQ1M0aW9YRG56S0hEWndTeVVTM1RxazZqWG9aV2gzQjY1K2UrVFZlLzU1OGI5bVBhRlhyd1ZuUTlQdUxhN0RJeWNoNXg0OE96WUN0QmNNQ1lwaEtzUnJ3SUdQbTNJQUNXdHNzaGJNRVZIVC9jNnhtUnlZVElTeG9RS1JieFY2ZzVNdUhBNjZVT1JtbkV0MndvNlllL2tFcjY3TitQdUtZcU5Ga0VPRkR0aG5hV3Nodk5wTGNnRXB1dXFIZGliUlY5ME5HdFViTE1ra25DemFWWnh1eFI3WVlhYktZR3FxSW9JUnkwU2p1QU9LOGNVK3JFUHdVN0xlTUhqeXpSV0JLMXFwQTNwbEpjUk5ib2R1ZHdJdmVJd3Z1aVZtem5BNnJ2cmJrZjQwRmtZMndUbnNnemhQNE80TEFBT3hqWDMrSFNIanZLRVg3V0w1Y2RMSEFmUUFZOUhYNENaTlVENmRTcEMvS2xmSkQ4RXlaTVRydzE4K3NCbWszVlZDVStWdmhSczNkZmVPbjgzWDRheENWYllZYnNsa3JjVmtBWnJDa251UlBYVzJoT1I4bjZiTUxyc3J5MUhpUWRFaE9nS3BQMnJzWGJzbW1kb0tRWk53SWp2QXNjZHpSbCs3cHVIQ04vNTUxeWpGcEdRcHgzeGNjTk0rMER0UXhzNlZ4YTVsaEZHVlUwK1pZMkZEaVlTQ3VxK2hWZ2UzZ3A4dGVsaUsvaUw5b1RkN0NCZWY4TFQwNlRDOHdQVG5YT1hKSnJCVGFOelUrektuYndCaGtaUVVib3pKMjlXYkF6a1FsQXBCamg0bWN5ZzlMWXhTbUtMQ1RUNTA5YWFGQm1tc1o0RW5ibU8xUFFjKzFvUWgrQkhBYlNJWUkzYW5hdXlCejBVWVBHcEtaRUVJemZ1bTBmQ3dmQWhYaW9aaGN3UllmakIrOXJ4YXZnbnU4czBPQVo4b081S3lreCtsdm0xcDFTTVV2T3ZNQlJFdEFJMXlkbE9WUG1rOEpqNHFtOGhSS1ZPb0ZPSlRDMjN5cEtTbzk2MHBBQm52dElXazZHNlp6Z0RYSURDRkkyRWk5WXMvNW8ySE9EaWl1Zm1ZRDE0SGpGRU9DZEhGOEJnRmZ4L0xFWWN3TWYzT0dyVTNieUNXQWc1NW16ZzkxUUtIbDg3SkxVWmJFMGFwaXRpRVhJY1phaWtIcUxKaW1oR3paSDhQSkZNVzM3SlZvdUUyTFQxQlVNVlcyaXY2MC9aWjJGTW45UXZKNnIvZmluR3gzM2xkWlRoTzVDUHVxZm11ZzV3L28zZnRyaVRNd29EZkx6QUtFa24yTWNBb0JUZXNoYWgyanM1ZnlGaVJMTzYvaDl6bGN3RklpZHJKeUc4SnplMTkrQnQ5Nk4xVG9KVlBrb2haMzBzeGg5UUZaVHRuME5JSXd5OWZQSnRGdk5OWHhyV2dUYnNPZThrdTdsZ2F6WjVqMWdNcWZsRnFkREY1WkU5N3RiblIxcGhYTWc4dFR3QjBJYjNKbGtRN0lkZTBNalU1dXpZdTJpQnM4a0hLaE5JQVNjVXY1NTBXR3NjaEEwQko1ZnJmM0tKK3V3SzIranp0ZXN6cnJFUTNtaG5QYVNJNm80aDhKOW92am9qZ0RFbDJCd1FOMWJENkUyUjJDM3pFWG9Ja2ZCR2RydXc1dzlkQUNBRXVDT0Vyc2pjSE0rdGZ0T002ckc2OVdJQnZWZHJkTEw1QjlFdkoveU1tQVJoV1Q3MHpWaUtaaENnUk1ESGNTLy9tOEJFR1ZoNmRzTU1Tb1R6bEZQcDFhOGFOWlhIcnFNekZMK1pQUFY2K1o1cDh0STlTcTB4OUxUdC9BVXFVUzZzV0pJV3d3clNOcEs2RVVkNkcrT09MWkRXOHY2OXd6TW9pMGNSRkVQcEtyUEIxSm54cGt6WThpMVpXY3dOZ2JKTlV6OXVCNVliZEhjQlpqYXg5RTNrdDQ2eW5oUnBHaUd4SGxMajNHbkl0Y3ZnVXZOOTRicUx2WW82eFpEb1hNZ3JxeEZTTHVnQWJpSk8zU0pWR0phWHZacVJtenYxdVlkdWFDV2k5ZURvdGFtS2t2dzFzT290eGtaaWhwYlM4bGZJL2FJRVhUYXp3MVE4R0xoYzh1TDM1V25wWGNoQzVoSk52dUhaOTc4UVdOZHlPYjFQV1NLRlFabTRNWkxwS2ZNYXFiTUp6SitPSlZhdkV1eUtkd0hJVDZuRE1PaE5ObUFJUnRNbzJaRk5wVFhraXVYOXY1ekMwZnJIWUZJbFJ1NFNtWHpRWUg0TkpPTXFFT255UUEvSkVqaHNRK0Z4WHhmUnlRTDMvWmVTSlRDRjV5dWcrMldpaFpONExETXB2c1I2c3FtNmxOblFKS1JuWWoxazBFV3gwRXNlcUd4RlBhTm9hV3NlTnNidmhuWlpuRmFqTnExR0Q3WjhHMGhmZXIwZ1ZQVjlLa2ZRdTBQYjRjVUZsZEx4aWhXeldQQVRPcm9WelBkZFR6bnFldTBSZW0vVXE2UHhVOXpvU2tacVRJVlBJZzJWVjU4TndZZm9HSmFpQXF2QTROSzFES2NWMG4yZW1ZbnVuS3lzZDZsVTAvZUdCMnZCR29PdStieTdOK0NvL1FwT05lOXJXMys5SGIrVUhER0pJaXJpa1hqNklHT21oTisvUjJzZW5URzNsdm1JdEZnN1BYTXFWQ2hvcVE4ajZDazVNZkxkNCtrOFZ2eE02SVRmTDU1b054VHlteklPTkg4clhiMk1Jb3hRSi9ldWI0Y2lqOGZqcnp5V3BMZGR2L2dDeU1FTnlGdEZ6VERPbnFESHE4NUYxYUoreXB0RXRESE1RVFd1NVRhTUJSanpXV09QNno4L3BsSU9iTDJmNHZXcXFlNDJxQVM5YURMOS85QW9YVVBFUDNXT3RYTDZHR2JrWU8vMzlRdTZJU1k3ektXRWJIdmJGUHBrMlNvOXhFeUJ0dGVQd09md1plUWlPcmVhbFZ4NUI3MVE4a1JOOS9HY1JjcUh3VTZKOEdDVElDUWNuTnNtTEZ5L2pFd2lhd0Fic3pWc3hYUUcxOFpDOTBpdU9RcDIwcEJya2MwWmRIOHR1RkJpcFp3U2pKWWVoNVhkRm5oWlZQUGFSZE9zQXBHeThnMHRDMkd6RGxVbWNRNmJxOXVDcHZRQkt2a3UvM0VBd2pHbHBpOWtLZ05SY05vTFFNU0EyRjlCRVhUZWF3UzRXYi9LNXBjL3oxK04zTW10YXRmNWg4aXJLSnMxeThDMTlBMmNrcGQ5OHppRFhaUEhPVytmR0dkSXhPVTdUVVE1L0hhY3MvSUlrVU9JeGtmaE9ucE5teTVtSDlTTVVoTTYxVmxheVI5UE15M1ltQnBXZlV2VWFSNHBndzhjdHJXVjRrRkZERUR2aThhY3I1eVVCUW9JbGZDZXdIa3p0OTVubEsrMkswM1U5RnFTU3QvUmF1TEFjRk0yajhsSTl1KzIxM3o4M2hwYzllbXo1bnZXaTdrUzRCanlkZnozV3dWNWgzTmVJYS9Ldm9qM1lZenRsSm8rZlRDL0Z5aDVXMy80NmMwRmtqeU9qSUFpeGd1V2dreVlJeEd5MVVJa2t6SUZZUWp2V0h4cEpaMXIvK2JZVGxqWmI0STlzRHNZUis1Smw3Z0dzNjB4VGZNM0ZmV1k3bXI1MzZLTlVGRnhKNnlnM3RmbVBqaXQ4SFc2dG93eEdxbWRXajRRc2FKZzFxdStXR3poWUtrNmNhbjBOKzZHZWNMVGZDbmVBTGhoSGJEMVVEczFpeGlVMkE3SUdDNjJ6a0wzaENOOFJCaWZueHFyZi9DanU4VzBMU21uSVozVXJhZXlBT3JkaXIxSjE3UkwwSGVJVEZoOUd0T0dFZ3R1Um92ZzkwOUNFMmYwTDYySllSNGJwUGIvWklCOW1vbWVHQVBMOGttak9jb1VGUmNldEZWelphbjJZT3BKekFEZEpXNE1ZZE9JOHZhMWZpNjBhT2JrZUhjT1pjTUFzaHNSTlNEZTRvR1gyVDZCSXMwL3FNZWFzZWI1SmJtdXdrQlRCZEVYNmV6MnUrS0FESkhUYmxKUy9rejVqQ3ZvejlIMGE4bGtUOUJBaWRIYkpYd3VwTTBBaHZ4TnRDbUFCcjlEeG9aWENaTjlrMWtsY1VnYnM1T0ZCQk8zaWEzY01VM011dXNIem40MGg0Tnd5eGVvalNtQWpNbCtJOURFcFB5NTF1bERGT29FWWFtMnlDVW5kcHZDSWdKMnR2SUVXeSt5TU50bktCdnBTTmNtcmlCcUNCM01ZQWRWR3FMV3BWeGYvdTVRNFhrcXkybzRSQjUyUW5tc3RUejd4dUNnck5GUEpDdDlPamxkTWprMmZLY0J6TG9IUkxmS2tWQkxsSExRenZreko1bGc0eWRweTdic0ZnVmVZZlh0dU9LdmJvdWxZaitiMVUvZ2ZCZmtRN3pzR1A3T1JoUVZvWHd0Y21zRHBHVkpGMmJ0a3NQNS9RYVE5VThBL2hUeEgzVGUwaDZ6MGRqc3BJejdGYVZnVUtqQzEwVXk1ZTQvUFdCMnJMV2UrdEMrZjAvaGxiUFpmS2JSVWFMVVFkN3dtNkphaDBvcUwzaG4xSlVJVnJiV1pxSHd0Vk9QdVNNMzJDZ1c4K2ttRDBjU083TzNNaTNUT2lBbE1tTSt5V2tZNG1nbHlTVWJFbFp2d2tNanpIcjNLT3JzMWZCdENzWWxQRVRFOE56NXVvOEhyR3c1bTV6TjhPMmZEazBycTdDaTVOOHVOdlN6WVovdmRNR2JRUk1wQlQyb0xPbUdFdEZPVTFNWXBLSkdHWmc4YzNjSFNIamlMM1IweHFMMzhsOWJPdEswRHFMbTNnRHJzQTh0bENUMVZ0dHR5Qkk2bXh2U0dKd0RmazhNclZjVmcyb1ZDYStuYmJYV25qSVc4UVczeDVDYm1BRHRWbzBhak5rbG9hRkJHUTNWb0plNGQ4SWtKemNMSytrZUlOa0E5TDV4SjZIV0RkT09jcXFtSmxvS3dIOEwvSUoyMlVURmRiaDNkWC83UnJWemhidmhRZGNvVkpmR2ZxalBOQmNSeTFmZzVacDBic3dVaGRNWjlQRUFGOHlkdDFOS21KdlVQSDlFMXhsS1RMWmp2RDFZemNBWFUxNHVoTGZ4SHlJNGVob3BLUkZyL1ByQzArM1cyQ1RXWitEMFMrM2syLzgrallEenMvMHo5VG1DVUhkU3F6MWRDZ3lRSCsxSGN0WENqTHhPbGIyUFZ5S2gycXlTQzdQRWlQU2M3eG1KaGhVMnlxYWFHeUVuR2FCb25UajREclljMWVvVWtxZHpybW55MWlPY25GdndxcDliWXV3bUFNR0xPQ2FvTHZnODlJUXE1OVpZYWZwZFloODIwUnhiZGJBS3p5NDJFcU9vVnFiYk4yR0pyRHR2YzRncGNUaXlKVUFBZTZxazFvc3dxSFFNUzhzWnJjOU9CZ1JUeHZvNGVaZ0IwMlM3MFFJNmlyNjk2enZIQ1liYUgxREJMNg%3D%3D&tx_cimexportelasticword_export%5Baction%5D=export&tx_cimexportelasticword_export%5Bcontent%5D=agenda&tx_cimexportelasticword_export%5Bcontroller%5D=export&tx_cimexportelasticword_export%5Btype%5D=PDF&type=1755185212&cHash=a258adc77b76f53fa24bc9056f767ca3"
-    }
-   ],
+   "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [
     "typo3"
    ],
-   "tamaina": 235506
+   "tamaina": 236488
   }
  },
  {
@@ -3478,7 +3554,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 11707
+   "tamaina": 11755
   }
  },
  {
@@ -3560,7 +3636,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 17187
+   "tamaina": 19420
   }
  },
  {
@@ -3597,7 +3673,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 12264
+   "tamaina": 12310
   }
  },
  {
@@ -3670,19 +3746,19 @@
     },
     {
      "mota": "esteka",
-     "url": "https://www.google.com/calendar/render?cid=webcal%3A%2F%2Fwww.boucau.fr%2F%3Fpost_type%3Dtribe_events%26tribe-bar-date%3D2026-11-17%26ical%3D1%26eventDisplay%3Dlist"
+     "url": "https://www.google.com/calendar/render?cid=webcal%3A%2F%2Fwww.boucau.fr%2F%3Fpost_type%3Dtribe_events%26tribe-bar-date%3D2026-11-24%26ical%3D1%26eventDisplay%3Dlist"
     },
     {
      "mota": "esteka",
-     "url": "webcal://www.boucau.fr/?post_type=tribe_events&tribe-bar-date=2026-11-17&ical=1&eventDisplay=list"
+     "url": "webcal://www.boucau.fr/?post_type=tribe_events&tribe-bar-date=2026-11-24&ical=1&eventDisplay=list"
     },
     {
      "mota": "esteka",
-     "url": "https://outlook.office.com/owa?path=%2Fcalendar%2Faction%2Fcompose&rru=addsubscription&url=webcal%253A%252F%252Fwww.boucau.fr%252F%253Fpost_type%253Dtribe_events%2526tribe-bar-date%253D2026-11-17%2526eventDisplay%253Dlist%26ical%3D1&name=Mairie+de+Boucau+%C3%89v%C3%A8nements+%E2%80%93+Mairie+de+Boucau"
+     "url": "https://outlook.office.com/owa?path=%2Fcalendar%2Faction%2Fcompose&rru=addsubscription&url=webcal%253A%252F%252Fwww.boucau.fr%252F%253Fpost_type%253Dtribe_events%2526tribe-bar-date%253D2026-11-24%2526eventDisplay%253Dlist%26ical%3D1&name=Mairie+de+Boucau+%C3%89v%C3%A8nements+%E2%80%93+Mairie+de+Boucau"
     },
     {
      "mota": "esteka",
-     "url": "https://outlook.live.com/owa?path=%2Fcalendar%2Faction%2Fcompose&rru=addsubscription&url=webcal%253A%252F%252Fwww.boucau.fr%252F%253Fpost_type%253Dtribe_events%2526tribe-bar-date%253D2026-11-17%2526eventDisplay%253Dlist%26ical%3D1&name=Mairie+de+Boucau+%C3%89v%C3%A8nements+%E2%80%93+Mairie+de+Boucau"
+     "url": "https://outlook.live.com/owa?path=%2Fcalendar%2Faction%2Fcompose&rru=addsubscription&url=webcal%253A%252F%252Fwww.boucau.fr%252F%253Fpost_type%253Dtribe_events%2526tribe-bar-date%253D2026-11-24%2526eventDisplay%253Dlist%26ical%3D1&name=Mairie+de+Boucau+%C3%89v%C3%A8nements+%E2%80%93+Mairie+de+Boucau"
     },
     {
      "mota": "esteka",
@@ -3693,12 +3769,12 @@
      "url": "https://www.boucau.fr/agenda/liste/?outlook-ical=1"
     }
    ],
-   "jsonld_ekitaldiak": 22,
+   "jsonld_ekitaldiak": 19,
    "plataforma": [
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 132946
+   "tamaina": 125617
   },
   "tribe_api": "http://www.boucau.fr/wp-json/tribe/events/v1/events"
  },
@@ -3838,11 +3914,20 @@
   ],
   "agenda_estekak": [
    {
+    "testua": "JUSTIFICACIÓN SUBVENCIONES PARA ACTIVIDADES CULTURALES Y DEPORTIVAS 2026",
+    "url": "https://www.cintruenigo.com/wp-content/uploads/2026/11/CONVOCATORIA-2026.pdf#new_tab",
+    "kanpokoa": false
+   },
+   {
     "testua": "Actividades",
     "url": "https://cintruenigo.estaraldia.net/45-Actividades",
     "kanpokoa": true
    }
-  ]
+  ],
+  "agenda": {
+   "url": "https://www.cintruenigo.com/wp-content/uploads/2026/11/CONVOCATORIA-2026.pdf#new_tab",
+   "errorea": "ez da HTML"
+  }
  },
  {
   "id": "Q550407",
@@ -4113,16 +4198,6 @@
     "kanpokoa": false
    },
    {
-    "testua": "Le 19/11 Conseil Municipal 19 novembre à 19h",
-    "url": "https://saintjeanlevieux.fr/agenda/6237/",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Le 21/11 Repas d’automne Comité des Fêtes – 21/11/2026",
-    "url": "https://saintjeanlevieux.fr/agenda/repas-dautomne-comite-des-fetes-21-11-2026/",
-    "kanpokoa": false
-   },
-   {
     "testua": "Le 28/11 Déchèterie mobile 28 novembre 2026",
     "url": "https://saintjeanlevieux.fr/agenda/decheterie-mobile-28-novembre-2026/",
     "kanpokoa": false
@@ -4135,7 +4210,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 38873
+   "tamaina": 37347
   }
  },
  {
@@ -4207,13 +4282,8 @@
     "kanpokoa": false
    },
    {
-    "testua": "Portes ouvertes",
-    "url": "https://www.st-jean-pied-de-port.fr/evenements/portes-ouvertes-10/",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Portes ouvertes",
-    "url": "https://www.st-jean-pied-de-port.fr/evenements/portes-ouvertes-9/",
+    "testua": "Loto de l’ikastola",
+    "url": "https://www.st-jean-pied-de-port.fr/evenements/loto-de-likastola/",
     "kanpokoa": false
    },
    {
@@ -4224,6 +4294,11 @@
    {
     "testua": "Marché gastronomique et traditionnel",
     "url": "https://www.st-jean-pied-de-port.fr/evenements/marche-gastronomique-traditionnel-181/",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Tout l'agenda",
+    "url": "https://www.st-jean-pied-de-port.fr/evenements",
     "kanpokoa": false
    }
   ],
@@ -4252,7 +4327,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 416436
+   "tamaina": 417566
   }
  },
  {
@@ -4297,13 +4372,13 @@
     "kanpokoa": false
    },
    {
-    "testua": "17 novembre Conférence / Colloque / Débat Conférence de l’UTL : Une (Pré)-Histoi",
-    "url": "https://www.saintjeandeluz.fr/fr/evenements/conference-de-lutl-une-pre-histoire-du-tatouage/",
+    "testua": "24 novembre Conférence / Colloque / Débat Conférence de l’UTL : Le Fantastique d",
+    "url": "https://www.saintjeandeluz.fr/fr/evenements/conference-de-lutl-le-fantastique-dans-lart/",
     "kanpokoa": false
    },
    {
-    "testua": "18 novembre Animation Jeune Public, Divertissement Journée jeux de société",
-    "url": "https://www.saintjeandeluz.fr/fr/evenements/journee-jeux-de-societe/",
+    "testua": "25 novembre Vide greniers Braderie Braderie Denen Etxea",
+    "url": "https://www.saintjeandeluz.fr/fr/evenements/braderie-denen-etxea/",
     "kanpokoa": false
    }
   ],
@@ -4324,7 +4399,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 109157
+   "tamaina": 107778
   },
   "tribe_api": "https://www.saintjeandeluz.fr/wp-json/tribe/events/v1/events"
  },
@@ -4352,7 +4427,7 @@
    "plataforma": [
     "liferay"
    ],
-   "tamaina": 275890
+   "tamaina": 275252
   }
  },
  {
@@ -4447,40 +4522,8 @@
   "id": "Q767250",
   "izena": "Elduain",
   "lurraldea": "Gipuzkoa",
-  "webgunea": "https://www.elduain.eus/eu/",
-  "errorea": null,
-  "plataforma": [
-   "izfe",
-   "liferay"
-  ],
-  "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "Agenda",
-    "url": "https://www.elduain.eus/eu/agenda",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Azaroko Agenda",
-    "url": "https://www.elduain.eus/eu/hasiera/-/asset_publisher/rTU6YgLIG2XT/content/azaroko-agenda?_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_rTU6YgLIG2XT_assetEntryId=45642274&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_rTU6YgLIG2XT_redirect=https%3A%2F%2Fwww.elduain.eus%2Feu%2Fhasiera%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_rTU6YgLIG2XT%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_rTU6YgLIG2XT_cur%3D0%26p_r_p_resetCur%3Dfalse%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_rTU6YgLIG2XT_assetEntryId%3D45642274",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Herriko jaiak",
-    "url": "https://www.elduain.eus/eu/herriko-jaiak",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://www.elduain.eus/eu/agenda",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [
-    "izfe",
-    "liferay"
-   ],
-   "tamaina": 81447
-  }
+  "webgunea": null,
+  "errorea": "ConnectTimeout"
  },
  {
   "id": "Q1639427",
@@ -4504,18 +4547,23 @@
     "kanpokoa": false
    },
    {
+    "testua": "Euskararen Nazioarteko Eguna",
+    "url": "https://www.elgeta.eus/eu/agenda/euskararen-nazioarteko-eguna",
+    "kanpokoa": false
+   },
+   {
     "testua": "Bisita gidatua Intxortako frontera (izena ematea beharrezkoa da: 943796463 edo i",
     "url": "https://www.elgeta.eus/eu/agenda/bisita-gidatua-intxortako-frontera-izena-ematea-beharrezkoa-da-943796463-edo-turismo-debagoiena-eus/",
     "kanpokoa": false
    },
    {
-    "testua": "Jaiak",
-    "url": "https://www.elgeta.eus/eu/ezagutu/jaiak",
+    "testua": "Gabonetako haur parkea",
+    "url": "https://www.elgeta.eus/eu/agenda/gabonetako-haur-parkea-2",
     "kanpokoa": false
    },
    {
-    "testua": "FERIXA NAGUSIKO JAIAK 2025 - KARTEL LEHIAKETA",
-    "url": "https://www.elgeta.eus/eu/albisteak/ferixa-nagusiko-jaiak-2025-kartel-lehiaketa",
+    "testua": "Gabonetako haur parkea",
+    "url": "https://www.elgeta.eus/eu/agenda/gabonetako-haur-parkea-1",
     "kanpokoa": false
    }
   ],
@@ -4531,7 +4579,7 @@
    "plataforma": [
     "plone"
    ],
-   "tamaina": 28477
+   "tamaina": 28163
   }
  },
  {
@@ -4586,7 +4634,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 158604
+   "tamaina": 158043
   }
  },
  {
@@ -4658,7 +4706,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 79328
+   "tamaina": 79786
   }
  },
  {
@@ -4826,8 +4874,14 @@
   "id": "Q964114",
   "izena": "Errezil",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.errezil.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": []
  },
  {
   "id": "Q1445256",
@@ -4890,12 +4944,12 @@
      "url": "https://www.riberabaja.eus/agenda/feed/"
     }
    ],
-   "jsonld_ekitaldiak": 12,
+   "jsonld_ekitaldiak": 16,
    "plataforma": [
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 470207
+   "tamaina": 487618
   },
   "tribe_api": "https://www.riberabaja.eus/wp-json/tribe/events/v1/events"
  },
@@ -4984,28 +5038,28 @@
     "kanpokoa": true
    },
    {
-    "testua": "PORROTX, MARIMOTOTS, PUPU ETA LORE",
-    "url": "https://www.eskoriatzakoagenda.eus/agenda/porrotx-marimotots-pupu-eta-lore/",
-    "kanpokoa": true
-   },
-   {
-    "testua": "ARDO DASTAKETA",
-    "url": "https://www.eskoriatzakoagenda.eus/agenda/ardo-dastaketa-9/",
-    "kanpokoa": true
-   },
-   {
-    "testua": "DANTZALDIA: DJ MOTO",
-    "url": "https://www.eskoriatzakoagenda.eus/agenda/dantzaldia-dj-moto/",
-    "kanpokoa": true
-   },
-   {
-    "testua": "DOKUMENTALA: NO ESTAS LOCA",
-    "url": "https://www.eskoriatzakoagenda.eus/agenda/dokumentala-no-estas-loca/",
-    "kanpokoa": true
-   },
-   {
     "testua": "IPUIN KONTAKETA",
     "url": "https://www.eskoriatzakoagenda.eus/agenda/ipuin-kontaketa-44/",
+    "kanpokoa": true
+   },
+   {
+    "testua": "BERTSO SAIO ELEKTRONIKOA: 1TZ4L1 3T4 P1ZTU",
+    "url": "https://www.eskoriatzakoagenda.eus/agenda/bertso-saio-elektronikoa-1tz4l1-3t4-p1ztu/",
+    "kanpokoa": true
+   },
+   {
+    "testua": "MUSIKALEAN",
+    "url": "https://www.eskoriatzakoagenda.eus/agenda/musikalean-2/",
+    "kanpokoa": true
+   },
+   {
+    "testua": "KONTZERTUA: ZERENDEPYA",
+    "url": "https://www.eskoriatzakoagenda.eus/agenda/kontzertua-zerendepya/",
+    "kanpokoa": true
+   },
+   {
+    "testua": "EUSKARAREN HERRI EGUNA",
+    "url": "https://www.eskoriatzakoagenda.eus/agenda/euskararen-herri-eguna-3/",
     "kanpokoa": true
    }
   ]
@@ -5149,16 +5203,6 @@
     "testua": "",
     "url": "https://www.etxarriaranatz.eus/eu/agenda/2026-11-01/azaroko-kultur-programazioa-1",
     "kanpokoa": false
-   },
-   {
-    "testua": "",
-    "url": "https://www.etxarriaranatz.eus/eu/agenda/2026-11-20/improfestakzioa",
-    "kanpokoa": false
-   },
-   {
-    "testua": "",
-    "url": "https://www.etxarriaranatz.eus/eu/agenda/2026-11-22/dino-familia",
-    "kanpokoa": false
    }
   ],
   "agenda": {
@@ -5171,7 +5215,7 @@
    ],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 26593
+   "tamaina": 24520
   }
  },
  {
@@ -5340,7 +5384,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 98061
+   "tamaina": 98077
   }
  },
  {
@@ -5503,7 +5547,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 130993
+   "tamaina": 130983
   }
  },
  {
@@ -5564,7 +5608,7 @@
    ],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 46931
+   "tamaina": 47089
   }
  },
  {
@@ -5606,8 +5650,40 @@
   "id": "Q1633877",
   "izena": "Gaintza",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.gaintza.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Agenda",
+    "url": "https://www.gaintza.eus/eu/agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Herriko jaiak",
+    "url": "https://www.gaintza.eus/eu/herriko-jaiak",
+    "kanpokoa": false
+   },
+   {
+    "testua": "SAN MIGEL JAIAK 2026",
+    "url": "https://www.gaintza.eus/eu/-/san-migel-jaiak-2026",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.gaintza.eus/eu/agenda",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 68840
+  }
  },
  {
   "id": "Q1752994",
@@ -5683,7 +5759,7 @@
    "plataforma": [
     "typo3"
    ],
-   "tamaina": 198783
+   "tamaina": 202595
   }
  },
  {
@@ -5776,6 +5852,11 @@
     "kanpokoa": false
    },
    {
+    "testua": "Reinscripción en las actividades de los centros cívicos Hasta el 29 de noviembre",
+    "url": "https://www.vitoria-gasteiz.org/wb021/was/contenidoAction.do?idioma=es&uid=u_59fb242a_13121bda898__7fed",
+    "kanpokoa": false
+   },
+   {
     "testua": "Agenda",
     "url": "https://www.vitoria-gasteiz.org/wb021/was/we001Action.do?idioma=es&accionWe001=ficha&accion=calMunicipales&accesodirecto",
     "kanpokoa": false
@@ -5791,7 +5872,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 246816
+   "tamaina": 254221
   }
  },
  {
@@ -5835,8 +5916,30 @@
   "id": "Q1641862",
   "izena": "Gaztelu",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.gaztelu.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Herriko jaiak",
+    "url": "https://www.gaztelu.eus/eu/herriko-jaiak",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.gaztelu.eus/eu/herriko-jaiak",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 72034
+  }
  },
  {
   "id": "Q1636245",
@@ -5880,7 +5983,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 103274
+   "tamaina": 103308
   }
  },
  {
@@ -5936,22 +6039,22 @@
    },
    {
     "testua": "Irakurri",
-    "url": "https://getaria.eus/agenda/emakumearen-zikloak-eta-osasun-hormonala-ikastaroa/",
+    "url": "https://getaria.eus/agenda/hezitzailea-kzgunean-ikastaroak/",
     "kanpokoa": false
    },
    {
     "testua": "Irakurri",
-    "url": "https://getaria.eus/agenda/xixili-emanaldia-musika-eskola/",
+    "url": "https://getaria.eus/agenda/80-amandre-helduentzako-ipuinak/",
     "kanpokoa": false
    },
    {
     "testua": "Irakurri",
-    "url": "https://getaria.eus/agenda/aekalean-2026/",
+    "url": "https://getaria.eus/agenda/ipuin-kontaketa-azalerako-ipuinak-saroa-bikandirekin/",
     "kanpokoa": false
    },
    {
     "testua": "Irakurri",
-    "url": "https://getaria.eus/agenda/braun-diska-aurkezpena/",
+    "url": "https://getaria.eus/agenda/katukale-irakurle-taldearen-saioa-17/",
     "kanpokoa": false
    }
   ],
@@ -5980,7 +6083,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 14448
+   "tamaina": 14490
   }
  },
  {
@@ -6011,22 +6114,22 @@
    },
    {
     "testua": "",
-    "url": "https://www.getxo.eus/es/agenda/detalle-evento/20107",
+    "url": "https://www.getxo.eus/es/agenda/detalle-evento/100017978",
     "kanpokoa": false
    },
    {
     "testua": "",
-    "url": "https://www.getxo.eus/es/agenda/detalle-evento/20102",
+    "url": "https://www.getxo.eus/es/agenda/detalle-evento/20118",
     "kanpokoa": false
    },
    {
     "testua": "",
-    "url": "https://www.getxo.eus/es/agenda/detalle-evento/19023",
+    "url": "https://www.getxo.eus/es/agenda/detalle-evento/20103",
     "kanpokoa": false
    },
    {
     "testua": "",
-    "url": "https://www.getxo.eus/es/agenda/detalle-evento/10337",
+    "url": "https://www.getxo.eus/es/agenda/detalle-evento/19024",
     "kanpokoa": false
    }
   ],
@@ -6042,7 +6145,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 59980
+   "tamaina": 59821
   }
  },
  {
@@ -6104,7 +6207,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 53591
+   "tamaina": 53918
   }
  },
  {
@@ -6230,22 +6333,8 @@
   "id": "Q1382230",
   "izena": "Harana",
   "lurraldea": "Araba",
-  "webgunea": "http://www.valledearana.net/",
-  "errorea": null,
-  "plataforma": [
-   "wordpress"
-  ],
-  "jarioak_hasieran": [
-   {
-    "mota": "application/rss+xml",
-    "url": "http://www.valledearana.net/feed/"
-   },
-   {
-    "mota": "application/rss+xml",
-    "url": "http://www.valledearana.net/comments/feed/"
-   }
-  ],
-  "agenda_estekak": []
+  "webgunea": null,
+  "errorea": "ConnectTimeout"
  },
  {
   "id": "FR64258",
@@ -6318,7 +6407,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 196832
+   "tamaina": 196922
   },
   "tribe_api": "https://hasparren.fr/wp-json/tribe/events/v1/events"
  },
@@ -6426,15 +6515,42 @@
   "id": "Q1441329",
   "izena": "Hernani",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.hernani.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Agenda",
+    "url": "https://www.hernani.eus/eu/agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Ekitaldiak",
+    "url": "https://turismoa.hernani.eus/eu/ekitaldiak",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.hernani.eus/eu/agenda",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 114784
+  }
  },
  {
   "id": "Q1639392",
   "izena": "Hernialde",
   "lurraldea": "Gipuzkoa",
   "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "errorea": "SSLError"
  },
  {
   "id": "Q284142",
@@ -6479,18 +6595,18 @@
     "kanpokoa": false
    },
    {
-    "testua": "mercredi 18 novembre Atelier d’écriture de rap avec ØDEI",
-    "url": "https://www.saintpierredirube.fr/fr/evenements/atelier-decriture-de-rap-avec-odei/",
-    "kanpokoa": false
-   },
-   {
-    "testua": "vendredi 20 novembre ØDEI en concert à La Perle",
-    "url": "https://www.saintpierredirube.fr/fr/evenements/odei-en-concert-la-perle/",
-    "kanpokoa": false
-   },
-   {
     "testua": "21 novembre 28 novembre Exposition « Geuretik Sortuak »",
     "url": "https://www.saintpierredirube.fr/fr/evenements/exposition-geuretik-sortuak/",
+    "kanpokoa": false
+   },
+   {
+    "testua": "mercredi 25 novembre Atelier « Accompagner son enfant dans l’euskara »",
+    "url": "https://www.saintpierredirube.fr/fr/evenements/atelier-accompagner-son-enfant-dans-leuskara/",
+    "kanpokoa": false
+   },
+   {
+    "testua": "mercredi 25 novembre Partage de passion – Apprenez le crochet avec Mireille !",
+    "url": "https://www.saintpierredirube.fr/fr/evenements/partage-de-passion-apprenez-le-crochet-avec-mireille-2/",
     "kanpokoa": false
    }
   ],
@@ -6511,37 +6627,15 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 73376
+   "tamaina": 73345
   }
  },
  {
   "id": "Q492312",
   "izena": "Hondarribia",
   "lurraldea": "Gipuzkoa",
-  "webgunea": "https://www.hondarribia.eus/eu/",
-  "errorea": null,
-  "plataforma": [
-   "izfe",
-   "liferay"
-  ],
-  "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "Jarduera eta Ekitaldien agenda",
-    "url": "https://www.hondarribia.eus/eu/agenda",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://www.hondarribia.eus/eu/agenda",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [
-    "izfe",
-    "liferay"
-   ],
-   "tamaina": 841217
-  }
+  "webgunea": null,
+  "errorea": "ConnectTimeout"
  },
  {
   "id": "FR64265",
@@ -6606,28 +6700,28 @@
     "kanpokoa": false
    },
    {
-    "testua": "Aza 18 \"Lutxi eta zuhaitza\" dokumentala",
-    "url": "https://www.idiazabal.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=86507&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
+    "testua": "Aza 25 Santa Zeziliako kontzertua",
+    "url": "https://www.idiazabal.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=87427&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
     "kanpokoa": false
    },
    {
-    "testua": "Abe 09 Bisita gidatua Lazkaoko Beneditarren artxibora",
-    "url": "https://www.idiazabal.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=85908&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
+    "testua": "Aza 29 Mendi irteera: Ataun-Troskaeta-Arastortz",
+    "url": "https://www.idiazabal.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=87519&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
     "kanpokoa": false
    },
    {
-    "testua": "Abe 10 Bisita gidatua Lazkaoko Beneditarren artxibora",
-    "url": "https://www.idiazabal.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=85909&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
+    "testua": "Abe 01 Kapsula kuantikoa",
+    "url": "https://www.idiazabal.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=87601&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
     "kanpokoa": false
    },
    {
-    "testua": "Denak ikusi",
-    "url": "https://www.idiazabal.eus/web/idiazabal/agenda",
+    "testua": "Abe 03 Euskararen Eguna: \"Mintzo zen\" film laburra",
+    "url": "https://www.idiazabal.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=87428&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
     "kanpokoa": false
    },
    {
-    "testua": "Jaiak eta ospakizunak",
-    "url": "https://www.idiazabal.eus/eu/jaiak-eta-ospakizunak",
+    "testua": "Abe 04 Antzerkia: \"A ze festa\" (Urrup)",
+    "url": "https://www.idiazabal.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=87429&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
     "kanpokoa": false
    }
   ],
@@ -6639,7 +6733,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 101875
+   "tamaina": 101874
   }
  },
  {
@@ -6683,7 +6777,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 13019
+   "tamaina": 13065
   }
  },
  {
@@ -6791,8 +6885,30 @@
   "id": "Q537215",
   "izena": "Irura",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.irura.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Agenda",
+    "url": "https://www.irura.eus/eu/agenda",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.irura.eus/eu/agenda",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 117151
+  }
  },
  {
   "id": "Q1443812",
@@ -6824,7 +6940,7 @@
    "plataforma": [
     "liferay"
    ],
-   "tamaina": 160215
+   "tamaina": 158728
   }
  },
  {
@@ -6869,11 +6985,6 @@
    {
     "testua": "Agenda",
     "url": "https://www.irunadeoca.com/agenda/",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Actividades programadas 25 Noviembre",
-    "url": "https://www.irunadeoca.com/actividades-programadas-25-noviembre-2026/",
     "kanpokoa": false
    }
   ],
@@ -6926,7 +7037,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 337119
+   "tamaina": 338910
   },
   "tribe_api": "https://www.irunadeoca.com/wp-json/tribe/events/v1/events"
  },
@@ -6942,23 +7053,18 @@
   "jarioak_hasieran": [],
   "agenda_estekak": [
    {
-    "testua": "Civivox Pompelo acoge esta semana diversas actividades para visibilizar, promoci",
-    "url": "https://www.pamplona.es/actualidad/noticias/civivox-pompelo-acoge-esta-semana-diversas-actividades-para-visibilizar",
+    "testua": "Taller - Ciencia para todos: Taller de nanocápsulas - Biblioteca de Iturrama",
+    "url": "https://www.pamplona.es/actualidad/eventos/taller-ciencia-para-todos-taller-de-nanocapsulas-biblioteca-de-iturrama-0",
     "kanpokoa": false
    },
    {
-    "testua": "Espectáculo audiovisual en euskera - Zerbait sartu zait begian - Civivox Condest",
-    "url": "https://www.pamplona.es/actualidad/eventos/espectaculo-audiovisual-en-euskera-zerbait-sartu-zait-begian-civivox-condestable",
+    "testua": "Taller - Bizitxoko, repara tu bici - Noviembre - Civivox Mendillorri",
+    "url": "https://www.pamplona.es/actualidad/eventos/taller-bizitxoko-repara-tu-bici-noviembre-civivox-mendillorri",
     "kanpokoa": false
    },
    {
-    "testua": "Taller - Palabras que florecen - Biblioteca de San Francisco",
-    "url": "https://www.pamplona.es/actualidad/eventos/taller-palabras-que-florecen-biblioteca-de-san-francisco",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Conferencia - ¿Cómo se hace un libro? - Biblioteca Txantrea",
-    "url": "https://www.pamplona.es/actualidad/eventos/conferencia-como-se-hace-un-libro-biblioteca-txantrea",
+    "testua": "Cuentacuentos en euskera - Ipuin Kontaketa - Biblioteca Milagrosa",
+    "url": "https://www.pamplona.es/actualidad/eventos/cuentacuentos-en-euskera-ipuin-kontaketa-biblioteca-milagrosa-4",
     "kanpokoa": false
    },
    {
@@ -6968,13 +7074,13 @@
    }
   ],
   "agenda": {
-   "url": "https://www.pamplona.es/actualidad/noticias/civivox-pompelo-acoge-esta-semana-diversas-actividades-para-visibilizar",
+   "url": "https://www.pamplona.es/actualidad/eventos/taller-ciencia-para-todos-taller-de-nanocapsulas-biblioteca-de-iturrama-0",
    "jarioak": [],
-   "jsonld_ekitaldiak": 0,
+   "jsonld_ekitaldiak": 1,
    "plataforma": [
     "drupal"
    ],
-   "tamaina": 74299
+   "tamaina": 76867
   }
  },
  {
@@ -7008,7 +7114,7 @@
    "plataforma": [
     "drupal"
    ],
-   "tamaina": 31319
+   "tamaina": 31569
   }
  },
  {
@@ -7031,7 +7137,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 15153
+   "tamaina": 15708
   }
  },
  {
@@ -7248,7 +7354,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 133850
+   "tamaina": 126510
   },
   "tribe_api": "https://www.cambolesbains.fr/wp-json/tribe/events/v1/events"
  },
@@ -7343,7 +7449,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 194690
+   "tamaina": 194559
   }
  },
  {
@@ -7389,7 +7495,7 @@
    "plataforma": [
     "liferay"
    ],
-   "tamaina": 130618
+   "tamaina": 128754
   }
  },
  {
@@ -7514,7 +7620,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 218068
+   "tamaina": 218152
   },
   "tribe_api": "https://aytolantaron.com/wp-json/tribe/events/v1/events"
  },
@@ -7568,7 +7674,7 @@
    "plataforma": [
     "joomla"
    ],
-   "tamaina": 89549
+   "tamaina": 89518
   }
  },
  {
@@ -7702,7 +7808,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 80622
+   "tamaina": 79280
   }
  },
  {
@@ -7747,7 +7853,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 156710
+   "tamaina": 156896
   }
  },
  {
@@ -7875,7 +7981,7 @@
    "plataforma": [
     "joomla"
    ],
-   "tamaina": 85144
+   "tamaina": 72461
   }
  },
  {
@@ -7983,7 +8089,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 254335
+   "tamaina": 254615
   }
  },
  {
@@ -8047,23 +8153,23 @@
     "kanpokoa": false
    },
    {
-    "testua": "Asteko agenda: Legazpin azaroaren 16tik 22ra galdu ezin duzun guztia",
-    "url": "https://www.legazpi.eus/albisteak/kultura-eta-euskara/asteko-agenda-legazpin-azaroaren-16tik-22ra-galdu-ezin-duzun-guztia",
+    "testua": "2026/11/23 Asteko agenda: Legazpin azaroaren 23tik 29ra galdu ezin duzun guztia",
+    "url": "https://www.legazpi.eus/albisteak/kultura-eta-euskara/asteko-agenda-legazpin-azaroaren-23tik-29ra-galdu-ezin-duzun-guztia",
     "kanpokoa": false
    },
    {
-    "testua": "MUSIKA ETA ARTE ESZENIKOAK DVDan: Opera. Madama Butterfly Musika 2026/11/18 18:3",
-    "url": "https://www.legazpi.eus/legazpi/bizi/agenda/ekitaldiaren%20zehaztasunak/1927/-/musika-eta-arte-eszenikoak-dvdan-opera-madama-butterfly",
+    "testua": "DOKUMENTAL EMANALDIA: 'Lutxi eta zuhaitza' Zinea / Ikusentzunezkoa 2026/11/24 19",
+    "url": "https://www.legazpi.eus/legazpi/bizi/agenda/ekitaldiaren%20zehaztasunak/1929/-/dokumental-emanaldia-lutxi-eta-zuhaitza",
     "kanpokoa": false
    },
    {
-    "testua": "ZINE-KLUBA: “La luz” Zinea / Ikusentzunezkoa 2026/11/20 19:00 - 23:59",
-    "url": "https://www.legazpi.eus/legazpi/bizi/agenda/ekitaldiaren%20zehaztasunak/1910/-/zine-kluba-la-luz",
+    "testua": "IRAKURKETA KLUBA GAZTELERAZ Liburutegia 2026/11/25 18:00 - 20:00",
+    "url": "https://www.legazpi.eus/legazpi/bizi/agenda/ekitaldiaren%20zehaztasunak/1967/-/irakurketa-kluba-gazteleraz",
     "kanpokoa": false
    },
    {
-    "testua": "ZINEA: \"Ratones al ataque: Operación Navidad\" Haurrak 2026/11/21 17:00 - 23:59",
-    "url": "https://www.legazpi.eus/legazpi/bizi/agenda/ekitaldiaren%20zehaztasunak/1987/-/zinea-ratones-al-ataque-operacion-navidad",
+    "testua": "MUSIKA ETA ARTE ESZENIKOAK DVDan: Opera. Madama Butterfly Musika 2026/11/25 18:3",
+    "url": "https://www.legazpi.eus/legazpi/bizi/agenda/ekitaldiaren%20zehaztasunak/1928/-/musika-eta-arte-eszenikoak-dvdan-opera-madama-butterfly",
     "kanpokoa": false
    }
   ],
@@ -8083,7 +8189,7 @@
    "plataforma": [
     "joomla"
    ],
-   "tamaina": 260938
+   "tamaina": 276188
   }
  },
  {
@@ -8103,11 +8209,6 @@
     "kanpokoa": false
    },
    {
-    "testua": "[Liburu aurkezpena] Loturak",
-    "url": "https://www.legorreta.eus/agenda/ekitaldiaren%20zehaztasunak/632/-/liburu-aurkezpena-loturak",
-    "kanpokoa": false
-   },
-   {
     "testua": "[Ipuin kontaketa] Tartalo",
     "url": "https://www.legorreta.eus/agenda/ekitaldiaren%20zehaztasunak/631/-/ipuin-kontaketa-tartalo",
     "kanpokoa": false
@@ -8115,6 +8216,11 @@
    {
     "testua": "[Haur eta familientzako irakurketa kluba] 3. saioa",
     "url": "https://www.legorreta.eus/agenda/ekitaldiaren%20zehaztasunak/621/-/haur-eta-familientzako-irakurketa-kluba-3-saioa",
+    "kanpokoa": false
+   },
+   {
+    "testua": "[Film emanaldia] Onbuaren itzala",
+    "url": "https://www.legorreta.eus/agenda/ekitaldiaren%20zehaztasunak/618/-/film-emanaldia-onbuaren-itzala",
     "kanpokoa": false
    },
    {
@@ -8171,7 +8277,7 @@
    "plataforma": [
     "drupal"
    ],
-   "tamaina": 39449
+   "tamaina": 39455
   }
  },
  {
@@ -8194,37 +8300,15 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 14119
+   "tamaina": 14104
   }
  },
  {
   "id": "Q1649621",
   "izena": "Leintz Gatzaga",
   "lurraldea": "Gipuzkoa",
-  "webgunea": "https://www.leintzgatzaga.eus/eu/",
-  "errorea": null,
-  "plataforma": [
-   "izfe",
-   "liferay"
-  ],
-  "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "Herriko jaiak",
-    "url": "https://www.leintzgatzaga.eus/eu/herriko-jaiak",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://www.leintzgatzaga.eus/eu/herriko-jaiak",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [
-    "izfe",
-    "liferay"
-   ],
-   "tamaina": 69394
-  }
+  "webgunea": null,
+  "errorea": "ConnectTimeout"
  },
  {
   "id": "Q530302",
@@ -8257,7 +8341,7 @@
   "id": "Q1648056",
   "izena": "Leitza",
   "lurraldea": "Nafarroa Garaia",
-  "webgunea": "https://www.leitza.eus/",
+  "webgunea": "https://www.leitza.eus/eu/",
   "errorea": null,
   "plataforma": [
    "wordpress"
@@ -8265,26 +8349,37 @@
   "jarioak_hasieran": [
    {
     "mota": "application/rss+xml",
-    "url": "https://www.leitza.eus/feed/"
+    "url": "https://www.leitza.eus/eu/feed/"
    },
    {
     "mota": "application/rss+xml",
-    "url": "https://www.leitza.eus/comments/feed/"
+    "url": "https://www.leitza.eus/eu/comments/feed/"
    }
   ],
   "agenda_estekak": [
    {
     "testua": "EKITALDI GUZTIAK IKUSI",
-    "url": "https://leitza.eus/agenda/",
+    "url": "https://www.leitza.eus/eu/agenda/",
     "kanpokoa": false
    }
   ],
   "agenda": {
-   "url": "https://www.leitza.eus/agenda/",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [],
-   "tamaina": 0
+   "url": "https://www.leitza.eus/eu/agenda/",
+   "jarioak": [
+    {
+     "mota": "application/rss+xml",
+     "url": "https://www.leitza.eus/eu/feed/"
+    },
+    {
+     "mota": "application/rss+xml",
+     "url": "https://www.leitza.eus/eu/comments/feed/"
+    }
+   ],
+   "jsonld_ekitaldiak": 12,
+   "plataforma": [
+    "wordpress"
+   ],
+   "tamaina": 147985
   }
  },
  {
@@ -8337,11 +8432,6 @@
     "testua": "Agenda",
     "url": "https://www.lekunberri.eus/agenda/",
     "kanpokoa": false
-   },
-   {
-    "testua": "Euskararen Egunaren inguruko egitarau zabala antolatu dute Lekunberrin eta Larra",
-    "url": "https://www.lekunberri.eus/euskararen-egunaren-inguruko-egitarau-zabala-antolatu-dute-lekunberrin-eta-larraunen/",
-    "kanpokoa": false
    }
   ],
   "agenda": {
@@ -8393,7 +8483,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 351470
+   "tamaina": 353048
   },
   "tribe_api": "https://www.lekunberri.eus/wp-json/tribe/events/v1/events"
  },
@@ -8578,6 +8668,11 @@
     "kanpokoa": false
    },
    {
+    "testua": "BANDO / IMPUESTO DE ACTIVIDADES ECONOMICAS",
+    "url": "https://www.lodosa.es/bandos-avisos/bando-iae-2026/",
+    "kanpokoa": false
+   },
+   {
     "testua": "Registro de Actividades de Tratamiento",
     "url": "https://www.lodosa.es/wp-content/uploads/2024/03/Registro-de-tratamiento-_-AYUNTAMIENTO-DE-LODOSA.pdf",
     "kanpokoa": false
@@ -8627,12 +8722,12 @@
      "url": "https://www.lodosa.es/agenda/lista/?ical=1"
     }
    ],
-   "jsonld_ekitaldiak": 3,
+   "jsonld_ekitaldiak": 4,
    "plataforma": [
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 174269
+   "tamaina": 180085
   },
   "tribe_api": "https://www.lodosa.es/wp-json/tribe/events/v1/events"
  },
@@ -8698,7 +8793,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 165471
+   "tamaina": 166243
   }
  },
  {
@@ -8877,7 +8972,7 @@
   "id": "Q1382239",
   "izena": "Mañueta",
   "lurraldea": "Araba",
-  "webgunea": "http://www.banosdeebro.com/",
+  "webgunea": "https://www.banosdeebro.com/",
   "errorea": null,
   "plataforma": [],
   "jarioak_hasieran": [],
@@ -8909,31 +9004,7 @@
     "url": "https://melida.es/comments/feed/"
    }
   ],
-  "agenda_estekak": [
-   {
-    "testua": "",
-    "url": "https://melida.es/agenda-cultural-de-melida-noviembre-2026/",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://melida.es/agenda-cultural-de-melida-noviembre-2026/",
-   "jarioak": [
-    {
-     "mota": "application/rss+xml",
-     "url": "https://melida.es/feed/"
-    },
-    {
-     "mota": "application/rss+xml",
-     "url": "https://melida.es/comments/feed/"
-    }
-   ],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [
-    "wordpress"
-   ],
-   "tamaina": 120199
-  }
+  "agenda_estekak": []
  },
  {
   "id": "Q1648554",
@@ -8946,55 +9017,8 @@
   "id": "Q629193",
   "izena": "Mendaro",
   "lurraldea": "Gipuzkoa",
-  "webgunea": "https://www.mendaro.eus/eu/",
-  "errorea": null,
-  "plataforma": [
-   "izfe",
-   "liferay"
-  ],
-  "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "Agenda",
-    "url": "https://www.mendaro.eus/eu/agenda",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Aza 18 Santa Sezilia - Musikalean jaialdia",
-    "url": "https://www.mendaro.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=86710&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Aza 20 Odol ateraketa",
-    "url": "https://www.mendaro.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=87204&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Aza 20 Martxoak 25 zergatik?, mimika erronka, ezetz barre egin.",
-    "url": "https://www.mendaro.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=86805&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Aza 20 Gararock udazkenean. Harat",
-    "url": "https://www.mendaro.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=85103&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Aza 21 Berdintasuaren horma irudia Gaztelekuan",
-    "url": "https://www.mendaro.eus/eu/agenda?p_p_id=net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_scheduleEventId=87303&_net_serikat_liferay_portlet_schedule_web_IZFESchedulePortlet_view=event-detail",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://www.mendaro.eus/eu/agenda",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [
-    "izfe",
-    "liferay"
-   ],
-   "tamaina": 89870
-  }
+  "webgunea": null,
+  "errorea": "ConnectTimeout"
  },
  {
   "id": "Q661515",
@@ -9100,7 +9124,7 @@
    "plataforma": [
     "typo3"
    ],
-   "tamaina": 198783
+   "tamaina": 202595
   }
  },
  {
@@ -9137,7 +9161,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 14824
+   "tamaina": 15486
   }
  },
  {
@@ -9235,7 +9259,7 @@
    ],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 8371
+   "tamaina": 8347
   }
  },
  {
@@ -9287,7 +9311,7 @@
    "plataforma": [
     "typo3"
    ],
-   "tamaina": 198783
+   "tamaina": 202595
   }
  },
  {
@@ -9398,7 +9422,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 13476
+   "tamaina": 15358
   }
  },
  {
@@ -9457,7 +9481,7 @@
    "plataforma": [
     "liferay"
    ],
-   "tamaina": 136641
+   "tamaina": 136640
   }
  },
  {
@@ -9589,8 +9613,30 @@
   "id": "Q1618352",
   "izena": "Mutiloa",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.mutiloa.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Agenda",
+    "url": "https://www.mutiloa.eus/eu/agenda",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.mutiloa.eus/eu/agenda",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 73237
+  }
  },
  {
   "id": "Q1618305",
@@ -9610,22 +9656,22 @@
    },
    {
     "testua": "",
-    "url": "https://www.mutriku.eus/eu/agenda/lau-teila-dokumentalaren-emanaldia",
+    "url": "https://www.mutriku.eus/eu/agenda/2026ko-inigo-andonegi-argazki-lehiaketaren-erakusketa",
     "kanpokoa": false
    },
    {
     "testua": "",
-    "url": "https://www.mutriku.eus/eu/agenda/gaztetxearen-urteurren-jaialdia",
+    "url": "https://www.mutriku.eus/eu/agenda/emakumeentzako-aholkularitza-juridikoa-6",
     "kanpokoa": false
    },
    {
     "testua": "",
-    "url": "https://www.mutriku.eus/eu/agenda/merkatu-txikia-31",
+    "url": "https://www.mutriku.eus/eu/agenda/emakumeen-aurkako-indarkeria-ezabatzeko-nazioarteko-eguna",
     "kanpokoa": false
    },
    {
     "testua": "",
-    "url": "https://www.mutriku.eus/eu/agenda/santa-zezilia-eguneko-kontzertua",
+    "url": "https://www.mutriku.eus/eu/agenda/ipuinaren-ordua-munduko-ipuinak-ines-bengoa",
     "kanpokoa": false
    }
   ],
@@ -9636,7 +9682,7 @@
    "plataforma": [
     "plone"
    ],
-   "tamaina": 36476
+   "tamaina": 32984
   }
  },
  {
@@ -9909,7 +9955,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 74572
+   "tamaina": 75922
   }
  },
  {
@@ -10063,8 +10109,39 @@
   "id": "Q1633885",
   "izena": "Orendain",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.orendain.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Agenda",
+    "url": "https://www.orendain.eus/eu/agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Orendaingo Azaroko agenda",
+    "url": "https://www.orendain.eus/eu/index/-/asset_publisher/kfVkJOv5so0W/content/orendaingo-azaroko-agenda-2?_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_assetEntryId=45635257&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_redirect=https%3A%2F%2Fwww.orendain.eus%2Feu%2Findex%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_cur%3D0%26p_r_p_resetCur%3Dfalse%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_assetEntryId%3D45635257",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Orendaingo Urriko agenda",
+    "url": "https://www.orendain.eus/eu/index/-/asset_publisher/kfVkJOv5so0W/content/orendaingo-urriko-agenda-2?_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_assetEntryId=45509662&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_redirect=https%3A%2F%2Fwww.orendain.eus%2Feu%2Findex%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_cur%3D0%26p_r_p_resetCur%3Dfalse%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_assetEntryId%3D45509662",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Orendaingo iraileko agenda",
+    "url": "https://www.orendain.eus/eu/index/-/asset_publisher/kfVkJOv5so0W/content/orendaingo-iraileko-agenda-1?_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_assetEntryId=45226682&_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_redirect=https%3A%2F%2Fwww.orendain.eus%2Feu%2Findex%3Fp_p_id%3Dcom_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W%26p_p_lifecycle%3D0%26p_p_state%3Dnormal%26p_p_mode%3Dview%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_cur%3D0%26p_r_p_resetCur%3Dfalse%26_com_liferay_asset_publisher_web_portlet_AssetPublisherPortlet_INSTANCE_kfVkJOv5so0W_assetEntryId%3D45226682",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.orendain.eus/eu/agenda",
+   "errorea": "ConnectTimeout"
+  }
  },
  {
   "id": "Q598020",
@@ -10110,23 +10187,13 @@
     "kanpokoa": false
    },
    {
-    "testua": "Aza 11 asteazkena | San Martin festak | San Martin auzoa Irakurri",
-    "url": "https://orio.eus/agenda#21043",
+    "testua": "Aza 28 larunbata | Boxeo gaua | 18:00 | Karela kiroldegia Irakurri",
+    "url": "https://orio.eus/agenda#21053",
     "kanpokoa": false
    },
    {
-    "testua": "Aza 19 osteguna | Santa Zeziliako kontzertua | 18:00 | Herriko Plaza Irakurri",
-    "url": "https://orio.eus/agenda#21297",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Aza 19 osteguna | Pantailen itzalpekoak: 'Indarkeria matxista digitala aztergai'",
-    "url": "https://orio.eus/agenda#21051",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Aza 21 larunbata | Santa Zeziliako kontzertua | 19:30 | San Nikolas eliza Irakur",
-    "url": "https://orio.eus/agenda#21338",
+    "testua": "Abe 12 larunbata | Liburu, jostailu eta umeen arropen Truke Azoka | 17:00-19.00 ",
+    "url": "https://orio.eus/agenda#21362",
     "kanpokoa": false
    }
   ],
@@ -10150,7 +10217,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 177458
+   "tamaina": 171912
   }
  },
  {
@@ -10202,7 +10269,7 @@
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 409824
+   "tamaina": 405592
   }
  },
  {
@@ -10367,13 +10434,13 @@
     "kanpokoa": false
    },
    {
-    "testua": "Erakusketa",
-    "url": "https://www.xn--oati-gqa.eus/eu/agenda?tag=Erakusketa",
+    "testua": "Tailerra",
+    "url": "https://www.xn--oati-gqa.eus/eu/agenda?tag=Tailerra",
     "kanpokoa": false
    },
    {
-    "testua": "1974ko TXIMIST ESPEDIZIOA EVERESTERA, 50 urte geroago",
-    "url": "https://www.xn--oati-gqa.eus/eu/agenda/onatiko-mendi-astea-erakusketa/",
+    "testua": "Erorikoak prebenitzeko tailerra",
+    "url": "https://www.xn--oati-gqa.eus/eu/agenda/erorikoak-prebenitzeko-tailerra",
     "kanpokoa": false
    },
    {
@@ -10382,13 +10449,13 @@
     "kanpokoa": false
    },
    {
-    "testua": "Komikia tertulixan",
-    "url": "https://www.xn--oati-gqa.eus/eu/agenda/komikia-tertulixan",
+    "testua": "Tertulixan euskaraz",
+    "url": "https://www.xn--oati-gqa.eus/eu/agenda/tertulixan-irakurketa-kluba-euskaraz",
     "kanpokoa": false
    },
    {
-    "testua": "Ekitaldia",
-    "url": "https://www.xn--oati-gqa.eus/eu/agenda?tag=Ekitaldia",
+    "testua": "Hondakin bilketa",
+    "url": "https://www.xn--oati-gqa.eus/eu/agenda?tag=Hondakin bilketa",
     "kanpokoa": false
    }
   ],
@@ -10399,7 +10466,7 @@
    "plataforma": [
     "plone"
    ],
-   "tamaina": 62884
+   "tamaina": 62554
   }
  },
  {
@@ -10416,8 +10483,45 @@
   "id": "Q847127",
   "izena": "Pasaia",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.pasaia.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "Agenda",
+    "url": "https://www.pasaia.eus/eu/agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "",
+    "url": "http://www.pasaia.eus/agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Jaiak eta ospakizunak",
+    "url": "https://www.pasaia.eus/eu/jaiak-ospakizunak",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Jaiak",
+    "url": "https://www.pasaia.eus/eu/jaiak1",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.pasaia.eus/eu/agenda",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 152163
+  }
  },
  {
   "id": "Q984872",
@@ -10719,7 +10823,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 18065
+   "tamaina": 17910
   }
  },
  {
@@ -10864,23 +10968,23 @@
     "kanpokoa": false
    },
    {
-    "testua": "Blues Hotsak 2026",
-    "url": "https://www.soraluze.eus/eu/agenda/blues-hotsak-2026",
-    "kanpokoa": false
-   },
-   {
     "testua": "Azaroak 25: Emakumeenganako indarkeriaren aurkako nazioarteko eguna",
     "url": "https://www.soraluze.eus/eu/agenda/azaroak-25-emakumeenganako-indarkeriaren-aurkako-nazioarteko-eguna",
     "kanpokoa": false
    },
    {
-    "testua": "Tailerra: \"Teknologia\"",
-    "url": "https://www.soraluze.eus/eu/agenda/tailerra-teknologia-5",
+    "testua": "Hitzaldia: \"Colón placentino\"",
+    "url": "https://www.soraluze.eus/eu/agenda/hitzaldia-colon-placentino",
     "kanpokoa": false
    },
    {
-    "testua": "Santa Zezilia eguneko kalejira",
-    "url": "https://www.soraluze.eus/eu/agenda/santa-zezilia-eguneko-kalejira-3",
+    "testua": "Auzoko elkarrizketak",
+    "url": "https://www.soraluze.eus/eu/agenda/auzoko-elkarrizketak",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Batzar orokorra: \"Katamarran\"",
+    "url": "https://www.soraluze.eus/eu/agenda/batzar-orokorra-katamarran-1",
     "kanpokoa": false
    },
    {
@@ -10909,7 +11013,7 @@
    "plataforma": [
     "plone"
    ],
-   "tamaina": 53195
+   "tamaina": 40570
   }
  },
  {
@@ -11010,7 +11114,7 @@
    "plataforma": [
     "drupal"
    ],
-   "tamaina": 62186
+   "tamaina": 63764
   }
  },
  {
@@ -11060,43 +11164,8 @@
   "id": "Q946251",
   "izena": "Trebiñu",
   "lurraldea": "Araba",
-  "webgunea": "https://www.xn--condadodetrevio-crb.es/inicio",
-  "errorea": null,
-  "plataforma": [
-   "drupal"
-  ],
-  "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "Eventos",
-    "url": "https://www.xn--condadodetrevio-crb.es/eventos",
-    "kanpokoa": false
-   },
-   {
-    "testua": "Ekintzak/Actividades",
-    "url": "https://www.condadodetreviño.es/ekintzakactividades",
-    "kanpokoa": true
-   },
-   {
-    "testua": "Programa de Actividades 2022/2023",
-    "url": "https://www.condadodetreviño.es/programa-de-actividades-20222023",
-    "kanpokoa": true
-   },
-   {
-    "testua": "convocatoria de ayudas para el desarrollo de actividades museísticas en el Terri",
-    "url": "https://www.condadodetreviño.es/convocatoria-de-ayudas-para-el-desarrollo-de-actividades-museisticas-en-el-territorio-historico-de",
-    "kanpokoa": true
-   }
-  ],
-  "agenda": {
-   "url": "https://www.xn--condadodetrevio-crb.es/eventos",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [
-    "drupal"
-   ],
-   "tamaina": 127327
-  }
+  "webgunea": null,
+  "errorea": "HTTP 403"
  },
  {
   "id": "Q631828",
@@ -11142,6 +11211,10 @@
    },
    {
     "mota": "esteka",
+    "url": "https://www.tudela.es/noticia/escolares-de-tudela-asisten-a-la-representacion-de-cenicienta-un-musical-sin-filtros-en-el-teatro-gaztambide"
+   },
+   {
+    "mota": "esteka",
     "url": "https://www.tudela.es/noticias/todas/1.rss"
    },
    {
@@ -11171,8 +11244,8 @@
     "kanpokoa": false
    },
    {
-    "testua": "Agenda deportiva del 13 a 15 noviembre 2026",
-    "url": "https://www.tudela.es/anuncio/agenda-deportiva-del-13-a-15-noviembre-2026",
+    "testua": "Agenda deportiva del 21 a 22 noviembre 2026",
+    "url": "https://www.tudela.es/anuncio/agenda-deportiva-del-21-a-22-noviembre-2026",
     "kanpokoa": false
    },
    {
@@ -11239,11 +11312,6 @@
    },
    {
     "testua": "",
-    "url": "https://huarte.es/cultura/agenda-de-noviembre-2/",
-    "kanpokoa": false
-   },
-   {
-    "testua": "",
     "url": "https://huarte.es/download/140/agenda-cultura-y-juventud/26643/agendanoviembre-2.pdf",
     "kanpokoa": false
    },
@@ -11255,6 +11323,11 @@
    {
     "testua": "",
     "url": "https://huarte.es/eventos/mercado-de-trueque-y-segunda-mano/",
+    "kanpokoa": false
+   },
+   {
+    "testua": "",
+    "url": "https://huarte.es/eventos/cuentacuentos-infantil-ipuin-bitxiak/",
     "kanpokoa": false
    }
   ],
@@ -11270,11 +11343,11 @@
      "url": "https://huarte.es/comments/feed/"
     }
    ],
-   "jsonld_ekitaldiak": 7,
+   "jsonld_ekitaldiak": 3,
    "plataforma": [
     "wordpress"
    ],
-   "tamaina": 652348
+   "tamaina": 629934
   }
  },
  {
@@ -11361,7 +11434,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 15161
+   "tamaina": 14543
   }
  },
  {
@@ -11540,7 +11613,7 @@
     "tribe-events",
     "wordpress"
    ],
-   "tamaina": 155593
+   "tamaina": 157189
   },
   "tribe_api": "https://www.urcuit.fr/wp-json/tribe/events/v1/events"
  },
@@ -11627,7 +11700,7 @@
    "plataforma": [
     "joomla"
    ],
-   "tamaina": 524879
+   "tamaina": 506697
   }
  },
  {
@@ -11697,7 +11770,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 18764
+   "tamaina": 18654
   }
  },
  {
@@ -11745,7 +11818,7 @@
     "izfe",
     "liferay"
    ],
-   "tamaina": 135120
+   "tamaina": 136462
   }
  },
  {
@@ -11786,11 +11859,11 @@
    },
    {
     "mota": "esteka",
-    "url": "https://www.ustaritz.fr/fr/evenement/soiree-beaujolais-nouveau.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=11&tx_cal_controller%5Bday%5D=19&cHash=ab2bac79efcf18528b649c03e8a8db9b"
+    "url": "https://www.ustaritz.fr/fr/evenement/pole-associations-marche-de-noel.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=12&tx_cal_controller%5Bday%5D=06&cHash=11a0384b9f8396e6dd5c16888d9851a5"
    },
    {
     "mota": "esteka",
-    "url": "https://www.ustaritz.fr/fr/evenement/daniel-landarten-iturritik.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=11&tx_cal_controller%5Bday%5D=21&cHash=07b11560fa2806eb4599ea5b58e0a6c8"
+    "url": "https://www.ustaritz.fr/fr/evenement/ape-herauritz-fete-de-noel.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=12&tx_cal_controller%5Bday%5D=11&cHash=adca6aae95df5bce0eb2616456319195"
    }
   ],
   "agenda_estekak": [
@@ -11817,38 +11890,26 @@
     },
     {
      "mota": "esteka",
-     "url": "https://www.ustaritz.fr/fr/fr/evenement/soiree-beaujolais-nouveau.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=11&tx_cal_controller%5Bday%5D=19&cHash=ab2bac79efcf18528b649c03e8a8db9b"
-    },
-    {
-     "mota": "esteka",
-     "url": "https://www.ustaritz.fr/fr/fr/evenement/daniel-landarten-iturritik.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=11&tx_cal_controller%5Bday%5D=21&cHash=07b11560fa2806eb4599ea5b58e0a6c8"
-    },
-    {
-     "mota": "esteka",
-     "url": "https://www.ustaritz.fr/fr/fr/evenement/txitu-guitare-chant.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=11&tx_cal_controller%5Bday%5D=21&cHash=5fa2f2590145da6543ddd6c71d045a28"
-    },
-    {
-     "mota": "esteka",
-     "url": "https://www.ustaritz.fr/fr/fr/evenement/zortziko-theatre.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=11&tx_cal_controller%5Bday%5D=22&cHash=86c2d44b55552af2e281351e0e4d6c7e"
-    },
-    {
-     "mota": "esteka",
-     "url": "https://www.ustaritz.fr/fr/fr/evenement/kaska-64-stage-technique-boxe-anglaise.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=11&tx_cal_controller%5Bday%5D=22&cHash=4d0ea2931b6e36521650e32808326a21"
-    },
-    {
-     "mota": "esteka",
      "url": "https://www.ustaritz.fr/fr/fr/evenement/pole-associations-marche-de-noel.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=12&tx_cal_controller%5Bday%5D=06&cHash=11a0384b9f8396e6dd5c16888d9851a5"
     },
     {
      "mota": "esteka",
      "url": "https://www.ustaritz.fr/fr/fr/evenement/ape-herauritz-fete-de-noel.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=12&tx_cal_controller%5Bday%5D=11&cHash=adca6aae95df5bce0eb2616456319195"
+    },
+    {
+     "mota": "esteka",
+     "url": "https://www.ustaritz.fr/fr/fr/evenement/ikastola-distribution-de-colis.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=12&tx_cal_controller%5Bday%5D=11&cHash=e982d41d9cc9c2f811dfe9d0d9bf45eb"
+    },
+    {
+     "mota": "esteka",
+     "url": "https://www.ustaritz.fr/fr/fr/evenement/feeries-de-noel-concert-et-illuminations.html?tx_cal_controller%5Bview%5D=event&tx_cal_controller%5Btype%5D=tx_cal_phpicalendar&tx_cal_controller%5Byear%5D=2026&tx_cal_controller%5Bmonth%5D=12&tx_cal_controller%5Bday%5D=26&cHash=db2850bd6352df14520763426eeb2840"
     }
    ],
    "jsonld_ekitaldiak": 0,
    "plataforma": [
     "typo3"
    ],
-   "tamaina": 39530
+   "tamaina": 36955
   }
  },
  {
@@ -11882,7 +11943,7 @@
   "izena": "Villabona-Amasa",
   "lurraldea": "Gipuzkoa",
   "webgunea": null,
-  "errorea": "SSLError"
+  "errorea": "ConnectTimeout"
  },
  {
   "id": "Q1443518",
@@ -11958,24 +12019,11 @@
   "id": "Q1618289",
   "izena": "Zaldibia",
   "lurraldea": "Gipuzkoa",
-  "webgunea": "https://zaldibia.eus/",
+  "webgunea": "https://www.zaldibia.eus/",
   "errorea": null,
   "plataforma": [],
   "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "Jaiak eta ospakizunak",
-    "url": "https://zaldibia.eus/eu/orria/zaldibiako-festak",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://zaldibia.eus/eu/orria/zaldibiako-festak",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [],
-   "tamaina": 37171
-  }
+  "agenda_estekak": []
  },
  {
   "id": "Q1443609",
@@ -12164,8 +12212,35 @@
   "id": "Q1442954",
   "izena": "Zegama",
   "lurraldea": "Gipuzkoa",
-  "webgunea": null,
-  "errorea": "ConnectTimeout"
+  "webgunea": "https://www.zegama.eus/eu/",
+  "errorea": null,
+  "plataforma": [
+   "izfe",
+   "liferay"
+  ],
+  "jarioak_hasieran": [],
+  "agenda_estekak": [
+   {
+    "testua": "AGENDA",
+    "url": "https://www.zegama.eus/eu/agenda",
+    "kanpokoa": false
+   },
+   {
+    "testua": "Jaiak",
+    "url": "https://www.zegama.eus/eu/jaiak",
+    "kanpokoa": false
+   }
+  ],
+  "agenda": {
+   "url": "https://www.zegama.eus/eu/agenda",
+   "jarioak": [],
+   "jsonld_ekitaldiak": 0,
+   "plataforma": [
+    "izfe",
+    "liferay"
+   ],
+   "tamaina": 80352
+  }
  },
  {
   "id": "Q974930",
@@ -12271,7 +12346,7 @@
    "jarioak": [],
    "jsonld_ekitaldiak": 0,
    "plataforma": [],
-   "tamaina": 19199
+   "tamaina": 19616
   }
  },
  {
@@ -12373,30 +12448,8 @@
   "id": "Q1618316",
   "izena": "Zizurkil",
   "lurraldea": "Gipuzkoa",
-  "webgunea": "https://www.zizurkil.eus/eu/",
-  "errorea": null,
-  "plataforma": [
-   "izfe",
-   "liferay"
-  ],
-  "jarioak_hasieran": [],
-  "agenda_estekak": [
-   {
-    "testua": "AGENDA",
-    "url": "https://www.zizurkil.eus/eu/agenda",
-    "kanpokoa": false
-   }
-  ],
-  "agenda": {
-   "url": "https://www.zizurkil.eus/eu/agenda",
-   "jarioak": [],
-   "jsonld_ekitaldiak": 0,
-   "plataforma": [
-    "izfe",
-    "liferay"
-   ],
-   "tamaina": 69801
-  }
+  "webgunea": null,
+  "errorea": "ConnectTimeout"
  },
  {
   "id": "Q474080",
@@ -12487,12 +12540,12 @@
    },
    {
     "testua": "",
-    "url": "https://zumaia.eus/eu/turismoa/agenda/astelehenekuak-eginez-ikasi-erakusketa",
+    "url": "https://zumaia.eus/eu/turismoa/agenda/erakusketa-erretratuak-idoia-rodrigo",
     "kanpokoa": false
    },
    {
     "testua": "",
-    "url": "https://zumaia.eus/eu/turismoa/agenda/zine-forum-bad-apples-2",
+    "url": "https://zumaia.eus/eu/turismoa/agenda/helduentzako-antzerkia-7-urte-vidania",
     "kanpokoa": false
    }
   ],
@@ -12516,7 +12569,7 @@
    "plataforma": [
     "plone"
    ],
-   "tamaina": 30492
+   "tamaina": 33715
   }
  },
  {
